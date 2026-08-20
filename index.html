@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Great Salt Lake Docket — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400;0,8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f0e6;
+    --paper-card: #faf7ef;
+    --paper-card-2: #f0ecdf;
+    --ink: #1c1c1a;
+    --ink-dim: #5b5850;
+    --ink-dimmer: #8c8878;
+    --header-bg: #0f2635;
+    --header-bg-2: #163a4e;
+    --header-text: #f4f0e6;
+    --header-dim: #9db3c0;
+    --rust: #c0572e;
+    --amber: #d9a441;
+    --teal: #2e5f5a;
+    --blue: #3a5f7d;
+    --border: #ddd6c4;
+    --border-dark: rgba(244, 240, 230, 0.16);
+    --serif: 'Playfair Display', Georgia, serif;
+    --serif-body: 'Source Serif 4', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--rust); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .band {
+    background: linear-gradient(160deg, var(--header-bg) 0%, var(--header-bg-2) 100%);
+    color: var(--header-text);
+    padding: 44px 0 52px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ''; width: 26px; height: 1.5px; background: var(--amber); display: inline-block; }
+
+  .band h1 {
+    font-family: var(--serif); font-weight: 800; font-size: clamp(32px, 5.2vw, 50px);
+    line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 18px;
+    color: var(--header-text);
+  }
+
+  .band .dek {
+    font-family: var(--serif-body); font-size: 17.5px; color: var(--header-dim);
+    max-width: 62ch; margin-bottom: 6px;
+  }
+  .band .dek strong { color: #f0ce8a; font-weight: 600; }
+
+  .stat-row {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    margin-top: 32px; padding-top: 26px; border-top: 1px solid var(--border-dark);
+  }
+  .stat .num { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--amber); }
+  .stat .lab { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--header-dim); margin-top: 2px; }
+
+  main { padding: 48px 0 90px; }
+
+  .section-label {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 6px;
+  }
+  main h2 {
+    font-family: var(--serif); font-weight: 700; font-size: 24px; margin-bottom: 10px;
+  }
+  main .section-sub { color: var(--ink-dim); font-size: 15px; margin-bottom: 30px; max-width: 68ch; }
+
+  .doc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+
+  .doc-card {
+    display: block;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--rust);
+    border-radius: 3px;
+    padding: 24px 26px;
+    color: inherit;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  }
+  .doc-card:hover { background: var(--paper-card-2); border-left-color: var(--amber); transform: translateX(2px); text-decoration: none; }
+  .doc-card.disabled { opacity: 0.55; border-left-color: var(--border); cursor: default; }
+  .doc-card.disabled:hover { transform: none; background: var(--paper-card); }
+
+  .doc-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 8px; }
+  .doc-title { font-family: var(--serif); font-weight: 700; font-size: 21px; line-height: 1.25; }
+  .status-badge {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex: 0 0 auto;
+  }
+  .status-live { background: rgba(192, 87, 46, 0.12); color: var(--rust); border: 1px solid rgba(192, 87, 46, 0.35); }
+  .status-pending { background: rgba(92, 102, 115, 0.12); color: var(--ink-dimmer); border: 1px solid var(--border); }
+
+  .doc-meta { font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer); margin-bottom: 12px; }
+  .doc-summary { font-size: 15px; color: var(--ink-dim); margin-bottom: 14px; }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.03em;
+    color: var(--teal); background: rgba(46, 95, 90, 0.08); border: 1px solid rgba(46, 95, 90, 0.25);
+    padding: 2px 9px; border-radius: 20px;
+  }
+
+  .placeholder {
+    border: 1px dashed var(--border);
+    border-left: 4px dashed var(--ink-dimmer);
+    padding: 22px 26px;
+    color: var(--ink-dimmer);
+    font-style: italic;
+    font-size: 14.5px;
+    border-radius: 3px;
+  }
+
+  .context-note {
+    background: var(--paper-card-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 22px;
+    font-size: 14px;
+    color: var(--ink-dim);
+    margin-bottom: 36px;
+  }
+  .context-note strong { color: var(--ink); }
+
+  footer {
+    padding: 32px 0 50px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .band { padding: 34px 0 40px; }
+    main { padding: 36px 0 70px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="wrap">
+    <div class="eyebrow">The Weber County Hive</div>
+    <h1>The Great Salt Lake Docket</h1>
+    <p class="dek">Mining companies, inland ports, water speculators, and federal grant programs are converging on the lake basin from <strong>every direction at once</strong>. This is where we track the permits, the water rights, the lawsuits, and the money — one case file at a time, sourced to primary documents.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">1</div><div class="lab">Case files open</div></div>
+      <div class="stat"><div class="num">$100M</div><div class="lab">Federal dollars, one project</div></div>
+      <div class="stat"><div class="num">Aug 27</div><div class="lab">Next live deadline</div></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <div class="context-note">
+      <strong>Why this docket exists.</strong> Public records only — no interviews, no comment requests. Each case-file page below is built from permits, court filings, monitoring reports, and agency correspondence, with sources cited on every page.
+    </div>
+
+    <div class="section-label">Case Files</div>
+    <h2>Open investigations</h2>
+    <p class="section-sub">New entries are added as records come in. Check back for the Mango-Spiral Jetty water rights lawsuit tied to the project below.</p>
+
+    <div class="doc-grid">
+
+      <a class="doc-card" href="weber-gsl-waterleaf-lithium.html">
+        <div class="doc-top">
+          <div class="doc-title">A $100 Million Lithium Project, a 20-Year Discharge and One Week Left to Comment</div>
+          <div class="status-badge status-live">Comment open</div>
+        </div>
+        <div class="doc-meta">Box Elder County &middot; Waterleaf Phase 1 LLC / Lilac Solutions &middot; UPDES Permit UT0026352</div>
+        <div class="doc-summary">The Department of Energy just handed a Great Salt Lake lithium plant its largest possible federal award — the same week state records show the company's own pilot data revealed a manganese discharge problem the fix hasn't proven it can solve.</div>
+        <div class="tag-row">
+          <span class="tag">DOE Grant</span>
+          <span class="tag">UPDES Permit</span>
+          <span class="tag">Water Quality</span>
+          <span class="tag">Lithium</span>
+        </div>
+      </a>
+
+      <div class="placeholder">
+        Coming soon: the Mango-Spiral Jetty water-rights lawsuit — the same project's freshwater source, tied up in litigation with House Speaker Mike Schultz's approved rights next door.
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; width:100%;">
+    <span>&copy; 2026 The Weber County Hive</span>
+    <span><a href="https://webercountyhive.substack.com" target="_blank" rel="noopener">webercountyhive.substack.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
