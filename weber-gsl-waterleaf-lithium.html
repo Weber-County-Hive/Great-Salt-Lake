@@ -181,6 +181,33 @@
   .share-card-wrap { margin: 32px 0; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
   .share-card-wrap img { display: block; width: 100%; height: auto; }
 
+  .scale-widget { background: var(--paper-card); border: 1px solid var(--border); border-radius: 8px; padding: 26px 26px 22px; margin: 24px 0; }
+  .scale-widget-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dimmer); margin-bottom: 20px; }
+  .scale-control { margin-bottom: 22px; }
+  .scale-control-head { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--sans); font-size: 13.5px; color: var(--ink-dim); margin-bottom: 8px; }
+  .scale-control-val { font-family: var(--mono); font-size: 13px; color: var(--rust); font-weight: 600; }
+  .scale-control-val small { font-family: var(--sans); font-weight: 400; color: var(--ink-dimmer); }
+  .scale-control input[type="range"] {
+    width: 100%; height: 5px; border-radius: 3px; background: var(--border);
+    -webkit-appearance: none; appearance: none; cursor: pointer;
+  }
+  .scale-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--rust); border: 3px solid var(--paper-card); cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
+  .scale-control input[type="range"]::-moz-range-thumb {
+    width: 19px; height: 19px; border-radius: 50%; background: var(--rust);
+    border: 3px solid var(--paper-card); cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
+  .scale-range-labels { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: var(--ink-dimmer); margin-top: 6px; }
+  .scale-results { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 16px; }
+  .scale-result { background: var(--paper); border: 1px solid var(--border); border-radius: 6px; padding: 16px 16px; text-align: center; }
+  .scale-result-num { font-family: var(--serif); font-weight: 800; font-size: 24px; color: var(--rust); line-height: 1.1; }
+  .scale-result-label { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-dimmer); margin-top: 5px; }
+  .scale-result-sub { font-family: var(--sans); font-size: 11.5px; color: var(--ink-dim); margin-top: 6px; line-height: 1.4; }
+  .scale-footnote { font-family: var(--sans); font-size: 11.5px; color: var(--ink-dimmer); font-style: italic; line-height: 1.55; }
+  @media (max-width: 560px) { .scale-results { grid-template-columns: 1fr; } }
+
   details.sources { margin: 40px 0 20px; }
   details.sources summary {
     cursor: pointer; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em;
@@ -329,6 +356,44 @@
 
       <p>That comparison, though, was measured against the demonstration plant's total discharge of about 3.5 acre-feet over its entire run. The commercial plant is designed to discharge roughly 18,356 acre-feet <em>every year</em> for two decades.</p>
 
+      <div class="scale-widget">
+        <div class="scale-widget-label">Try it yourself &mdash; scale the demonstration plant's own numbers up to commercial size</div>
+
+        <div class="scale-control">
+          <div class="scale-control-head">
+            <span>Years of commercial operation</span>
+            <span class="scale-control-val" id="sw-years-val">20 <small>of 20-year permit</small></span>
+          </div>
+          <input type="range" id="sw-years" min="1" max="20" step="1" value="20">
+        </div>
+
+        <div class="scale-control">
+          <div class="scale-control-head">
+            <span>Assumed treatment-system effectiveness</span>
+            <span class="scale-control-val" id="sw-treat-val">0% <small>&mdash; demonstrated rate</small></span>
+          </div>
+          <input type="range" id="sw-treat" min="0" max="100" step="5" value="0">
+          <div class="scale-range-labels">
+            <span>0% &mdash; performs like the tested demonstration plant</span>
+            <span>100% &mdash; hits the company's unproven target</span>
+          </div>
+        </div>
+
+        <div class="scale-results">
+          <div class="scale-result">
+            <div class="scale-result-num" id="sw-volume">367,120</div>
+            <div class="scale-result-label">acre-feet discharged</div>
+            <div class="scale-result-sub" id="sw-volume-sub">= 104,891&times; the demonstration plant's entire run</div>
+          </div>
+          <div class="scale-result">
+            <div class="scale-result-num" id="sw-mass">197,700 lbs</div>
+            <div class="scale-result-label">hypothetical net manganese added</div>
+            <div class="scale-result-sub" id="sw-mass-sub">54.6% of the North Arm's entire estimated manganese baseline</div>
+          </div>
+        </div>
+        <div class="scale-footnote">The manganese figure is a hypothetical, not a projection anyone has published: it applies the demonstration plant's own measured, untreated concentration increase (0.041 &rarr; 0.239 mg/L) across commercial-scale volume, then scales it down by the treatment effectiveness you choose. The commercial permit proposes a treatment step designed to reach 100% on this scale &mdash; a target that has not been demonstrated at any scale to date.</div>
+      </div>
+
       <p>HDR, the same engineering firm that both ran the demonstration plant's compliance monitoring and prepared major portions of the commercial plant's permit application, is the source of these figures. Waterleaf separately contracted with Westminster University scientist Bonnie Baxter for the companion biota study, which concluded the plant's discharge did not harm the lake's microbial communities. Both studies were commissioned by the applicant; the public record reviewed here does not include a separate, state-commissioned replication of either set of findings.</p>
 
       <p>The biota study's own conclusions are also narrower than a simple "no harm" summary suggests. Waterleaf's report acknowledges that filtration reduced the number of algae species detected in the discharge compared to the intake, and that its DNA-based abundance results could not validly be compared between influent and discharge samples — only within each sample individually. Only three monitoring events were conducted over the plant's run, and the growth-rate experiment inoculated one milliliter of sample into nine milliliters of prepared hypersaline growth medium, rather than testing organisms in undiluted discharge. The state's UPDES permit did not require a biota assessment at all — this data exists because Waterleaf chose to collect it.</p>
@@ -377,6 +442,52 @@
       if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
     });
   });
+
+  // Manganese/volume scale widget
+  (function(){
+    var yearsSlider = document.getElementById('sw-years');
+    var treatSlider = document.getElementById('sw-treat');
+    if (!yearsSlider) return;
+
+    var yearsVal = document.getElementById('sw-years-val');
+    var treatVal = document.getElementById('sw-treat-val');
+    var volumeOut = document.getElementById('sw-volume');
+    var volumeSub = document.getElementById('sw-volume-sub');
+    var massOut = document.getElementById('sw-mass');
+    var massSub = document.getElementById('sw-mass-sub');
+
+    var ANNUAL_ACRE_FEET = 18356;
+    var DEMO_TOTAL_ACRE_FEET = 3.5;
+    var ANNUAL_MASS_LBS_AT_ZERO_TREATMENT = 9885; // demonstration plant's own rate, scaled to commercial annual volume
+    var NORTH_ARM_BASELINE_LBS = 362100;
+
+    function fmt(n) {
+      return Math.round(n).toLocaleString();
+    }
+
+    function update() {
+      var years = parseInt(yearsSlider.value, 10);
+      var treatPct = parseInt(treatSlider.value, 10);
+
+      yearsVal.innerHTML = years + ' <small>of 20-year permit</small>';
+      treatVal.innerHTML = treatPct + '% <small>' + (treatPct === 0 ? '&mdash; demonstrated rate' : treatPct === 100 ? '&mdash; company\'s unproven target' : '&mdash; hypothetical') + '</small>';
+
+      var totalVolume = ANNUAL_ACRE_FEET * years;
+      var demoEquivalents = totalVolume / DEMO_TOTAL_ACRE_FEET;
+      volumeOut.textContent = fmt(totalVolume);
+      volumeSub.textContent = '= ' + fmt(demoEquivalents) + '\u00d7 the demonstration plant\'s entire run';
+
+      var effectivenessFactor = 1 - (treatPct / 100);
+      var totalMass = ANNUAL_MASS_LBS_AT_ZERO_TREATMENT * years * effectivenessFactor;
+      massOut.textContent = fmt(totalMass) + ' lbs';
+      var pctOfBaseline = (totalMass / NORTH_ARM_BASELINE_LBS) * 100;
+      massSub.textContent = pctOfBaseline.toFixed(1) + '% of the North Arm\'s entire estimated manganese baseline';
+    }
+
+    yearsSlider.addEventListener('input', update);
+    treatSlider.addEventListener('input', update);
+    update();
+  })();
 </script>
 
 </body>
