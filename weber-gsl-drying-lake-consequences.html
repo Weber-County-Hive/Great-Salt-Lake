@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Losing the Lake Would Cost — The Weber County Hive</title>
+<meta property="og:title" content="What Losing the Lake Would Cost">
+<meta property="og:description" content="The state's own commissioned study puts a price on a drying Great Salt Lake — and compares it to nine lakes worldwide, some of which never came back.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f0e6;
+    --paper-card: #faf7ef;
+    --paper-card-2: #f0ecdf;
+    --ink: #1c1c1a;
+    --ink-dim: #5b5850;
+    --ink-dimmer: #8c8878;
+    --header-bg: #0f2635;
+    --header-bg-2: #163a4e;
+    --header-text: #f4f0e6;
+    --header-dim: #9db3c0;
+    --rust: #c0572e;
+    --amber: #d9a441;
+    --teal: #2e5f5a;
+    --blue: #3a5f7d;
+    --border: #ddd6c4;
+    --border-dark: rgba(244, 240, 230, 0.16);
+    --serif: 'Playfair Display', Georgia, serif;
+    --serif-body: 'Source Serif 4', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--rust); }
+
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+
+  .breadcrumb { font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer); padding: 24px 0 0; }
+  .breadcrumb a { color: var(--ink-dim); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--rust); }
+
+  .band {
+    background: linear-gradient(160deg, var(--header-bg) 0%, var(--header-bg-2) 100%);
+    color: var(--header-text);
+    margin-top: 20px;
+    padding: 40px 0 34px;
+  }
+  .band .wrap { padding: 0 32px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ''; width: 26px; height: 1.5px; background: var(--amber); display: inline-block; }
+
+  h1 {
+    font-family: var(--serif); font-weight: 800; font-size: clamp(28px, 4.6vw, 42px);
+    line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 16px; color: var(--header-text);
+  }
+
+  .dek { font-family: var(--serif-body); font-style: italic; font-size: 17px; color: var(--header-dim); max-width: 62ch; }
+
+  .meta-row { display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+  .meta-item { font-family: var(--mono); font-size: 11.5px; color: var(--header-dim); }
+  .meta-item strong { color: #e2ecef; font-weight: 500; }
+
+  nav.jumplinks {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding: 22px 0; border-bottom: 1px solid var(--border);
+  }
+  nav.jumplinks button {
+    font-family: var(--mono); font-size: 11.5px;
+    background: var(--paper-card); border: 1px solid var(--border); color: var(--ink-dim);
+    padding: 6px 12px; border-radius: 20px; cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  nav.jumplinks button:hover { border-color: var(--rust); color: var(--rust); }
+
+  .plain-box {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 28px 22px;
+    margin: 32px 0 8px;
+  }
+  .plain-box .plain-label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .plain-box .plain-label::before { content: '\25CF'; font-size: 9px; color: var(--teal); }
+  .plain-box h2 { font-size: 20px; margin-bottom: 10px; }
+  .plain-box p { font-size: 15.5px; color: var(--ink); margin-bottom: 12px; }
+  .plain-box p:last-of-type { margin-bottom: 0; }
+  .plain-box ul { margin: 14px 0 0 20px; }
+  .plain-box li { font-size: 15px; color: var(--ink-dim); margin-bottom: 8px; }
+  .plain-box li strong { color: var(--ink); }
+
+  article { padding: 8px 0 40px; }
+
+  section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-num {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 8px;
+  }
+
+  h2 { font-family: var(--serif); font-weight: 700; font-size: 25px; margin-bottom: 16px; scroll-margin-top: 24px; }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 18px; margin: 26px 0 10px; }
+
+  p { margin-bottom: 16px; color: var(--ink); font-size: 15.5px; }
+  ul { margin: 0 0 18px 22px; }
+  li { margin-bottom: 10px; font-size: 15.5px; color: var(--ink); }
+  strong { color: var(--ink); font-weight: 600; }
+  em { color: var(--rust); font-style: italic; }
+
+  .data-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    margin: 24px 0;
+  }
+  .data-strip .cell { background: var(--paper-card); padding: 18px 14px; text-align: center; }
+  .data-strip .cell .n { font-family: var(--serif); font-size: 24px; color: var(--rust); font-weight: 700; }
+  .data-strip .cell .l { font-family: var(--mono); font-size: 10.5px; color: var(--ink-dimmer); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  @media (max-width: 560px) { .data-strip { grid-template-columns: 1fr; } }
+
+  .callout {
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 20px 0;
+    font-size: 15px;
+  }
+  .callout-finding { background: rgba(192, 87, 46, 0.08); border-left: 3px solid var(--rust); }
+  .callout-related { background: rgba(58, 95, 125, 0.08); border-left: 3px solid var(--blue); }
+  .callout-note { background: rgba(46, 95, 90, 0.08); border-left: 3px solid var(--teal); }
+  .callout-label {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 8px; display: block;
+  }
+  .callout-finding .callout-label { color: var(--rust); }
+  .callout-related .callout-label { color: var(--blue); }
+  .callout-note .callout-label { color: var(--teal); }
+  .callout p { margin-bottom: 0; font-size: 15px; color: var(--ink); }
+  .callout p + p { margin-top: 10px; }
+
+  .quote {
+    font-family: var(--serif-body); font-style: italic; font-size: 17px; color: var(--ink-dim);
+    border-left: 3px solid var(--amber); padding-left: 20px; margin: 22px 0;
+  }
+  .quote cite {
+    display: block; font-family: var(--mono); font-style: normal; font-size: 11.5px;
+    color: var(--ink-dimmer); margin-top: 8px;
+  }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0; border: 1px solid var(--border); background: var(--paper-card); }
+  .compare-table th, .compare-table td { padding: 12px 14px; text-align: left; font-size: 14px; vertical-align: top; border-bottom: 1px solid var(--border); }
+  .compare-table th { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--header-text); background: var(--header-bg); }
+  .compare-table tr.highlight td { background: rgba(217, 164, 65, 0.12); font-weight: 600; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td.pct { font-family: var(--mono); color: var(--rust); font-weight: 600; white-space: nowrap; }
+  @media (max-width: 560px) { .compare-table { font-size: 12.5px; } .compare-table th, .compare-table td { padding: 8px 8px; } }
+
+  details.sources { margin: 40px 0 20px; }
+  details.sources summary {
+    cursor: pointer; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--rust); list-style: none; padding: 4px 0;
+  }
+  details.sources summary::-webkit-details-marker { display: none; }
+  details.sources summary::before { content: '\25B8 '; }
+  details.sources[open] summary::before { content: '\25BE '; }
+  details.sources ol { margin: 16px 0 0 20px; color: var(--ink-dim); font-size: 13.5px; }
+  details.sources li { margin-bottom: 10px; }
+  details.sources a { word-break: break-word; }
+
+  footer {
+    padding: 32px 0 60px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .band { padding: 30px 0 26px; }
+    section { padding: 30px 0; }
+    .plain-box { padding: 20px 20px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="breadcrumb wrap"><a href="index.html">&larr; The Great Salt Lake Docket</a></div>
+
+<div class="band">
+  <div class="wrap">
+    <div class="eyebrow">Case File &middot; Statewide</div>
+    <h1>What Losing the Lake Would Cost</h1>
+    <p class="dek">The state's own commissioned study puts a price on a drying Great Salt Lake — and compares it to nine lakes worldwide, some of which never came back.</p>
+
+    <div class="meta-row">
+      <div class="meta-item"><strong>Report:</strong> Consequences of Drying Lake Systems Around the World: 2026 Update</div>
+      <div class="meta-item"><strong>Commissioned by:</strong> GSL Advisory Council</div>
+      <div class="meta-item"><strong>Prepared by:</strong> SWCA / Martin &amp; Nicholson, June 2026</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <nav class="jumplinks">
+    <button data-scroll-to="new-here">New Here?</button>
+    <button data-scroll-to="worth">What the Lake Is Worth</button>
+    <button data-scroll-to="cost">What It Already Costs</button>
+    <button data-scroll-to="compare">Nine Other Lakes</button>
+    <button data-scroll-to="where">Where Utah Stands</button>
+    <button data-scroll-to="missing">What the Report Doesn't Settle</button>
+    <button data-scroll-to="questions">Questions Worth Asking</button>
+    <button data-scroll-to="sources-anchor">Sources</button>
+  </nav>
+
+  <div class="plain-box" id="new-here">
+    <div class="plain-label">New Here? Start With This</div>
+    <h2>The short version</h2>
+    <p>Utah's own Great Salt Lake Advisory Council commissioned a study — updated in June 2026 — that puts a dollar figure on what a shrinking lake is already costing the state, and compares Great Salt Lake's decline to nine other drying lakes around the world.</p>
+    <p>The number: somewhere between $2.1 billion and $2.8 billion a year in monetized costs — reduced business profits, water management costs, dust mitigation, lost recreation value, higher health care costs, and quality-of-life losses. Over 20 years, that adds up to $33.8 to $44.6 billion in present-value terms.</p>
+    <p>The comparison lakes are the part worth sitting with. Several of them — the Aral Sea, Lake Poopó, Owens Lake — didn't recover. They're dry, or nearly dry, for good, after decades and billions of dollars spent trying to fix what broke. One — Mono Lake — did recover, after courts stepped in and stopped the water diversions that were draining it.</p>
+    <ul>
+      <li><strong>What it is:</strong> A commissioned scientific report on the economic, social, and environmental costs of Great Salt Lake's decline, benchmarked against nine other drying terminal lakes worldwide.</li>
+      <li><strong>Who commissioned it:</strong> The Great Salt Lake Advisory Council — the same public body covered in <a href="weber-gsl-two-money-pots.html">this docket's companion piece</a> on the Advisory Council/Trust Council split.</li>
+      <li><strong>What's at stake:</strong> $2.1–2.8 billion a year, according to the state's own commissioned economists — and a real possibility of permanent loss if the lake crosses the thresholds some of these other lakes crossed.</li>
+      <li><strong>What's still open:</strong> Whether the water Utah has committed to the lake so far is actually reaching it, not just being pledged.</li>
+    </ul>
+  </div>
+
+  <article>
+
+    <div class="data-strip">
+      <div class="cell"><div class="n">$2.1&ndash;2.8B</div><div class="l">Annual cost, right now</div></div>
+      <div class="cell"><div class="n">44%</div><div class="l">Surface area lost since average</div></div>
+      <div class="cell"><div class="n">288,000</div><div class="l">Acre-feet committed to date</div></div>
+    </div>
+
+    <section id="worth" style="padding-top:8px; border-top:none;">
+      <div class="section-num">01</div>
+      <h2>What the Lake Is Worth</h2>
+      <p>Great Salt Lake contributes an estimated $1.9 billion to the local economy every year, according to the Utah Division of Water Resources. It directly supports mineral extraction and brine shrimp harvesting, functions as a recreational site, and is large enough to alter regional lake-effect snow patterns that support winter tourism and water supply.</p>
+      <p>Roughly 80 percent of Utah's wetlands surround the lake. It provides habitat and food resources for more than 10 million migratory birds across some 350 species, including globally significant populations of eared grebes, tundra swans, snowy plovers, and American avocets — a scale of importance the Western Hemisphere Shorebird Reserve Network has formally designated as "hemispheric."</p>
+      <p>The lake's watershed covers about 21,000 square miles and is home to roughly 2.5 million people. Population across the 11 counties surrounding the lake grew 48 percent between 2000 and 2023 — from about 1.94 million to 2.87 million residents — adding pressure to the same water supply the lake depends on.</p>
+    </section>
+
+    <section id="cost">
+      <div class="section-num">02</div>
+      <h2>What It Already Costs</h2>
+      <p>A separate 2025 study, <em>Economic Costs of Declining Water Levels in the Great Salt Lake</em>, prepared by ECONorthwest and Martin &amp; Nicholson Environmental Consultants, put the current annual cost of the lake's decline at $2.1 billion to $2.8 billion — close to 1 percent of Utah's entire state GDP. Projected over 20 years, that's a present-value cost of $33.8 billion to $44.6 billion.</p>
+      <div class="quote">
+        Adverse impacts include habitat loss and degradation; increased salinity and changes to water quality; loss of lake access; increased dust, which may be transporting contaminants downwind; reduction in lake-effect snow; and potential loss of non-use value.
+        <cite>Consequences of Drying Lake Systems Around the World: 2026 Update, summarizing the 2025 economic cost study</cite>
+      </div>
+      <p>About 9 percent of the lake's currently exposed lakebed — roughly 68 square miles — is actively producing dust. That lakebed sediment contains arsenic, lanthanum, zirconium, copper, iron, manganese, and aluminum. Modeling cited in the report suggests the dust can travel more than 100 miles, reaching a large share of the population along the Wasatch Front.</p>
+      <div class="callout callout-note">
+        <span class="callout-label">Scale check</span>
+        <p>For every one-foot change in lake level, an estimated 44,000 acres of mudflat is exposed or submerged — a rough sense of how much habitat and dust-source area moves with each foot the lake rises or falls.</p>
+      </div>
+    </section>
+
+    <section id="compare">
+      <div class="section-num">03</div>
+      <h2>Nine Other Lakes, and What Happened to Them</h2>
+      <p>The report's core method is comparative: nine other terminal, saline lakes around the world, each compared against Great Salt Lake's own trajectory. The reduction percentages come directly from the report's own summary table.</p>
+
+      <table class="compare-table">
+        <tr>
+          <th>Lake</th>
+          <th>Surface area lost</th>
+          <th>Status today</th>
+        </tr>
+        <tr class="highlight"><td>Great Salt Lake</td><td class="pct">44%</td><td>Still a functioning terminal lake ecosystem</td></tr>
+        <tr><td>Lake Urmia, Iran</td><td class="pct">95%</td><td>Restoration underway since 2013; largely a dry salt flat again by 2023</td></tr>
+        <tr><td>Aral Sea, Kazakhstan/Uzbekistan</td><td class="pct">95%</td><td>One of history's largest hydrological collapses; only the smaller North Aral basin has partially recovered</td></tr>
+        <tr><td>Lake Poop&oacute;, Bolivia</td><td class="pct">100%</td><td>Dry since 2015; local fishing economy and Uru-Murato community livelihoods collapsed</td></tr>
+        <tr><td>Owens Lake, California</td><td class="pct">100%</td><td>Dry since 1926; $2.5 billion spent on dust control, required in perpetuity</td></tr>
+        <tr><td>Salton Sea, California</td><td class="pct">40%</td><td>Still declining; $632 million state commitment, limited progress as of 2026</td></tr>
+        <tr><td>Dead Sea, Israel/Jordan</td><td class="pct">41%</td><td>Still declining; sinkholes damaging infrastructure, no agreed fix yet</td></tr>
+        <tr><td>Mono Lake, California</td><td class="pct">18%</td><td><strong>Recovering</strong> — court-ordered limits on water diversions allowed levels and ecosystem functions to rebound</td></tr>
+        <tr><td>Walker Lake, Nevada</td><td class="pct">48%</td><td>Still declining; water-rights purchases and restoration partnerships underway</td></tr>
+        <tr><td>Mar Chiquita, Argentina</td><td class="pct">20%</td><td>Reduced precipitation and diversions continuing to affect agriculture and habitat</td></tr>
+      </table>
+
+      <div class="callout callout-finding">
+        <span class="callout-label">Key Finding</span>
+        <p>The report's own framing draws a clear line: lakes that intervened early — like Mono Lake, where courts halted diversions before the lake crossed a severe threshold — recovered. Lakes that intervened only after severe decline — Owens Lake, the Aral Sea — are left paying enormous, sometimes permanent costs for only partial recovery, if any. Great Salt Lake, per the report, remains a functioning ecosystem, which the report frames as a genuine opportunity, not a guarantee.</p>
+      </div>
+    </section>
+
+    <section id="where">
+      <div class="section-num">04</div>
+      <h2>Where Utah Stands Right Now</h2>
+      <p>The report credits several recent Utah policy actions as steps toward increasing inflows: expanded mechanisms letting water-right holders lease or donate water to the lake while keeping their underlying rights, the creation of the Office of the Great Salt Lake Commissioner, and improved water accounting.</p>
+      <p>As of 2025/2026, more than 288,000 acre-feet of water has been approved or dedicated for delivery to the lake and its managed wetlands through leasing, conservation, and water-rights transactions. The report is explicit that this figure reflects <em>committed volumes</em>, not measured inflows actually reaching the lake — a distinction worth holding onto given this project's own reporting elsewhere on how the Trust Council's spending gets reviewed.</p>
+      <p>In 2025, as lake levels approached roughly 4,192 feet, elevation-based thresholds triggered mandated reductions in water use by mineral extraction operations under the state's Distribution Management Plan. Agricultural water reductions during the same period remained largely voluntary and incentive-driven rather than mandatory — meaning the mandatory curtailments so far have fallen on industrial users, not the sector that the report's own numbers show accounts for the largest share of consumptive water use in the basin (agriculture, at roughly 63 percent, versus municipal use at about 11 percent).</p>
+    </section>
+
+    <section id="missing">
+      <div class="section-num">05</div>
+      <h2>What the Report Doesn't Settle</h2>
+      <ul>
+        <li>Whether the 288,000 acre-feet of "committed" water is actually reaching the lake, and on what verified schedule — see <a href="weber-gsl-funding-gap.html">this docket's companion piece</a> on the $511 million funding gap in the state's own enhancement-project list, which suggests a lot of identified work is still unfunded. Also see <a href="weber-gsl-trust-spending-pace.html">"Three Years, $7.24 Million"</a> — the Trust's own reported water-transaction totals never exceed ~72,485 acre-feet in any single year, a real gap from this 288,000 figure that isn't yet reconciled.</li>
+        <li>Why mandatory curtailments so far have applied to mineral extraction rather than to agriculture, which the report's own figures show is the larger consumptive use.</li>
+        <li>Whether Utah's early-intervention actions are being funded and executed at a pace that matches the "there is still time" framing the report itself uses.</li>
+        <li>How the money reviewed by the Trust Council — covered in this docket's companion piece — maps onto the specific inflow and conservation measures this report credits with real progress.</li>
+      </ul>
+    </section>
+
+    <section id="questions">
+      <div class="section-num">06</div>
+      <h2>Questions Worth Asking</h2>
+      <p>For readers who want to press further:</p>
+      <ol>
+        <li>What specifically triggered the 2025 mandatory curtailment on mineral extraction — and why hasn't agriculture, the larger consumptive water user, faced a comparable requirement?</li>
+        <li>Is my own water district, city, or irrigation company participating in any of the leasing, donation, or conservation programs this report credits with real progress?</li>
+        <li>If Great Salt Lake crossed a severe decline threshold the way Owens Lake or the Aral Sea did, what would the dust and economic impact actually look like in my community?</li>
+        <li>Who is responsible for tracking whether the water Utah describes as "committed" to the lake is actually arriving, and how often is that checked?</li>
+      </ol>
+    </section>
+
+    <details class="sources" id="sources-anchor">
+      <summary>Sources &amp; Documents</summary>
+      <ol>
+        <li>SWCA Environmental Consultants and Martin &amp; Nicholson Environmental Consultants, "Consequences of Drying Lake Systems Around the World: 2026 Update," prepared for the Great Salt Lake Advisory Council, June 2026 (DEQ document DWQ-2026-004610)</li>
+        <li>ECONorthwest and Martin &amp; Nicholson Environmental Consultants, "Economic Costs of Declining Water Levels in the Great Salt Lake: 2025 Update" (cited within the above report)</li>
+        <li>Utah Division of Water Resources, 2026 estimate of Great Salt Lake's annual economic contribution</li>
+        <li>U.S. Geological Survey, Great Salt Lake historical high/low water surface elevation records</li>
+        <li>Western Hemisphere Shorebird Reserve Network (WHSRN), hemispheric-importance designation for Great Salt Lake</li>
+      </ol>
+    </details>
+
+  </article>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; width:100%;">
+    <span><a href="index.html">&larr; The Great Salt Lake Docket</a></span>
+    <span>&copy; 2026 The Weber County Hive</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('button[data-scroll-to]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-scroll-to');
+      var target = document.getElementById(id);
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+</script>
+
+</body>
+</html>

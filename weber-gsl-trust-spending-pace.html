@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three Years, $7.24 Million — The Weber County Hive</title>
+<meta property="og:title" content="Three Years, $7.24 Million">
+<meta property="og:description" content="The Trust's own numbers show 18% of its $40 million fund spent after three years — and a water-transaction total that shrank heading into 2026, not grew.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f0e6;
+    --paper-card: #faf7ef;
+    --paper-card-2: #f0ecdf;
+    --ink: #1c1c1a;
+    --ink-dim: #5b5850;
+    --ink-dimmer: #8c8878;
+    --header-bg: #0f2635;
+    --header-bg-2: #163a4e;
+    --header-text: #f4f0e6;
+    --header-dim: #9db3c0;
+    --rust: #c0572e;
+    --amber: #d9a441;
+    --teal: #2e5f5a;
+    --blue: #3a5f7d;
+    --border: #ddd6c4;
+    --border-dark: rgba(244, 240, 230, 0.16);
+    --serif: 'Playfair Display', Georgia, serif;
+    --serif-body: 'Source Serif 4', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--rust); }
+
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+
+  .breadcrumb { font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer); padding: 24px 0 0; }
+  .breadcrumb a { color: var(--ink-dim); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--rust); }
+
+  .band {
+    background: linear-gradient(160deg, var(--header-bg) 0%, var(--header-bg-2) 100%);
+    color: var(--header-text);
+    margin-top: 20px;
+    padding: 40px 0 34px;
+  }
+  .band .wrap { padding: 0 32px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ''; width: 26px; height: 1.5px; background: var(--amber); display: inline-block; }
+
+  h1 {
+    font-family: var(--serif); font-weight: 800; font-size: clamp(28px, 4.6vw, 42px);
+    line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 16px; color: var(--header-text);
+  }
+
+  .dek { font-family: var(--serif-body); font-style: italic; font-size: 17px; color: var(--header-dim); max-width: 62ch; }
+
+  .meta-row { display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+  .meta-item { font-family: var(--mono); font-size: 11.5px; color: var(--header-dim); }
+  .meta-item strong { color: #e2ecef; font-weight: 500; }
+
+  nav.jumplinks {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding: 22px 0; border-bottom: 1px solid var(--border);
+  }
+  nav.jumplinks button {
+    font-family: var(--mono); font-size: 11.5px;
+    background: var(--paper-card); border: 1px solid var(--border); color: var(--ink-dim);
+    padding: 6px 12px; border-radius: 20px; cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  nav.jumplinks button:hover { border-color: var(--rust); color: var(--rust); }
+
+  .plain-box {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 28px 22px;
+    margin: 32px 0 8px;
+  }
+  .plain-box .plain-label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .plain-box .plain-label::before { content: '\25CF'; font-size: 9px; color: var(--teal); }
+  .plain-box h2 { font-size: 20px; margin-bottom: 10px; }
+  .plain-box p { font-size: 15.5px; color: var(--ink); margin-bottom: 12px; }
+  .plain-box p:last-of-type { margin-bottom: 0; }
+  .plain-box ul { margin: 14px 0 0 20px; }
+  .plain-box li { font-size: 15px; color: var(--ink-dim); margin-bottom: 8px; }
+  .plain-box li strong { color: var(--ink); }
+
+  article { padding: 8px 0 40px; }
+
+  section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-num {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 8px;
+  }
+
+  h2 { font-family: var(--serif); font-weight: 700; font-size: 25px; margin-bottom: 16px; scroll-margin-top: 24px; }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 18px; margin: 26px 0 10px; }
+
+  p { margin-bottom: 16px; color: var(--ink); font-size: 15.5px; }
+  ul { margin: 0 0 18px 22px; }
+  li { margin-bottom: 10px; font-size: 15.5px; color: var(--ink); }
+  strong { color: var(--ink); font-weight: 600; }
+  em { color: var(--rust); font-style: italic; }
+
+  .data-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    margin: 24px 0;
+  }
+  .data-strip .cell { background: var(--paper-card); padding: 18px 14px; text-align: center; }
+  .data-strip .cell .n { font-family: var(--serif); font-size: 24px; color: var(--rust); font-weight: 700; }
+  .data-strip .cell .l { font-family: var(--mono); font-size: 10.5px; color: var(--ink-dimmer); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  @media (max-width: 560px) { .data-strip { grid-template-columns: 1fr; } }
+
+  .callout {
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 20px 0;
+    font-size: 15px;
+  }
+  .callout-finding { background: rgba(192, 87, 46, 0.08); border-left: 3px solid var(--rust); }
+  .callout-related { background: rgba(58, 95, 125, 0.08); border-left: 3px solid var(--blue); }
+  .callout-note { background: rgba(46, 95, 90, 0.08); border-left: 3px solid var(--teal); }
+  .callout-label {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 8px; display: block;
+  }
+  .callout-finding .callout-label { color: var(--rust); }
+  .callout-related .callout-label { color: var(--blue); }
+  .callout-note .callout-label { color: var(--teal); }
+  .callout p { margin-bottom: 0; font-size: 15px; color: var(--ink); }
+  .callout p + p { margin-top: 10px; }
+
+  .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; border: 1px solid var(--border); background: var(--paper-card); }
+  .data-table th, .data-table td { padding: 12px 14px; text-align: left; font-size: 14px; vertical-align: top; border-bottom: 1px solid var(--border); }
+  .data-table th { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--header-text); background: var(--header-bg); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr.highlight td { background: rgba(192, 87, 46, 0.10); font-weight: 600; }
+  .data-table td.num { font-family: var(--mono); text-align: right; }
+  @media (max-width: 560px) { .data-table { font-size: 12.5px; } .data-table th, .data-table td { padding: 8px 8px; } }
+
+  details.sources { margin: 40px 0 20px; }
+  details.sources summary {
+    cursor: pointer; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--rust); list-style: none; padding: 4px 0;
+  }
+  details.sources summary::-webkit-details-marker { display: none; }
+  details.sources summary::before { content: '\25B8 '; }
+  details.sources[open] summary::before { content: '\25BE '; }
+  details.sources ol { margin: 16px 0 0 20px; color: var(--ink-dim); font-size: 13.5px; }
+  details.sources li { margin-bottom: 10px; }
+  details.sources a { word-break: break-word; }
+
+  footer {
+    padding: 32px 0 60px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .band { padding: 30px 0 26px; }
+    section { padding: 30px 0; }
+    .plain-box { padding: 20px 20px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="breadcrumb wrap"><a href="index.html">&larr; The Great Salt Lake Docket</a></div>
+
+<div class="band">
+  <div class="wrap">
+    <div class="eyebrow">Case File &middot; Statewide</div>
+    <h1>Three Years, $7.24 Million</h1>
+    <p class="dek">The Trust's own numbers show 18% of its $40 million fund spent after three years — and a water-transaction total that shrank heading into 2026, not grew.</p>
+
+    <div class="meta-row">
+      <div class="meta-item"><strong>Fund:</strong> $40M State Grant Money (H.B. 410, 2022)</div>
+      <div class="meta-item"><strong>Managed by:</strong> National Audubon Society / The Nature Conservancy</div>
+      <div class="meta-item"><strong>Data through:</strong> Dec. 2025 (fund financials) / June 2026 (latest wetland round)</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <nav class="jumplinks">
+    <button data-scroll-to="new-here">New Here?</button>
+    <button data-scroll-to="pace">The Disbursement Rate</button>
+    <button data-scroll-to="water">A Total That Shrank</button>
+    <button data-scroll-to="grants">Where the Money That Moved, Went</button>
+    <button data-scroll-to="decide">Who Decides</button>
+    <button data-scroll-to="missing">Open Questions</button>
+    <button data-scroll-to="questions">Questions Worth Asking</button>
+    <button data-scroll-to="sources-anchor">Sources</button>
+  </nav>
+
+  <div class="plain-box" id="new-here">
+    <div class="plain-label">New Here? Start With This</div>
+    <h2>The short version</h2>
+    <p>In 2022, the Legislature set aside $40 million for the Great Salt Lake Watershed Enhancement Trust — the Audubon/Nature Conservancy partnership that buys, leases, and accepts donations of water for the lake. Three years later, the Trust's own year-end report shows only about $7.24 million of that money has actually gone out the door. That's about 18 percent.</p>
+    <p>The water-transaction side tells an even more complicated story. The Trust reports transacting roughly 64,000 acre-feet in 2023, 69,000 in 2024, and an anticipated 72,485 in 2025 — but the number going into 2026 is a "baseline" of just 59,000 acre-feet. The total went down, not up, likely because some of those transactions were temporary leases that expired. None of these figures match the 288,000 acre-feet figure this docket's own "What Losing the Lake Would Cost" piece cited from a separate state-commissioned report — a discrepancy worth running down, not yet resolved here.</p>
+    <ul>
+      <li><strong>What it is:</strong> The Trust's own year-end financial and water-transaction accounting, current through Dec. 31, 2025.</li>
+      <li><strong>What's notable:</strong> A slow disbursement pace against the $40M appropriation, and a water-transaction total that shrank rather than grew heading into 2026.</li>
+      <li><strong>What's unresolved:</strong> Why the Trust's own reported acre-feet figures don't match the 288,000 acre-feet figure in a separate state-commissioned report already cited elsewhere in this docket.</li>
+    </ul>
+  </div>
+
+  <article>
+
+    <div class="data-strip">
+      <div class="cell"><div class="n">18%</div><div class="l">Of $40M disbursed, 3 years in</div></div>
+      <div class="cell"><div class="n">59,000</div><div class="l">Acre-feet baseline entering 2026</div></div>
+      <div class="cell"><div class="n">1.4:1</div><div class="l">Overall claimed leverage ratio</div></div>
+    </div>
+
+    <section id="pace" style="padding-top:8px; border-top:none;">
+      <div class="section-num">01</div>
+      <h2>The Disbursement Rate</h2>
+      <p>The Trust's own reporting states that State Grant Money disbursed from its January 2023 inception through Dec. 31, 2025 totals approximately $7.24 million — against the $40 million appropriated by H.B. 410 in 2022. That's roughly 18 percent spent after three full years of operation, leaving about $32.76 million of the original appropriation not yet disbursed.</p>
+      <p>The Trust reports leveraging that $7.24 million against approximately $9.7 million in matching funds and donations — a ratio of roughly 1.4 to 1 — combining cash match, in-kind contributions, and water donations across the full three-year period.</p>
+      <div class="callout callout-note">
+        <span class="callout-label">Context, not an accusation</span>
+        <p>A slow initial disbursement pace for a newly created trust isn't unusual on its own — building a program, screening deals against the criteria this docket has already documented, and securing multi-party water transactions all take time. What this section establishes is the pace itself, not a judgment about whether it's too slow.</p>
+      </div>
+    </section>
+
+    <section id="water">
+      <div class="section-num">02</div>
+      <h2>A Total That Shrank</h2>
+      <p>The Trust reports water transacted "on a diversion basis" of approximately 64,000 acre-feet in 2023, 69,000 in 2024, and an anticipated 72,485 in 2025 — followed by a stated baseline of approximately 59,000 acre-feet heading into 2026.</p>
+
+      <table class="data-table">
+        <tr><th>Year</th><th>Acre-feet (diversion basis)</th></tr>
+        <tr><td>2023</td><td class="num">~64,000</td></tr>
+        <tr><td>2024</td><td class="num">~69,000</td></tr>
+        <tr><td>2025 (anticipated)</td><td class="num">~72,485</td></tr>
+        <tr class="highlight"><td>2026 baseline</td><td class="num">~59,000</td></tr>
+      </table>
+
+      <p>These figures aren't simply additive — the Trust's own framing describes them as a running total or baseline figure, not new acre-feet added on top of prior years, since the bulk of this water comes from donated and multi-year leased rights rather than one-time acquisitions. Even accounting for that, a baseline that drops from an anticipated ~72,485 to ~59,000 heading into the next year suggests some transacted water didn't carry forward — most plausibly because temporary leases expired.</p>
+      <p>The Trust states a Five-Year Strategy objective of 100,000 acre-feet of water. None of the individual year figures reported so far reach that number on their own, and the fluctuating baseline makes it unclear how close the Trust's own cumulative progress actually is to that target.</p>
+      <div class="callout callout-finding">
+        <span class="callout-label">Key Finding</span>
+        <p>None of the Trust's own reported figures — 64,000, 69,000, 72,485, or the 59,000 baseline — come close to the 288,000 acre-feet this docket's companion piece cited from a June 2026 state-commissioned report as "committed" to the lake. Either that figure includes commitments well beyond the Trust's own water-transaction program, or there's a real reconciliation gap between how the two documents count committed water. Not resolved here — flagged as the next thing worth checking.</p>
+      </div>
+    </section>
+
+    <section id="grants">
+      <div class="section-num">03</div>
+      <h2>Where the Money That Moved, Went</h2>
+      <p>Utah Code requires at least 25 percent of the $40 million — $10 million — go toward protecting and restoring wetlands and habitat. The Trust's wetland grant program has now run three rounds:</p>
+      <ul>
+        <li><strong>2023 (first year):</strong> $8,525,343 awarded across eight projects, covering nearly 13,000 acres, with applicants and partners providing at least $6.5 million in matching contributions — a match ratio of roughly 0.76 to 1.</li>
+        <li><strong>2024:</strong> $5,479,914 awarded to four applicants across six locations, covering nearly 6,000 acres, with at least $0.6 million in matching contributions — a match ratio of roughly 0.11 to 1, far below both the 2023 round and the Trust's touted 1.4-to-1 overall figure.</li>
+        <li><strong>2026 (announced June 22, 2026):</strong> $1,659,192.50 awarded to three Utah Division of Wildlife Resources projects, covering 567 acres, with DWR providing at least $555,700.48 in matching contributions — a match ratio of roughly 0.33 to 1, an improvement on 2024 but still short of 2023.</li>
+      </ul>
+      <p>Across all three rounds, the wetland program has now protected or restored a cumulative 20,399 acres — past the Trust's own Five-Year Strategy goal of 20,000 acres, and ahead of the 2028 target date the Trust set for reaching it. That's a genuine accomplishment worth stating plainly alongside the slower pace documented elsewhere in this piece.</p>
+      <div class="callout callout-note">
+        <span class="callout-label">A figure worth reconciling</span>
+        <p>Added across all three rounds, the wetland grants alone total roughly $15.66 million awarded — more than double the $7.24 million in total State Grant Money this piece describes as disbursed fund-wide through Dec. 31, 2025. That doesn't necessarily mean the two figures conflict: grants are often paid out over the life of a multi-year project rather than all at once, and some wetland-grant dollars may come through FFSL's own budget rather than the Trust's $40 million State Grant Money specifically. Both figures are stated here as reported by their respective sources; reconciling exactly which dollars count against the $40 million appropriation and which don't is not resolved in this piece.</p>
+      </div>
+      <p>A newer, larger funding stream launched in 2025: a $53 million pool announced jointly with the Office of the Great Salt Lake Commissioner and FFSL. Of that, $50 million comes through the Great Salt Lake Water Delivery Program (coordinated with the U.S. Bureau of Reclamation) for voluntary water transactions, system conservation, and ecosystem/habitat projects. The remaining $3 million splits between FFSL ($2 million) and the Trust itself ($1 million). Applications closed Jan. 16, 2026; awards were expected in spring 2026 as of this writing.</p>
+    </section>
+
+    <section id="decide">
+      <div class="section-num">04</div>
+      <h2>Who Decides</h2>
+      <p>For the wetland grant rounds, proposals were scored by a Technical Review Committee made up of Great Salt Lake ecosystem experts — but the Trust's own materials state that final award decisions were made by the Trust Advisory Council (the body now renamed the Trust Council) and FFSL, not the technical scorers.</p>
+      <div class="callout callout-related">
+        <span class="callout-label">Related Case File</span>
+        <p>See <a href="weber-gsl-two-money-pots.html">"One Lake, Two Councils, and One That Calls Itself Private"</a> for the full documentation of who sits on that Council and the transparency questions around how it operates.</p>
+      </div>
+    </section>
+
+    <section id="missing">
+      <div class="section-num">05</div>
+      <h2>Open Questions</h2>
+      <ul>
+        <li>Why the Trust's own reported water-transaction totals (topping out around 72,485 acre-feet in a single year) don't reconcile with the 288,000 acre-feet figure cited in the state-commissioned drying-lakes report — see <a href="weber-gsl-drying-lake-consequences.html">"What Losing the Lake Would Cost"</a>.</li>
+        <li>How much of the $32.76 million not yet disbursed is earmarked for specific pending projects versus genuinely uncommitted.</li>
+        <li>Why the wetland grants alone total more, in awarded dollars, than the fund-wide disbursement figure reported through the same period — whether that's a timing issue (multi-year payouts), a funding-source issue (FFSL money mixed in), or something else.</li>
+        <li>Whether the 2026 baseline drop from ~72,485 to ~59,000 acre-feet reflects expired leases specifically, or some other accounting change not explained in the Trust's public materials.</li>
+        <li>How this fund's own slow disbursement pace relates to the broader $511 million funding gap already documented across the state's larger enhancement-project list — see <a href="weber-gsl-funding-gap.html">"$511 Million Short"</a>. These are different pots of money, and this piece doesn't assume they're connected beyond both reflecting money not yet reaching the ground.</li>
+      </ul>
+    </section>
+
+    <section id="questions">
+      <div class="section-num">06</div>
+      <h2>Questions Worth Asking</h2>
+      <p>For readers who want to press further:</p>
+      <ol>
+        <li>Why did the reported water-transaction baseline drop from about 72,485 to about 59,000 acre-feet heading into 2026, and specifically what expired?</li>
+        <li>Which dollars in the wetland-grant totals are State Grant Money from the $40 million appropriation, and which come from FFSL's separate budget?</li>
+        <li>At the current disbursement pace, when would the remaining $32.76 million actually get spent?</li>
+        <li>Who is responsible for reconciling the Trust's own reported acre-feet figures against the 288,000-acre-foot figure cited elsewhere in state reporting?</li>
+      </ol>
+    </section>
+
+    <details class="sources" id="sources-anchor">
+      <summary>Sources &amp; Documents</summary>
+      <ol>
+        <li>Great Salt Lake Watershed Enhancement Trust, "Impact" page (accomplishments summary through Jan. 1, 2026, financials through Dec. 31, 2025) — document provided directly; exact source URL not independently verified in this session, likely gslwatertrust.org/our-impact</li>
+        <li>FFSL / Great Salt Lake Watershed Enhancement Trust, Press Release: "2026 Wetland Funding Awards Increase Acreage of Protected and Restored Wetlands at Great Salt Lake," June 22, 2026 — gslwatertrust.org</li>
+        <li>Utah Code &sect;65A-16-301(2)(b) (25% wetland/habitat set-aside requirement)</li>
+        <li>Cross-referenced against H.B. 410 (2022) and the Trust Council restated bylaws — see <a href="weber-gsl-two-money-pots.html">companion case file</a> for full citations</li>
+      </ol>
+    </details>
+
+  </article>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; width:100%;">
+    <span><a href="index.html">&larr; The Great Salt Lake Docket</a></span>
+    <span>&copy; 2026 The Weber County Hive</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('button[data-scroll-to]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-scroll-to');
+      var target = document.getElementById(id);
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+</script>
+
+</body>
+</html>

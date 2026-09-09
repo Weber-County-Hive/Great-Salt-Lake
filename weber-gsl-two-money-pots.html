@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Lake, Two Councils, and One That Calls Itself Private — The Weber County Hive</title>
+<meta property="og:title" content="One Lake, Two Councils, and One That Calls Itself Private">
+<meta property="og:description" content="Utah built a public council to advise on the Great Salt Lake — and a second council, reviewing the same public money, whose own bylaws call it private.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f0e6;
+    --paper-card: #faf7ef;
+    --paper-card-2: #f0ecdf;
+    --ink: #1c1c1a;
+    --ink-dim: #5b5850;
+    --ink-dimmer: #8c8878;
+    --header-bg: #0f2635;
+    --header-bg-2: #163a4e;
+    --header-text: #f4f0e6;
+    --header-dim: #9db3c0;
+    --rust: #c0572e;
+    --amber: #d9a441;
+    --teal: #2e5f5a;
+    --blue: #3a5f7d;
+    --border: #ddd6c4;
+    --border-dark: rgba(244, 240, 230, 0.16);
+    --serif: 'Playfair Display', Georgia, serif;
+    --serif-body: 'Source Serif 4', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--rust); }
+
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+
+  .breadcrumb { font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer); padding: 24px 0 0; }
+  .breadcrumb a { color: var(--ink-dim); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--rust); }
+
+  .band {
+    background: linear-gradient(160deg, var(--header-bg) 0%, var(--header-bg-2) 100%);
+    color: var(--header-text);
+    margin-top: 20px;
+    padding: 40px 0 34px;
+  }
+  .band .wrap { padding: 0 32px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ''; width: 26px; height: 1.5px; background: var(--amber); display: inline-block; }
+
+  h1 {
+    font-family: var(--serif); font-weight: 800; font-size: clamp(28px, 4.6vw, 42px);
+    line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 16px; color: var(--header-text);
+  }
+
+  .dek { font-family: var(--serif-body); font-style: italic; font-size: 17px; color: var(--header-dim); max-width: 62ch; }
+
+  .meta-row { display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+  .meta-item { font-family: var(--mono); font-size: 11.5px; color: var(--header-dim); }
+  .meta-item strong { color: #e2ecef; font-weight: 500; }
+
+  nav.jumplinks {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding: 22px 0; border-bottom: 1px solid var(--border);
+  }
+  nav.jumplinks button {
+    font-family: var(--mono); font-size: 11.5px;
+    background: var(--paper-card); border: 1px solid var(--border); color: var(--ink-dim);
+    padding: 6px 12px; border-radius: 20px; cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  nav.jumplinks button:hover { border-color: var(--rust); color: var(--rust); }
+
+  .plain-box {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 28px 22px;
+    margin: 32px 0 8px;
+  }
+  .plain-box .plain-label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .plain-box .plain-label::before { content: '\25CF'; font-size: 9px; color: var(--teal); }
+  .plain-box h2 { font-size: 20px; margin-bottom: 10px; }
+  .plain-box p { font-size: 15.5px; color: var(--ink); margin-bottom: 12px; }
+  .plain-box p:last-of-type { margin-bottom: 0; }
+  .plain-box ul { margin: 14px 0 0 20px; }
+  .plain-box li { font-size: 15px; color: var(--ink-dim); margin-bottom: 8px; }
+  .plain-box li strong { color: var(--ink); }
+
+  article { padding: 8px 0 40px; }
+
+  section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-num {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 8px;
+  }
+
+  h2 { font-family: var(--serif); font-weight: 700; font-size: 25px; margin-bottom: 16px; scroll-margin-top: 24px; }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 18px; margin: 26px 0 10px; }
+
+  p { margin-bottom: 16px; color: var(--ink); font-size: 15.5px; }
+  ul { margin: 0 0 18px 22px; }
+  li { margin-bottom: 10px; font-size: 15.5px; color: var(--ink); }
+  strong { color: var(--ink); font-weight: 600; }
+  em { color: var(--rust); font-style: italic; }
+
+  .data-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    margin: 24px 0;
+  }
+  .data-strip .cell { background: var(--paper-card); padding: 18px 14px; text-align: center; }
+  .data-strip .cell .n { font-family: var(--serif); font-size: 24px; color: var(--rust); font-weight: 700; }
+  .data-strip .cell .l { font-family: var(--mono); font-size: 10.5px; color: var(--ink-dimmer); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  @media (max-width: 560px) { .data-strip { grid-template-columns: 1fr; } }
+
+  .callout {
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 20px 0;
+    font-size: 15px;
+  }
+  .callout-finding { background: rgba(192, 87, 46, 0.08); border-left: 3px solid var(--rust); }
+  .callout-related { background: rgba(58, 95, 125, 0.08); border-left: 3px solid var(--blue); }
+  .callout-note { background: rgba(46, 95, 90, 0.08); border-left: 3px solid var(--teal); }
+  .callout-label {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 8px; display: block;
+  }
+  .callout-finding .callout-label { color: var(--rust); }
+  .callout-related .callout-label { color: var(--blue); }
+  .callout-note .callout-label { color: var(--teal); }
+  .callout p { margin-bottom: 0; font-size: 15px; color: var(--ink); }
+  .callout p + p { margin-top: 10px; }
+
+  .quote {
+    font-family: var(--serif-body); font-style: italic; font-size: 17px; color: var(--ink-dim);
+    border-left: 3px solid var(--amber); padding-left: 20px; margin: 22px 0;
+  }
+  .quote cite {
+    display: block; font-family: var(--mono); font-style: normal; font-size: 11.5px;
+    color: var(--ink-dimmer); margin-top: 8px;
+  }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0; border: 1px solid var(--border); background: var(--paper-card); }
+  .compare-table th, .compare-table td { padding: 14px 16px; text-align: left; font-size: 14.5px; vertical-align: top; border-bottom: 1px solid var(--border); }
+  .compare-table th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--header-text); background: var(--header-bg); }
+  .compare-table th.public-col { color: var(--amber); }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td.check { color: var(--teal); font-weight: 600; }
+  .compare-table td.cross { color: var(--rust); font-weight: 600; }
+  @media (max-width: 560px) { .compare-table { font-size: 13px; } .compare-table th, .compare-table td { padding: 10px 10px; } }
+
+  details.sources { margin: 40px 0 20px; }
+  details.sources summary {
+    cursor: pointer; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--rust); list-style: none; padding: 4px 0;
+  }
+  details.sources summary::-webkit-details-marker { display: none; }
+  details.sources summary::before { content: '\25B8 '; }
+  details.sources[open] summary::before { content: '\25BE '; }
+  details.sources ol { margin: 16px 0 0 20px; color: var(--ink-dim); font-size: 13.5px; }
+  details.sources li { margin-bottom: 10px; }
+  details.sources a { word-break: break-word; }
+
+  footer {
+    padding: 32px 0 60px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .band { padding: 30px 0 26px; }
+    section { padding: 30px 0; }
+    .plain-box { padding: 20px 20px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="breadcrumb wrap"><a href="index.html">&larr; The Great Salt Lake Docket</a></div>
+
+<div class="band">
+  <div class="wrap">
+    <div class="eyebrow">Case File &middot; Statewide</div>
+    <h1>One Lake, Two Councils, and One That Calls Itself Private</h1>
+    <p class="dek">Utah built a public council to advise on the Great Salt Lake — and a second council, reviewing the same public money, whose own bylaws call it private.</p>
+
+    <div class="meta-row">
+      <div class="meta-item"><strong>Governing statute:</strong> H.B. 343 (2010) / Utah Code &sect;65A-16-301, &sect;73-32-201, &sect;73-32-304</div>
+      <div class="meta-item"><strong>Bodies:</strong> GSL Advisory Council (DEQ) / GSL Trust Council (DNR)</div>
+      <div class="meta-item"><strong>Updated:</strong> September 2026</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <nav class="jumplinks">
+    <button data-scroll-to="new-here">New Here?</button>
+    <button data-scroll-to="split">The Split</button>
+    <button data-scroll-to="money">The Two Money Pots</button>
+    <button data-scroll-to="bylaws">What the Bylaws Say</button>
+    <button data-scroll-to="hawkes">Built It, Then Reviewed It</button>
+    <button data-scroll-to="exemption">The Exemption</button>
+    <button data-scroll-to="missing">What the Record Doesn't Show</button>
+    <button data-scroll-to="questions">Questions Worth Asking</button>
+    <button data-scroll-to="sources-anchor">Sources</button>
+  </nav>
+
+  <div class="plain-box" id="new-here">
+    <div class="plain-label">New Here? Start With This</div>
+    <h2>The short version</h2>
+    <p>Utah has two councils working on the Great Salt Lake. One is a public body, created by statute, with meeting notices and materials posted where the public can find them. The other reviews how a state commissioner spends public money on the lake — and its own bylaws describe it as a private entity, not subject to Utah's open-meetings law the way the first council is.</p>
+    <p>Both councils touch the same lake and, in different ways, the same public dollars: roughly $12.5 million appropriated for the commissioner's own projects, and roughly $40 million set aside for a separate water-acquisition fund the Trust Council reviews directly. The two pots are kept explicitly separate in statute — but one council can see both, and the public can reliably see only one.</p>
+    <p>One of the people who sat on the private council for years also wrote the 2022 bill that first created the public money pot he'd later help review — a detail that isn't disclosed anywhere in the Trust Council's own public-facing materials. As of this writing, he currently chairs the <em>public</em> council, too.</p>
+    <ul>
+      <li><strong>What it is:</strong> Two Great Salt Lake governance bodies — one statutory and public (Advisory Council), one described in its own bylaws as private (Trust Council) — with different transparency obligations despite overlapping public funding.</li>
+      <li><strong>Who's involved:</strong> The Great Salt Lake Commissioner's office, the Great Salt Lake Trust, and a network of legislators who sponsored the underlying funding bills.</li>
+      <li><strong>What's at stake:</strong> Whether roughly $52.5 million in combined public and pledged funding is spent under a transparency standard the public can actually verify.</li>
+      <li><strong>What's unresolved:</strong> Whether the Trust Council's meeting records exist somewhere non-public, and how often the commissioner's built-in conflict of interest has actually been waived, and on what record.</li>
+    </ul>
+  </div>
+
+  <article>
+
+    <div class="data-strip">
+      <div class="cell"><div class="n">$40M</div><div class="l">Trust-reviewed fund</div></div>
+      <div class="cell"><div class="n">$12.5M</div><div class="l">Commissioner's own fund</div></div>
+      <div class="cell"><div class="n">0</div><div class="l">Public Trust Council notices found</div></div>
+    </div>
+
+    <section id="split" style="padding-top:8px; border-top:none;">
+      <div class="section-num">01</div>
+      <h2>Two Councils, One Lake</h2>
+      <p>The Great Salt Lake Advisory Council is a statutory public body, created by H.B. 343 (2010) and housed under the Department of Environmental Quality. It advises state leaders on balancing lake health, use, and development, and its meeting materials are posted where the public can find them — including its own listing on Utah's official public meeting notice site, plus independent observer coverage from the Salt Lake Tribune's "Water Documenters" project and a record of routinely published minutes.</p>
+      <p>The Great Salt Lake Trust Council reviews major Trust expenditures and water purchase and lease proposals — spending decisions, not just advice. One structural note worth being precise about: the "Trust" itself (the Great Salt Lake Watershed Enhancement Trust, which actually holds and spends the $40 million) is a cooperative arrangement between the National Audubon Society and The Nature Conservancy, selected by the state's land agency (FFSL) in 2022. The "Trust Council" is a separate nine-member body — plus the Commissioner as a voting member — that reviews what the Trust does. Both "Trust" and "Trust Council" describe themselves as private entities, not government bodies. A search of the Trust's own website and a targeted search of Utah's public meeting notice site both turned up no public meeting archive for the Trust Council — stated here as "not found," not "doesn't exist," since FFSL may hold copies through its grant agreement with the Trust that simply aren't publicly indexed.</p>
+
+      <table class="compare-table">
+        <tr>
+          <th>Great Salt Lake Advisory Council</th>
+          <th class="public-col">Great Salt Lake Trust Council</th>
+        </tr>
+        <tr><td>Statutory public body</td><td>Bylaws describe it as a private entity</td></tr>
+        <tr><td>Advises state leaders</td><td>Reviews major Trust expenditures</td></tr>
+        <tr><td>Balances lake health, use &amp; development</td><td>Reviews water purchase &amp; lease proposals</td></tr>
+        <tr><td class="check">Public meeting materials available</td><td class="cross">No public meeting archive found</td></tr>
+      </table>
+
+      <div class="callout callout-note">
+        <span class="callout-label">Why this matters</span>
+        <p>Both councils touch the same lake and, indirectly, the same public appropriations. Only one of them is built to let the public follow how those decisions get made.</p>
+      </div>
+    </section>
+
+    <section id="money">
+      <div class="section-num">02</div>
+      <h2>The Two Money Pots</h2>
+      <p>The commissioner's office operates under a roughly $12.5 million appropriation created by H.B. 491 (2023). A separate $40 million was appropriated through H.B. 410 (2022) into a water-acquisition fund the Trust administers. Statute keeps the two pots explicitly separate — but the Trust Council's own dual role means it reviews both: it approves Major Expenditures out of the $40 million fund, and it separately reviews the commissioner's own project requests drawn from the $12.5 million appropriation.</p>
+      <p>That second role creates a built-in conflict the commissioner's own governing framework acknowledges: when the commissioner brings a funding request to the Trust Council, the commissioner has an automatic conflict of interest on that specific vote. The framework exists on paper. Whether it has actually been triggered, disclosed, and handled on a documented record — and how often — is not addressed anywhere in the record reviewed for this piece.</p>
+      <p>H.B. 520 (2025) later restructured the commissioner's office to sit under the Department of Natural Resources, adding a conflict-of-interest disclosure requirement carrying a statutory penalty — a class B misdemeanor plus a $100 fine for noncompliance. A penalty existing on paper is not, by itself, evidence of enforcement in practice; this project has repeatedly found incomplete conflict-of-interest disclosures elsewhere in Utah government go unaddressed. Whether this particular requirement is being checked for completeness is an open question, not an assumption either way.</p>
+    </section>
+
+    <section id="bylaws">
+      <div class="section-num">03</div>
+      <h2>What the Bylaws Say About Themselves</h2>
+      <p>The Trust Council's own restated bylaws — adopted July 2, 2025 to implement H.B. 520, replacing bylaws first adopted March 13, 2023 as the "Trust Advisory Council" — state plainly that <em>"[the Trust and the Trust Council] are private entities and are not public entities"</em> (Article IV.5), not political subdivisions of the state and not governmental nonprofits.</p>
+      <p>The bylaws give the Chair or any member the ability to close a meeting to the public "for any reason," with no motion required and no debate allowed on the request. Votes taken in a closed session stay undisclosed unless every member present at that session agrees unanimously to disclose them — and even then, disclosure can't violate a non-disclosure agreement already in place. Members may also individually mark any outside communication about Trust business as confidential, binding the Chair and other members not to share it.</p>
+      <p>The bylaws state the automatic conflict of interest in plain terms — the Commissioner is deemed to have a conflict of interest on every single Commissioner Project, without exception or case-by-case review (Article VII.14.c). Appointed members face a narrower conflict standard tied to direct financial benefit or impaired impartiality, and can have that conflict waived by a majority vote of the Council itself.</p>
+      <p>"Major Expenditure" — the threshold that triggers the Council's review — is defined precisely: a project or program using $250,000 or more of the $40 million state grant money, the Trust's own annual operating budget if it exceeds $700,000, or professional consulting costs above $350,000 in a year. A quorum is five members, and Major Expenditures require a minimum of five votes to pass — meaning, in practice, near-unanimous support from whoever shows up.</p>
+      <div class="callout callout-note">
+        <span class="callout-label">On sourcing</span>
+        <p>Everything above is drawn directly from the restated bylaws document itself (linked in Sources), not a secondhand description.</p>
+      </div>
+      <p>The Trust's own materials describe a real rationale for some of this: the Council's work includes accepting donated water rights — a Church of Jesus Christ of Latter-day Saints donation has already occurred — alongside philanthropic pledges from groups including Great Salt Lake Rising and Ducks Unlimited that, combined, reportedly exceed $100 million on top of the state's $40 million appropriation. The Trust is reportedly working to become its own 501(c)(3) so it can receive tax-deductible donations alongside state money — a status a government agency itself can't hold. That rationale explains withholding details of pending, unfinished negotiations. It doesn't, on its own, explain closing routine business or withholding vote outcomes after a deal is done.</p>
+      <p>The record does show at least one instance of outside oversight reaching the Trust: in October 2023, Utah's Natural Resources Appropriations Subcommittee publicly questioned Trust officials about the $40 million fund and where the acquired water stood, after about $1.3 million had been spent and roughly 64,000 acre-feet secured at that point, per Fox13's coverage. Noted here as a fairness check — the Legislature has, at least once, done the kind of oversight this piece is asking about.</p>
+    </section>
+
+    <section id="hawkes">
+      <div class="section-num">04</div>
+      <h2>Built the Account, Then Reviewed It — On Both Councils</h2>
+      <p>Timothy D. Hawkes represented Utah House District 18 from 2015 to 2023. In 2022, as chief sponsor, he ran H.B. 157, "Sovereign Lands Revenue Amendments" — the bill that created the original Great Salt Lake Account (then &sect;65A-5-1.5, later expanded and renumbered to &sect;73-32-304 by H.B. 491). Mike Schultz and Casey Snider — both figures already documented elsewhere in this project's Great Salt Lake reporting — cosponsored that 2022 bill.</p>
+      <p>As introduced, H.B. 157 appropriated no money into the account it created; it was funded only by future mineral-royalty income until H.B. 491 brought real General Fund money into it the year after Hawkes left office.</p>
+      <p>Hawkes's own 2018 legislator conflict-of-interest disclosure lists him as General Counsel to the Great Salt Lake Brine Shrimp Cooperative; the Trust's own materials consistently list his Trust Council seat under a differently named entity, Great Salt Lake Artemia — confirmed independently on both the Trust's roster page and in a quote attributed to him in its Five-Year Strategy document. Whether that's a renamed or successor entity to the one in his 2018 disclosure, or a separate affiliation entirely, isn't established here — noted as a naming discrepancy worth checking further, not resolved. In February 2023, "Tim Hawks, Vice Chair, Great Salt Lake Brine Shrimp Cooperative," testified in favor of H.B. 491 — the bill that funded the account he had created five years earlier — at its House committee hearing. He was appointed to the Trust's Advisory Council that same year. The Trust Council's own July 2, 2025 vote record — the roll call attached to the restated bylaws — shows Hawkes voting yes in person while also casting proxy votes on behalf of two other members, Thomas Wright (Ducks Unlimited) and Tim Brown (Tracy Aviary), who were both absent. Four other members that day voted by proxy or in combination as well, per the same record.</p>
+      <p>Hawkes isn't the only person holding a seat on both councils. Joe Havasi holds the Trust Council's "Mineral Extraction" seat, representing Compass Minerals — and also holds the public Advisory Council's "Extractive Industry" seat, per the DEQ roster. Two industry-affiliated seats, on two councils with very different transparency obligations, held by two people who each sit on both bodies at once.</p>
+      <p>Separately from the Trust Council, Hawkes also sits on the <strong>public</strong> Great Salt Lake Advisory Council — the statutory body created by H.B. 343 (2010) and housed under the Department of Environmental Quality — where the state's own roster currently lists him as <strong>Chair</strong>, appointed to represent the "Aquaculture" seat. That's a separate body from the Trust Council with a separate creating statute, separate housing agency (DEQ, not DNR), and a separate membership process (governor-appointed, one seat per interest category). The same person leading the public council that advises on lake policy also has a seat on the private council that reviews how lake money gets spent — two different vantage points on the same set of decisions.</p>
+      <p>The Advisory Council's own roster also lists <strong>Gage Froerer</strong>, holding the Weber County seat — a name that appears extensively elsewhere in this project's Weber County reporting, including his conflict-of-interest disclosure history and his recusal record on a separate Ogden Valley development. His presence here is noted for cross-reference; nothing in the public Advisory Council record reviewed for this piece ties that separate history to his role on this council.</p>
+      <div class="callout callout-finding">
+        <span class="callout-label">Key Finding</span>
+        <p>The same person authored the statute creating the Great Salt Lake Account, testified in favor of expanding it while affiliated with an industry group that draws water from the lake, sat on — and cast proxy votes within — the private body reviewing how that expanded account gets spent, and currently chairs the public council that's supposed to advise on the lake independently of that spending body. One person, both seats — and he isn't the only one holding a seat on both councils.</p>
+      </div>
+    </section>
+
+    <section id="exemption">
+      <div class="section-num">05</div>
+      <h2>The Exemption's Real Scope</h2>
+      <p>H.B. 491 included a GRAMA records exemption, now &sect;63G-2-305(86), effective July 1, 2023 — part of the bill as introduced, not added later in a substitute. Its language closely tracks a pre-existing exemption, &sect;63G-2-305(82), that protects Colorado River interstate water-claim records specifically when Utah is negotiating with another state or the federal government.</p>
+      <p>H.B. 491 applies that same template to an entirely intrastate situation. The Great Salt Lake has no other-state or federal counterparty the way Colorado River claims do — so the "other party" in a Great Salt Lake negotiation is far more likely to be a private Utah water-right holder or company than a sovereign government. That's the exemption's real weakness: it borrows justification designed for interstate negotiation and applies it where that justification mostly doesn't fit.</p>
+    </section>
+
+    <section id="missing">
+      <div class="section-num">06</div>
+      <h2>What the Record Doesn't Show</h2>
+      <ul>
+        <li>Whether the state's land agency holds Trust Council minutes or agendas through its grant agreement that simply aren't publicly indexed.</li>
+        <li>Whether the commissioner's required annual expenditure report to the Legislature's Executive Appropriations Committee has actually been produced and reconciled.</li>
+        <li>Who requested the 2025 H.B. 520 restructuring, and what lawmakers were told about why.</li>
+        <li>How often the commissioner's built-in conflict of interest has actually been waived by the Trust Council, and on what documented record.</li>
+        <li>Water-delivery measurements — acre-feet actually delivered per funding stream, and cost per acre-foot, across both money pots.</li>
+      </ul>
+      <p>Five straightforward questions. None of them require anything beyond records the public bodies involved should already have on hand.</p>
+    </section>
+
+    <section id="questions">
+      <div class="section-num">07</div>
+      <h2>Questions Worth Asking</h2>
+      <p>For readers who want to press further — questions worth putting directly to the officials and bodies involved:</p>
+      <ol>
+        <li>Where can the public find minutes or an agenda for the next Great Salt Lake Trust Council meeting — and if they can't, who is the right person to ask?</li>
+        <li>Has the Commissioner's automatic conflict of interest on Commissioner Projects ever been waived by the Trust Council, and is that vote recorded anywhere the public can see it?</li>
+        <li>Why do the same individuals hold seats on both the public Advisory Council and the private Trust Council, and does either body see that as worth addressing?</li>
+        <li>Has FFSL ever used its authority to review a Trust Council decision, and what came of it?</li>
+        <li>Does the GRAMA exemption at §63G-2-305(86) — modeled on language written for interstate Colorado River negotiations — still make sense applied to an intrastate situation like Great Salt Lake?</li>
+      </ol>
+    </section>
+
+    <details class="sources" id="sources-anchor">
+      <summary>Sources &amp; Documents</summary>
+      <ol>
+        <li>H.B. 491 (2023), "Great Salt Lake Amendments" — enrolled text, introduced version, and third substitute (comparison reviewed)</li>
+        <li>H.B. 520 (2025), full enrolled text — restructuring the Great Salt Lake Commissioner's office under the Department of Natural Resources</li>
+        <li>Utah Code &sect;73-32-201, &sect;73-32-202, &sect;73-32-304 (current)</li>
+        <li>Utah Code &sect;63G-2-305(86) and &sect;63G-2-305(82) (GRAMA exemptions, compared)</li>
+        <li>Great Salt Lake Trust Council, restated bylaws (Resolution No. 2025-01), adopted July 2, 2025, implementing H.B. 520 — full document reviewed, including the July 2, 2025 roll-call vote record — <a href="https://www.gslwatertrust.org/s/Restated-GSLWET-Trust-Council-Bylaws-Adopted-7-2-2025.pdf" target="_blank" rel="noopener">gslwatertrust.org</a></li>
+        <li>Great Salt Lake Watershed Enhancement Trust, "About" and "Trust Council" pages, gslwatertrust.org — confirms the Trust (Audubon/TNC cooperative agreement, selected by FFSL June 2, 2022) is a separate entity from the Trust Council; full Trust Council roster with names and affiliations</li>
+        <li>H.B. 410 (2022), bill page confirming Ch. 78/2022 appropriation</li>
+        <li>H.B. 157 (2022), "Sovereign Lands Revenue Amendments" — enrolled text, introduced version, and S01 substitute comparison</li>
+        <li>House Revenue and Taxation Committee vote record, H.B. 157, Jan. 24, 2022</li>
+        <li>Timothy D. Hawkes, Legislator Conflict of Interest Disclosure, 2018</li>
+        <li>Salt Lake Tribune, coverage of Hawkes's 2023 Trust Advisory Council appointment</li>
+        <li>H.B. 343 (2010), the Great Salt Lake Advisory Council's creating legislation</li>
+        <li>Utah DEQ, Great Salt Lake Advisory Council roster and program page, deq.utah.gov — lists Timothy Hawkes as current Chair (Aquaculture seat), Gage Froerer as the Weber County seat holder, and Joe Havasi as the Extractive Industry seat holder</li>
+        <li>Fox13, coverage of the October 2023 Natural Resources Appropriations Subcommittee hearing on Trust fund spending</li>
+        <li>Utah's official public meeting notice site (utah.gov/pmn) — Advisory Council listing confirmed; targeted search for Trust Council listing returned no results</li>
+        <li>Great Salt Lake Trust / gslwatertrust.org — site search for public meeting records</li>
+      </ol>
+    </details>
+
+  </article>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; width:100%;">
+    <span><a href="index.html">&larr; The Great Salt Lake Docket</a></span>
+    <span>&copy; 2026 The Weber County Hive</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('button[data-scroll-to]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-scroll-to');
+      var target = document.getElementById(id);
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+</script>
+
+</body>
+</html>
