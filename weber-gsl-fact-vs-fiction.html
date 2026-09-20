@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSL Fact vs. Fiction: What They Say vs. What the Data Says | The Weber County Hive</title>
+<style>
+  :root {
+    --cream: #F4EFE4;
+    --paper: #EDE7D8;
+    --charcoal: #2B2B28;
+    --charcoal-deep: #1C1C1A;
+    --amber: #C9A227;
+    --amber-bright: #E0B93A;
+    --line: #D8D0BC;
+    --red: #9A3324;
+    --green: #3F6B3F;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.6;
+  }
+  .top-bar {
+    background: var(--charcoal-deep);
+    color: var(--cream);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .top-bar a { color: var(--amber-bright); text-decoration: none; }
+  .case-label { color: var(--amber-bright); font-weight: bold; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+  .eyebrow { font-family: 'Courier New', Courier, monospace; font-size: 13px; color: var(--amber); margin-bottom: 10px; }
+  .pub-date { font-family: 'Courier New', Courier, monospace; font-size: 11.5px; color: #8a8578; margin: -6px 0 20px; }
+  h1 { font-size: 2.2rem; line-height: 1.25; margin: 0 0 18px; color: var(--charcoal-deep); }
+  .dek { font-size: 1.15rem; color: #4a4a45; border-left: 3px solid var(--amber); padding-left: 16px; margin: 0 0 32px; font-style: italic; }
+  .new-here { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 16px 20px; font-size: 0.95rem; margin-bottom: 36px; }
+  .new-here strong { color: var(--charcoal-deep); }
+  nav.jump {
+    display: flex; flex-wrap: wrap; gap: 10px 18px;
+    font-family: 'Courier New', Courier, monospace; font-size: 13px;
+    margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--line);
+  }
+  nav.jump a { color: var(--charcoal); text-decoration: none; border-bottom: 1px dotted var(--amber); }
+  nav.jump a:hover { color: var(--amber); }
+  section { margin-bottom: 48px; }
+  h2 { font-size: 1.5rem; color: var(--charcoal-deep); border-bottom: 2px solid var(--amber); padding-bottom: 8px; margin-bottom: 20px; }
+  h3 { font-size: 1.1rem; color: var(--charcoal-deep); margin: 24px 0 10px; }
+  ul.facts { list-style: none; margin: 0; padding: 0; }
+  ul.facts li { position: relative; padding-left: 22px; margin-bottom: 14px; }
+  ul.facts li::before { content: "—"; position: absolute; left: 0; color: var(--amber); }
+
+  .claim-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px 24px;
+    margin: 8px 0 8px;
+  }
+  .claim-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: #6b6b64;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .claim-text {
+    font-size: 1.08rem;
+    font-style: italic;
+    color: var(--charcoal-deep);
+    margin-bottom: 16px;
+  }
+  .verdict {
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .verdict-partial { background: rgba(201, 162, 39, 0.18); color: #7a5f10; border: 1px solid rgba(201, 162, 39, 0.5); }
+  .verdict-supported { background: rgba(63, 107, 63, 0.15); color: var(--green); border: 1px solid rgba(63, 107, 63, 0.4); }
+  .verdict-unsupported { background: rgba(154, 51, 36, 0.12); color: var(--red); border: 1px solid rgba(154, 51, 36, 0.4); }
+  .claim-card .data-says { font-size: 0.98rem; }
+  .claim-card .data-says strong.lead { color: var(--charcoal-deep); }
+
+  .interactive {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px 22px 26px;
+    margin: 8px 0 36px;
+  }
+  .interactive h3 { font-size: 1.05rem; margin: 0 0 4px; color: var(--charcoal-deep); }
+  .interactive .sub { font-family: 'Courier New', Courier, monospace; font-size: 12px; color: #6b6b64; margin: 0 0 18px; }
+
+  .tl-wrap { position: relative; margin-top: 8px; }
+  .tl-wrap svg { display: block; width: 100%; height: auto; }
+  .tl-line { stroke: var(--line); stroke-width: 2; }
+  .tl-dot { fill: var(--cream); stroke: var(--amber); stroke-width: 2.5; cursor: pointer; }
+  .tl-dot.active { fill: var(--amber-bright); stroke: var(--charcoal-deep); }
+  .tl-dot.diversion { stroke: var(--red); }
+  .tl-dot.diversion.active { fill: #d98a78; stroke: var(--red); }
+  .tl-dot.restoration { stroke: var(--green); }
+  .tl-dot.restoration.active { fill: #9fc79f; stroke: var(--green); }
+  .tl-year-label { font-family: 'Courier New', Courier, monospace; font-size: 10.5px; fill: #6b6b64; }
+  .tl-detail {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 16px 18px;
+    margin-top: 16px;
+    min-height: 70px;
+  }
+  .tl-detail .tl-detail-year {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: var(--charcoal-deep);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .tl-legend {
+    display: flex; gap: 18px; flex-wrap: wrap;
+    font-family: 'Courier New', Courier, monospace; font-size: 11px; color: #6b6b64;
+    margin-top: 14px;
+  }
+  .tl-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .tl-legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; border: 2px solid; }
+  .tl-legend .dot.d { border-color: var(--red); background: var(--cream); }
+  .tl-legend .dot.r { border-color: var(--green); background: var(--cream); }
+  .tl-legend .dot.n { border-color: var(--amber); background: var(--cream); }
+
+  .bar-wrap { position: relative; margin-top: 8px; }
+  .bar-wrap svg { display: block; width: 100%; height: auto; }
+  .b-track { fill: var(--cream); stroke: var(--line); stroke-width: 1; }
+  .b-bar { cursor: pointer; transition: fill-opacity 0.1s; }
+  .b-bar:hover, .b-bar.hover { fill-opacity: 0.85; }
+  .b-label { font-family: Georgia, serif; font-size: 12px; fill: var(--charcoal); }
+  .b-value { font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: bold; fill: var(--charcoal-deep); }
+  .b-tooltip {
+    position: absolute; pointer-events: none; background: var(--charcoal-deep); color: var(--cream);
+    font-family: 'Courier New', Courier, monospace; font-size: 11.5px; padding: 8px 10px; border-radius: 3px;
+    line-height: 1.5; opacity: 0; transition: opacity 0.1s; z-index: 5; max-width: 260px; white-space: normal;
+  }
+  .map-caption { font-size: 0.82rem; color: #6b6b64; padding: 10px 4px 0; font-style: italic; }
+
+  .callout { background: var(--paper); border-left: 4px solid var(--amber); padding: 18px 20px; margin: 28px 0; font-size: 1rem; }
+  .callout p:last-child { margin-bottom: 0; }
+  .bridge-link { background: var(--charcoal-deep); color: var(--cream); border-radius: 4px; padding: 24px 22px; margin: 8px 0 20px; }
+  .bridge-link .tag { font-family: 'Courier New', Courier, monospace; font-size: 12px; color: var(--amber-bright); display: block; margin-bottom: 10px; }
+  .bridge-link a { color: var(--amber-bright); font-size: 1.05rem; font-weight: bold; text-decoration: none; }
+  .bridge-link a:hover { text-decoration: underline; }
+  .bridge-link p { color: #d8d2c2; margin-top: 10px; font-size: 0.95rem; }
+
+  details.sources { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 20px; }
+  details.sources summary { cursor: pointer; font-family: 'Courier New', Courier, monospace; font-size: 13px; color: var(--charcoal-deep); font-weight: bold; letter-spacing: 0.02em; }
+  .sources ol { padding-left: 20px; font-size: 0.92rem; }
+  .sources li { margin-bottom: 10px; }
+  .sources a { color: var(--charcoal-deep); }
+
+  footer.pagefoot {
+    max-width: 760px; margin: 0 auto; padding: 0 24px 48px; display: flex; justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace; font-size: 12px; color: #6b6b64; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span><a href="index.html">GREAT SALT LAKE &middot; CASE DOCKET</a></span>
+  <span class="case-label">FACT VS. FICTION</span>
+</div>
+
+<main>
+  <div class="eyebrow">Fact vs. Fiction &middot; A recurring series checking public claims against the record</div>
+  <p class="pub-date">Published Sept. 20, 2026 &middot; Updated Sept. 20, 2026</p>
+  <h1>GSL Fact vs. Fiction: What They Say vs. What the Data Says</h1>
+  <p class="dek">A lot gets said about the Great Salt Lake — in press releases, on the campaign trail, in Facebook comments. This is the first entry in an ongoing series holding those claims up against the state's own numbers, one claim at a time. First up: are water diversions actually slowing down, or is Utah drawing more than ever?</p>
+
+  <div class="new-here">
+    <strong>New here?</strong> This is a companion to <a href="weber-gsl-did-you-know.html">Did You Know? The Great Salt Lake, From 1847 to Today</a> and <a href="weber-gsl-life-of-the-lake.html">The Life of the Great Salt Lake</a>. Those two cover the basics; this one is a running fact-check log, starting with the single most common claim about the lake's decline.
+  </div>
+
+  <nav class="jump">
+    <a href="#claim1">Claim #1</a>
+    <a href="#timeline">The Timeline</a>
+    <a href="#breakdown">Who's Using the Water</a>
+    <a href="#more">More to Check</a>
+    <a href="#sources">Sources</a>
+  </nav>
+
+  <section id="claim1">
+    <h2>Claim #1: "They're not really stopping diversions — they're drawing more than ever."</h2>
+
+    <div class="claim-card">
+      <div class="claim-label">The claim, as it's commonly made</div>
+      <p class="claim-text">"Despite all the talk about saving the Great Salt Lake, the state hasn't actually reduced how much water gets diverted before it reaches the lake — if anything, more is being taken out than ever before."</p>
+      <span class="verdict verdict-partial">Mostly supported — with an important addition</span>
+      <div class="data-says">
+        <p><strong class="lead">What the data says:</strong> Total water depletion from the Great Salt Lake's watershed is <strong>up, not down</strong> — the Kem C. Gardner Policy Institute's Great Salt Lake Strike Team found total basin-wide water depletion in the early 2020s ran about 5% higher than in the early 1990s. So the core of the claim checks out: diversions have not been reduced overall.</p>
+        <p>But the "who" has shifted. Agriculture's <em>share</em> of that use actually fell, from about 71% in the 1990s to about 65% in the 2020s — while municipal and industrial use grew from about 24% to about 27% of the total, driven almost entirely by outdoor residential watering (97% of municipal water use in 2024 was outdoor, per the same report). Lawn and landscape watering alone now accounts for roughly 408,500 acre-feet a year — about a quarter of all agricultural water use in the basin, from a single category of municipal use.</p>
+        <p>The addition worth making: the state has also dramatically scaled up efforts to put water <em>back</em> into the lake in just the last few years — from about 18,000 acre-feet secured in 2021 to 163,468 acre-feet in the most recent year on record. That's a real, documented shift in effort. It just hasn't been enough yet to offset the growth in use elsewhere: the state's own target is at least 800,000 <em>additional</em> acre-feet a year to reach a minimum healthy elevation by 2034 — meaning current gains cover roughly a fifth of what's still needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <h2>The Timeline: 179 Years of Taking Water Out, a Few Years of Putting It Back</h2>
+    <p>Diverting water from the rivers that feed the Great Salt Lake didn't start with data centers or lithium mines — it started with the first irrigation ditches in 1847. Click through the timeline to see how that history led to today's numbers.</p>
+
+    <div class="interactive">
+      <h3>Diversion &amp; Restoration Timeline, 1847&ndash;2026</h3>
+      <p class="sub">Click a point for detail &middot; red = diversion/development, green = restoration effort, amber = data point or governance change</p>
+      <div class="tl-wrap">
+        <svg viewBox="0 0 600 90" role="img" aria-labelledby="tlTitle tlDesc">
+          <title id="tlTitle">Timeline of Great Salt Lake basin water diversion and restoration events, 1847 to 2026</title>
+          <desc id="tlDesc">An interactive timeline from 1847 to 2026 showing major water diversion development, governance changes, and recent restoration efforts affecting the Great Salt Lake.</desc>
+          <line x1="30" y1="45" x2="570" y2="45" class="tl-line"></line>
+          <g id="tlDots"></g>
+        </svg>
+        <div class="tl-detail" id="tlDetail">
+          <span class="tl-detail-year">Click a point above</span>
+          <span id="tlDetailText">Each point marks a documented milestone in the basin's water-diversion or restoration history.</span>
+        </div>
+        <div class="tl-legend">
+          <span><span class="dot d"></span> Diversion / development</span>
+          <span><span class="dot r"></span> Restoration effort</span>
+          <span><span class="dot n"></span> Data point / governance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="breakdown">
+    <h2>Who's Actually Using the Water</h2>
+    <p>The clearest way to see the shift the data describes is side by side: the 1990s breakdown against the 2020s breakdown of where basin water depletions go.</p>
+
+    <div class="interactive">
+      <h3>Share of Basin Water Depletions, By Decade</h3>
+      <p class="sub">Hover or tap a bar for sourcing</p>
+      <div class="bar-wrap">
+        <svg viewBox="0 0 600 200" role="img" aria-labelledby="shareTitle shareDesc">
+          <title id="shareTitle">Agricultural vs. municipal and industrial share of Great Salt Lake basin water depletions, 1990s vs 2020s</title>
+          <desc id="shareDesc">A bar chart comparing agriculture's and municipal/industrial water use's share of total Great Salt Lake basin depletions between the 1990s and the 2020s.</desc>
+          <g id="shareBars"></g>
+        </svg>
+        <div class="b-tooltip" id="shareTooltip"></div>
+      </div>
+      <p class="map-caption">Figures from the Great Salt Lake Strike Team's 2026 Data and Insights Summary, comparing the first four years of each decade. Remaining share in both decades goes to mineral extraction, impounded wetlands, and reservoir evaporation.</p>
+    </div>
+
+    <ul class="facts">
+      <li>Indoor municipal water use has stayed roughly flat even as the population has grown — the increase is almost entirely outdoor watering.</li>
+      <li>Per-resident water use has mostly declined since 1989 due to conservation, but total municipal use has still risen because there are simply more residents.</li>
+      <li>None of this erases agriculture's role — it's still the largest single water user in the basin by a wide margin. The finding is that it's no longer the <em>whole</em> story, and hasn't been for a while.</li>
+    </ul>
+  </section>
+
+  <section id="more">
+    <h2>More Claims to Check</h2>
+    <p>This series will grow as more claims come up. On deck, pending sourcing:</p>
+    <ul class="facts">
+      <li><strong>"The Bear River Development pipeline would only cost the lake a small amount of water."</strong> The one specific project figure in the academic literature (Wurtsbaugh et al., 2016) put a completed Bear River pipeline at an additional 8.5-inch elevation drop and roughly 30 more square miles of exposed lakebed — worth checking against the project's current status and any newer estimates before treating either number as final.</li>
+      <li><strong>"Mineral extraction is a bigger water user than agriculture."</strong> Not supported by current data — mineral extractors account for roughly 7% of basin depletions combined, far behind agriculture's roughly two-thirds share (see the companion piece's mineral-extraction section for the named companies and figures).</li>
+    </ul>
+  </section>
+
+  <div class="bridge-link">
+    <span class="tag">GO DEEPER &middot; FULL CASE FILE</span>
+    <a href="weber-gsl-two-money-pots.html">One Lake, Two Money Pots, and a Council That Calls Itself Private &rarr;</a>
+    <p>The governance side of this same story: the public council and the private trust council that review how the state's water-restoration money gets spent.</p>
+  </div>
+
+  <div class="bridge-link">
+    <span class="tag">KEEP READING &middot; COMPANION EXPLAINERS</span>
+    <a href="weber-gsl-did-you-know.html">Did You Know? The Great Salt Lake, From 1847 to Today &rarr;</a>
+    <p>The lake's water-level history and the governance changes that followed the 2022 record low.</p>
+  </div>
+
+  <details class="sources" id="sources">
+    <summary>Sources &amp; Notes</summary>
+    <ol>
+      <li>Wayne A. Wurtsbaugh, Craig Miller, Sarah E. Null, Peter Wilcock, Maura Hahnenberger, and Frank Howe, <em>Impacts of Water Development on Great Salt Lake and the Wasatch Front</em>, Utah State University Watershed Sciences Faculty Publications (2016) — <a href="https://digitalcommons.usu.edu/cgi/viewcontent.cgi?article=1891&context=wats_facpub" target="_blank" rel="noopener">digitalcommons.usu.edu</a>. Source for the finding that consumptive water use reduced net river inflow to the lake by 39% over roughly 150 years, that the lake sits about 11 feet lower and has lost about 48% of its volume as a result, the sector breakdown (agriculture 63%/7.0 ft, mineral extraction 13%/1.4 ft, municipal and industrial 11%/1.3 ft, impounded wetlands 10%/1.1 ft, reservoir evaporation 3%/0.3 ft), and the projected Bear River Development pipeline impact (8.5-inch additional elevation drop, ~30 additional sq mi exposed).</li>
+      <li>Kem C. Gardner Policy Institute, Great Salt Lake Strike Team, <em>Great Salt Lake Data and Insights Summary</em> (Jan. 7, 2026, Version 1.0) — <a href="https://d36oiwf74r1rap.cloudfront.net/wp-content/uploads/2026/01/GSL-Jan2026.pdf" target="_blank" rel="noopener">gardner.utah.edu</a> (PDF). Source for the 1990s-vs-2020s sector breakdown (agriculture 71%&rarr;65%, municipal/industrial 24%&rarr;27%), the 5% overall increase in total basin depletion between those periods, the 408,500 acre-feet/year residential-lawn figure, and the water-leasing progress figures (18,000 acre-feet in 2021 vs. 163,468 acre-feet in the most recent year), and the 800,000-additional-acre-feet-per-year target for a healthy minimum elevation by 2034.</li>
+      <li>KSL.com, <em>5 lessons learned about the Great Salt Lake in 2025 outlined in new report</em> — <a href="https://www.ksl.com/article/51429437/5-lessons-learned-about-the-great-salt-lake-in-2025-outlined-in-new-report" target="_blank" rel="noopener">ksl.com</a>. Cross-referenced for the same Strike Team figures and confirmation that the municipal/industrial share increase reflects a real usage shift (attributed to residential growth and outdoor watering), not a change in measurement methodology.</li>
+      <li>Great Salt Lake Collaborative / Salt Lake Tribune, <em>Not just farms: New report shows where water from the shrinking Great Salt Lake is going</em> — <a href="https://greatsaltlakenews.org/latest-news/salt-lake-tribune/not-just-farms-new-report-shows-where-water-from-the-shrinking-great-salt-lake-is-going" target="_blank" rel="noopener">greatsaltlakenews.org</a>. Cross-referenced for the same 2026 Strike Team figures.</li>
+      <li>Utah Division of Water Resources, <em>Bear River</em> (interstate streams page) — <a href="https://water.utah.gov/interstate-streams/bear-river/" target="_blank" rel="noopener">water.utah.gov</a>. Source for the Bear River Compact's original signing (March 17, 1958, Utah/Wyoming/Idaho), its November 1997 amendment adding 74,500 acre-feet of storage capacity, the 1920 Dietrich Decree and 1922 Kimball Decree, and the 1991 Bear River Development Act.</li>
+      <li>U.S. Bureau of Reclamation, <em>Weber Basin Project</em> — <a href="https://www.usbr.gov/projects/index.php?id=408" target="_blank" rel="noopener">usbr.gov</a>. Source for the project's 1956&ndash;1969 construction period and its average annual delivery (166,000 acre-feet for irrigation, 50,000 acre-feet for municipal and industrial use).</li>
+      <li>Office of Gov. Spencer Cox, Proclamation 2022-01 (Nov. 3, 2022) — cited in this docket's own case files; source for the suspension of new water-right appropriations across most of the Great Salt Lake basin, still in effect as of this writing.</li>
+    </ol>
+  </details>
+</main>
+
+<footer class="pagefoot">
+  <span>webercountyhive.substack.com</span>
+  <span>Public records only &middot; No comment requested</span>
+</footer>
+
+<script>
+(function () {
+  var TIMELINE = [
+    { year: '1847', type: 'diversion', label: 'First irrigation ditches dug by Mormon pioneers from the Bear, Weber, and Jordan tributaries — the start of continuous upstream diversion, the same year the USGS elevation record for the lake begins.' },
+    { year: '1870s', type: 'diversion', label: 'Canal-building around Corinne and along the lower Bear River expands agricultural diversion of the Bear, the largest of the lake’s three tributary rivers.' },
+    { year: '1920', type: 'diversion', label: 'Dietrich Decree grants PacifiCorp rights to store water on the Bear River system, formalizing large-scale storage rights upstream of the lake.' },
+    { year: '1956–69', type: 'diversion', label: 'Weber Basin Project built (Willard Bay, Pineview, East Canyon, Lost Creek, Rockport, and Causey dams/reservoirs) — delivers an average of 166,000 acre-feet/year for irrigation and 50,000 acre-feet/year for municipal and industrial use.' },
+    { year: '1958', type: 'diversion', label: 'Bear River Compact signed by Utah, Wyoming, and Idaho, dividing the river and allocating storage rights among the three states.' },
+    { year: '1991', type: 'diversion', label: 'Bear River Development Act passed, authorizing the future pipeline project that remains proposed (not built) today.' },
+    { year: '1997', type: 'diversion', label: 'Bear River Compact amended, adding 74,500 acre-feet of additional storage capacity across the three states.' },
+    { year: '2016', type: 'data', label: 'USU study (Wurtsbaugh et al.) finds consumptive use has cut net river inflow to the lake by 39% over roughly 150 years, leaving it about 11 feet lower and 48% smaller by volume than it would otherwise be.' },
+    { year: '2021', type: 'restoration', label: 'Roughly 18,000 acre-feet of water secured for the lake through leases and transactions — the baseline against which recent gains are measured.' },
+    { year: '2022', type: 'data', label: 'Record low elevation (4,188.5 ft, Nov. 7); Gov. Cox issues Proclamation 2022-01 suspending most new water-right appropriations across the GSL basin.' },
+    { year: '2023', type: 'data', label: 'H.B. 491 creates the Great Salt Lake Commissioner position and a dedicated funding account in response to the record low.' },
+    { year: '2024', type: 'diversion', label: 'H.B. 453 nearly triples the mineral-extraction severance tax; state reporting around this period shows agriculture’s basin-wide depletion share falling to about 65% (from 71% in the 1990s) while municipal/industrial share rises to about 27% (from 24%), driven by outdoor residential watering.' },
+    { year: '2026', type: 'restoration', label: 'Strike Team’s January 2026 report: 163,468 acre-feet secured for the lake in the most recent year (up roughly 9x from 2021) — real progress, but total basin depletion is still about 5% higher than in the early 1990s, and the lake needs at least 800,000 more acre-feet/year to reach a healthy minimum by 2034.' }
+  ];
+
+  var tlDots = document.getElementById('tlDots');
+  var tlDetail = document.getElementById('tlDetail');
+  var tlDetailText = document.getElementById('tlDetailText');
+  if (tlDots) {
+    var x0 = 30, x1 = 570;
+    var n = TIMELINE.length;
+    TIMELINE.forEach(function (d, i) {
+      var cx = x0 + (i / (n - 1)) * (x1 - x0);
+      var cy = 45;
+
+      var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      dot.setAttribute('cx', cx);
+      dot.setAttribute('cy', cy);
+      dot.setAttribute('r', 7);
+      dot.setAttribute('class', 'tl-dot ' + d.type + (i === TIMELINE.length - 1 ? ' active' : ''));
+      dot.setAttribute('tabindex', '0');
+      dot.setAttribute('role', 'img');
+      dot.setAttribute('aria-label', d.year + ': ' + d.label);
+      dot.dataset.index = i;
+      tlDots.appendChild(dot);
+
+      var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', cx);
+      label.setAttribute('y', i % 2 === 0 ? cy - 16 : cy + 26);
+      label.setAttribute('text-anchor', 'middle');
+      label.setAttribute('class', 'tl-year-label');
+      label.textContent = d.year;
+      tlDots.appendChild(label);
+
+      function activate() {
+        Array.prototype.forEach.call(tlDots.querySelectorAll('.tl-dot'), function (c) {
+          c.classList.remove('active');
+        });
+        dot.classList.add('active');
+        tlDetail.querySelector('.tl-detail-year').textContent = d.year;
+        tlDetailText.textContent = d.label;
+      }
+      dot.addEventListener('click', activate);
+      dot.addEventListener('focus', activate);
+      dot.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { activate(); e.preventDefault(); } });
+    });
+    // init to last point
+    var last = TIMELINE[TIMELINE.length - 1];
+    tlDetail.querySelector('.tl-detail-year').textContent = last.year;
+    tlDetailText.textContent = last.label;
+  }
+
+  var SHARE = [
+    { label: '1990s — Agriculture', value: 71, valueText: '71%', color: '#8a8578', note: 'Agriculture’s share of total basin water depletions in the first four years of the 1990s, per the Great Salt Lake Strike Team’s 2026 report.' },
+    { label: '2020s — Agriculture', value: 65, valueText: '65%', color: '#4E7C8C', note: 'Agriculture’s share of total basin water depletions in the first four years of the 2020s — a falling share, though still the largest single use.' },
+    { label: '1990s — Municipal & Industrial', value: 24, valueText: '24%', color: '#c9b98a', note: 'Municipal and industrial water use’s share of total basin depletions in the early 1990s.' },
+    { label: '2020s — Municipal & Industrial', value: 27, valueText: '27%', color: '#C9A227', note: 'Municipal and industrial share in the early 2020s — a real increase, attributed almost entirely to outdoor residential watering (97% of municipal use in 2024).' }
+  ];
+
+  var shareG = document.getElementById('shareBars');
+  var shareTooltip = document.getElementById('shareTooltip');
+  if (shareG) {
+    var svg = shareG.closest('svg');
+    var sx0 = 230, sx1 = 585, sMax = 80;
+    var rowH = 40, rowGap = 6, sTop = 8;
+    function sxFor(v) { return sx0 + (v / sMax) * (sx1 - sx0); }
+
+    SHARE.forEach(function (d, i) {
+      var y = sTop + i * (rowH + rowGap);
+
+      var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', sx0 - 10);
+      label.setAttribute('y', y + rowH / 2 - 6);
+      label.setAttribute('text-anchor', 'end');
+      label.setAttribute('class', 'b-label');
+      label.textContent = d.label;
+      shareG.appendChild(label);
+
+      var track = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      track.setAttribute('x', sx0);
+      track.setAttribute('y', y);
+      track.setAttribute('width', sx1 - sx0);
+      track.setAttribute('height', rowH - 12);
+      track.setAttribute('class', 'b-track');
+      shareG.appendChild(track);
+
+      var bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      bar.setAttribute('x', sx0);
+      bar.setAttribute('y', y);
+      bar.setAttribute('width', Math.max(2, sxFor(d.value) - sx0));
+      bar.setAttribute('height', rowH - 12);
+      bar.setAttribute('fill', d.color);
+      bar.setAttribute('class', 'b-bar');
+      bar.setAttribute('tabindex', '0');
+      bar.setAttribute('role', 'img');
+      bar.setAttribute('aria-label', d.label + ': ' + d.valueText);
+      shareG.appendChild(bar);
+
+      var valText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      valText.setAttribute('x', sxFor(d.value) + 8);
+      valText.setAttribute('y', y + rowH / 2 - 6);
+      valText.setAttribute('class', 'b-value');
+      valText.textContent = d.valueText;
+      shareG.appendChild(valText);
+
+      function showTip(evt) {
+        shareTooltip.innerHTML = '<strong>' + d.label + '</strong> &middot; ' + d.valueText + '<br>' + d.note;
+        shareTooltip.style.opacity = '1';
+        positionTip(evt);
+      }
+      function positionTip(evt) {
+        var wrapRect = svg.parentElement.getBoundingClientRect();
+        var px = (evt.clientX !== undefined ? evt.clientX : wrapRect.left) - wrapRect.left;
+        var py = (evt.clientY !== undefined ? evt.clientY : wrapRect.top) - wrapRect.top;
+        shareTooltip.style.left = Math.max(4, Math.min(px - 60, wrapRect.width - 264)) + 'px';
+        shareTooltip.style.top = Math.max(0, py - 78) + 'px';
+      }
+      bar.addEventListener('mouseenter', showTip);
+      bar.addEventListener('mousemove', positionTip);
+      bar.addEventListener('mouseleave', function () { shareTooltip.style.opacity = '0'; });
+      bar.addEventListener('focus', showTip);
+      bar.addEventListener('blur', function () { shareTooltip.style.opacity = '0'; });
+    });
+
+    var viewH = sTop + SHARE.length * (rowH + rowGap) + 10;
+    svg.setAttribute('viewBox', '0 0 600 ' + viewH);
+  }
+})();
+</script>
+
+</body>
+</html>
