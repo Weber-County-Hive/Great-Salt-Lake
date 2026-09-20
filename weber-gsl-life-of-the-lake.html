@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Life of the Great Salt Lake: Birds, Brine, and Minerals | The Weber County Hive</title>
+<style>
+  :root {
+    --cream: #F4EFE4;
+    --paper: #EDE7D8;
+    --charcoal: #2B2B28;
+    --charcoal-deep: #1C1C1A;
+    --amber: #C9A227;
+    --amber-bright: #E0B93A;
+    --line: #D8D0BC;
+    --red: #9A3324;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.6;
+  }
+  .top-bar {
+    background: var(--charcoal-deep);
+    color: var(--cream);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .top-bar a {
+    color: var(--amber-bright);
+    text-decoration: none;
+  }
+  .case-label {
+    color: var(--amber-bright);
+    font-weight: bold;
+  }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .eyebrow {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .pub-date {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11.5px;
+    color: #8a8578;
+    margin: -6px 0 20px;
+  }
+  h1 {
+    font-size: 2.3rem;
+    line-height: 1.25;
+    margin: 0 0 18px;
+    color: var(--charcoal-deep);
+  }
+  .dek {
+    font-size: 1.15rem;
+    color: #4a4a45;
+    border-left: 3px solid var(--amber);
+    padding-left: 16px;
+    margin: 0 0 32px;
+    font-style: italic;
+  }
+  .new-here {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+  }
+  .new-here strong { color: var(--charcoal-deep); }
+  nav.jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  nav.jump a {
+    color: var(--charcoal);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--amber);
+  }
+  nav.jump a:hover { color: var(--amber); }
+  section { margin-bottom: 48px; }
+  h2 {
+    font-size: 1.5rem;
+    color: var(--charcoal-deep);
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 1.15rem;
+    color: var(--charcoal-deep);
+    margin: 28px 0 12px;
+  }
+  ul.facts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul.facts li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 14px;
+  }
+  ul.facts li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+  }
+  .data-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    background: var(--charcoal-deep);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 22px 18px;
+    margin: 28px 0 36px;
+    text-align: center;
+  }
+  .data-strip .stat {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.6rem;
+    color: var(--amber-bright);
+    display: block;
+  }
+  .data-strip .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    color: #cfc9b8;
+  }
+  .callout {
+    background: var(--paper);
+    border-left: 4px solid var(--amber);
+    padding: 18px 20px;
+    margin: 28px 0;
+    font-size: 1rem;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.warn { border-left-color: var(--red); }
+  .bridge-link {
+    background: var(--charcoal-deep);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 24px 22px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+  }
+  .bridge-link .tag {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    color: var(--amber-bright);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .bridge-link a {
+    color: var(--amber-bright);
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .bridge-link a:hover { text-decoration: underline; }
+  .bridge-link p {
+    color: #d8d2c2;
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+  details.sources {
+    margin-top: 56px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  details.sources summary {
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    color: var(--charcoal-deep);
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+  .sources ol {
+    padding-left: 20px;
+    font-size: 0.92rem;
+  }
+  .sources li { margin-bottom: 10px; }
+  .sources a { color: var(--charcoal-deep); }
+  footer.pagefoot {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    color: #6b6b64;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .quote-block {
+    border-left: 3px solid var(--amber);
+    padding: 4px 0 4px 18px;
+    margin: 18px 0;
+    font-style: italic;
+    color: #3f3f3b;
+  }
+  .quote-src {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11.5px;
+    color: #6b6b64;
+    font-style: normal;
+    margin-top: 6px;
+    display: block;
+  }
+  ol.question-list {
+    padding-left: 22px;
+    margin: 0;
+  }
+  ol.question-list li {
+    margin-bottom: 20px;
+  }
+  ol.question-list li::marker {
+    color: var(--amber);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+  .interactive {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px 22px 26px;
+    margin: 8px 0 36px;
+  }
+  .interactive h3 {
+    font-size: 1.05rem;
+    margin: 0 0 4px;
+    color: var(--charcoal-deep);
+  }
+  .interactive .sub {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    color: #6b6b64;
+    margin: 0 0 18px;
+  }
+  .bar-wrap { position: relative; margin-top: 8px; }
+  .bar-wrap svg { display: block; width: 100%; height: auto; }
+  .b-track { fill: var(--cream); stroke: var(--line); stroke-width: 1; }
+  .b-bar { cursor: pointer; transition: fill-opacity 0.1s; }
+  .b-bar:hover, .b-bar.hover { fill-opacity: 0.85; }
+  .b-label { font-family: Georgia, serif; font-size: 12px; fill: var(--charcoal); }
+  .b-value { font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: bold; fill: var(--charcoal-deep); }
+  .b-axis-label { font-family: 'Courier New', Courier, monospace; font-size: 10px; fill: #6b6b64; }
+  .b-grid { stroke: var(--line); stroke-width: 1; }
+  .b-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--charcoal-deep);
+    color: var(--cream);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11.5px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity 0.1s;
+    z-index: 5;
+    max-width: 260px;
+    white-space: normal;
+  }
+  .map-caption {
+    font-size: 0.82rem;
+    color: #6b6b64;
+    padding: 10px 4px 0;
+    font-style: italic;
+  }
+  .food-web {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px 16px;
+    margin: 8px 0 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    text-align: center;
+  }
+  .food-web .node {
+    background: var(--cream);
+    border: 1px solid var(--amber);
+    border-radius: 20px;
+    padding: 8px 14px;
+    color: var(--charcoal-deep);
+    cursor: default;
+  }
+  .food-web .node.top { border-color: var(--red); font-weight: bold; }
+  .food-web .arrow { color: var(--amber); font-size: 18px; }
+  @media (max-width: 600px) {
+    .food-web { flex-direction: column; }
+    .food-web .arrow { transform: rotate(90deg); }
+    .data-strip { grid-template-columns: 1fr 1fr; }
+    .data-strip .stat-cell:last-child { grid-column: span 2; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span><a href="index.html">GREAT SALT LAKE &middot; CASE DOCKET</a></span>
+  <span class="case-label">EXPLAINER</span>
+</div>
+
+<main>
+  <div class="eyebrow">Explainer &middot; Great Salt Lake basics, part two</div>
+  <p class="pub-date">Published Sept. 20, 2026 &middot; Updated Sept. 20, 2026</p>
+  <h1>The Life of the Great Salt Lake: Birds, Brine, and Minerals</h1>
+  <p class="dek">The lake isn't just a number on an elevation gauge. It's a food web that feeds ten million migratory birds a year, a brine shrimp industry that supplies aquaculture operations worldwide, and a mineral basin that companies — and now the state itself — are fighting over one acre-foot of water at a time.</p>
+
+  <div class="new-here">
+    <strong>New here?</strong> This is the companion to <a href="weber-gsl-did-you-know.html">Did You Know? The Great Salt Lake, From 1847 to Today</a>, which covers the lake's water level, history, and governance. This piece is about what actually lives in — and gets pulled out of — the lake itself. Read either one first; they link to each other.
+  </div>
+
+  <nav class="jump">
+    <a href="#web">The Food Web</a>
+    <a href="#birds">The Birds</a>
+    <a href="#brine">The Brine Shrimp Industry</a>
+    <a href="#minerals">What's Pulled From the Lake</a>
+    <a href="#questions">Questions Worth Asking</a>
+    <a href="#sources">Sources</a>
+  </nav>
+
+  <section id="web">
+    <h2>The Food Web, In Order</h2>
+    <p>Almost everything alive in the Great Salt Lake traces back to the same short chain. Nothing here is exotic — it's algae, brine flies, and brine shrimp — but it supports one of the largest concentrations of migratory birds in the Western Hemisphere.</p>
+
+    <div class="food-web">
+      <span class="node">Algae &amp; cyanobacteria</span>
+      <span class="arrow">&rarr;</span>
+      <span class="node">Brine shrimp &amp; brine flies</span>
+      <span class="arrow">&rarr;</span>
+      <span class="node top">Ten million migratory birds</span>
+    </div>
+    <p class="map-caption">Simplified — the lake also hosts halophilic (salt-loving) bacteria and archaea in its saltiest water, which don't feed the bird population but are responsible for the pink color sometimes visible in Gunnison Bay.</p>
+
+    <ul class="facts">
+      <li>Brine shrimp (<em>Artemia franciscana</em>) and brine flies are among the only species that can tolerate the lake's salinity, and together they form the base of the food web that draws birds to the lake.</li>
+      <li>Both species have a narrow salinity comfort zone. Gilbert Bay's healthy range is 13&ndash;15% salinity; at the 2022 record low, salinity there reached 19% &mdash; close to the upper limit brine shrimp and brine flies can tolerate before the food web itself is at risk.</li>
+      <li>The lake has no fish. That absence is part of why brine shrimp populations can get so large: there's no fish predation to keep their numbers down.</li>
+    </ul>
+  </section>
+
+  <section id="birds">
+    <h2>The Birds</h2>
+    <p>The Great Salt Lake has been a Western Hemisphere Shorebird Reserve Network site since 1991 &mdash; a designation reserved for sites of major importance to shorebird populations across the Americas.</p>
+
+    <div class="data-strip">
+      <div class="stat-cell">
+        <span class="stat">10M</span>
+        <span class="label">Birds relying on the lake yearly</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat">338</span>
+        <span class="label">Bird species documented</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat">360K acres</span>
+        <span class="label">Wetlands in the watershed</span>
+      </div>
+    </div>
+
+    <ul class="facts">
+      <li>The lake and its roughly 21,000-square-mile watershed fall under the Pacific Flyway, one of four major North American migratory bird corridors &mdash; birds use it as a stopover and breeding site on routes that can run over a thousand miles.</li>
+      <li>Utah, and therefore the Great Salt Lake, falls under the Pacific Flyway per the U.S. Fish &amp; Wildlife Service's own administrative flyway map (some other sources describing the lake have mislabeled this as the Central Flyway &mdash; treated as an error on those pages, not a real alternate designation).</li>
+      <li>Birds don't use the lake uniformly. Different bays and wetland complexes (Farmington Bay, Bear River Bay, Ogden Bay) serve different species and purposes, from nesting to a mid-migration feeding stopover.</li>
+      <li>Exposed lakebed doesn't just mean less open water &mdash; it also means less shoreline and wetland habitat, and more dust exposure for the birds and habitat that remain, tying bird health directly to the elevation story covered in the companion piece.</li>
+    </ul>
+  </section>
+
+  <section id="brine">
+    <h2>The Brine Shrimp Industry</h2>
+    <p>Brine shrimp aren't just fish food for the birds &mdash; they're a commercial export. Harvesters collect brine shrimp cysts (dormant eggs) from the lake each fall, and the industry is a genuinely global one.</p>
+
+    <div class="callout">
+      <p>The Great Salt Lake supplies a little more than a third of the world's brine shrimp cysts, making it the largest single source of <em>Artemia</em> for aquaculture feed worldwide &mdash; used to raise farmed shrimp and fish in hatcheries across the globe.</p>
+    </div>
+
+    <ul class="facts">
+      <li>Harvest is regulated by the state, with a set season and quota system intended to leave enough of the population to sustain both the industry and the bird populations that depend on the same food source.</li>
+      <li>The industry and the birds are, in effect, competing for the same resource &mdash; which is part of why the state caps how much can be harvested each season rather than leaving it unregulated.</li>
+      <li>Utah also collects a royalty tax on brine shrimp harvesting. A 2026 bill (H.B. 247) increased that royalty rate and directed the added revenue into the state's Sovereign Lands Management Account, which funds lake conservation work.</li>
+    </ul>
+  </section>
+
+  <section id="minerals">
+    <h2>What's Pulled From the Lake</h2>
+    <p>Beyond brine shrimp, several companies extract minerals directly from the lake's water through solar evaporation ponds &mdash; and that extraction uses a meaningful share of the lake's water even as its level struggles to recover.</p>
+
+    <div class="interactive">
+      <h3>Who Uses the Lake's Water for Minerals</h3>
+      <p class="sub">Hover or tap a bar for sourcing &middot; figures are annual averages from different years, not a single simultaneous snapshot</p>
+      <div class="bar-wrap">
+        <svg viewBox="0 0 600 200" role="img" aria-labelledby="mineralTitle mineralDesc">
+          <title id="mineralTitle">Mineral extraction water use at Great Salt Lake</title>
+          <desc id="mineralDesc">A bar chart comparing annual water use in acre-feet by Compass Minerals, all mineral extractors combined, and US Magnesium's now-inactive water rights.</desc>
+          <g id="minBars"></g>
+        </svg>
+        <div class="b-tooltip" id="minTooltip"></div>
+      </div>
+      <p class="map-caption">"All mineral extractors" is the total industry figure cited in state legislative reporting; Compass Minerals and US Magnesium are its two largest individual water-rights holders. US Magnesium's number is water rights held, not current use &mdash; its plant has not operated since 2021.</p>
+    </div>
+
+    <h3>Compass Minerals</h3>
+    <ul class="facts">
+      <li>Compass Minerals is the largest mineral extractor on the lake and the largest producer of sulfate-of-potash fertilizer in the Western Hemisphere, drawing lake water into evaporation ponds on both the north and south sides.</li>
+      <li>The company's average water depletion from 2017&ndash;2021 was about 111,700 acre-feet a year &mdash; the single largest mineral-extraction water use on the lake &mdash; though usage reportedly dropped to roughly 55,000 acre-feet in more recent years as lake levels declined. Its water rights allow for up to 428,000 acre-feet annually.</li>
+      <li>Compass also returns 3&ndash;5 million tons of salt to the lake each year as a byproduct of processing, concentrated in Bear River Bay.</li>
+      <li>The company explored expanding into lithium extraction starting in 2022; that effort was later suspended.</li>
+      <li>In 2024, the Utah Legislature passed H.B. 453, nearly tripling the state's mineral-extraction severance tax (from 2.6% to 7.8%) and creating incentive frameworks for voluntary water-use reductions &mdash; legislation that reporting ties to a subsequent water-use agreement between the state and Compass Minerals.</li>
+    </ul>
+
+    <h3>US Magnesium &mdash; From Producer to State Purchase</h3>
+    <ul class="facts">
+      <li>US Magnesium operated on the lake's south shore for decades as the country's largest magnesium metal producer, also recovering lithium as a byproduct from its waste piles.</li>
+      <li>The plant stopped production in 2021 after equipment failures. The state terminated its mineral lease in 2024 over regulatory violations, and the site had separately been designated a federal Superfund site due to contamination.</li>
+      <li>The company filed for bankruptcy in September 2025. In January 2026, the State of Utah purchased its assets for $30 million &mdash; including roughly 144,000 acre-feet a year in water rights &mdash; explicitly to keep that water from being withdrawn from the lake's south arm rather than to resume magnesium production.</li>
+    </ul>
+
+    <h3>Salt and the Lithium Question</h3>
+    <ul class="facts">
+      <li>Morton Salt and Cargill Salt also operate solar evaporation ponds on the lake, producing table and industrial salt.</li>
+      <li>Lilac Solutions &mdash; a subsidiary of Waterleaf Phase 1 LLC &mdash; has filed for water rights (roughly 225,000 acre-feet) tied to a proposed lithium-extraction project. That project is covered in full, including its federal grant and discharge-permit history, in this docket's own case file (linked below).</li>
+      <li>Collectively, mineral extractors account for roughly 7% of all water depletions from the Great Salt Lake, according to state legislative reporting &mdash; a smaller share than agricultural or municipal use, but concentrated among a handful of named companies rather than spread across the whole basin.</li>
+    </ul>
+
+    <h3>Underground: What Miners Once Took From the Shoreline</h3>
+    <p>Away from the lake's open water, the hills around it &mdash; particularly the Promontory Peninsula in Box Elder County &mdash; have their own, older mineral history.</p>
+    <ul class="facts">
+      <li>The historic Promontory Mining District produced zinc, lead, and silver starting in the early 1900s; Utah's own geological survey credits it with more than 90% of Box Elder County's total zinc production since 1915.</li>
+      <li>Nearby Crater Island is documented as a site for barite, diatomite, bismuth, copper, gold, molybdenum, silver, and tungsten deposits, per the same state survey.</li>
+      <li>Oil seeps at Rozel Point &mdash; the same stretch of shoreline as the Spiral Jetty earthwork &mdash; drew drilling interest starting in 1904, and at least nine wells produced oil there from Tertiary-era basalt.</li>
+      <li>None of this is necessarily a live gold rush today: current federal mining-claim records show no active claims at the historic Promontory sites specifically, and at least one of the district's major historic mines has been formally assessed as depleted with no further exploration planned. The documented history is real; whether commercially significant reserves remain there today is a separate, open question.</li>
+    </ul>
+
+    <div class="bridge-link">
+      <span class="tag">GO DEEPER &middot; FULL CASE FILE</span>
+      <a href="weber-gsl-waterleaf-lithium.html">A $100 Million Lithium Project, a 20-Year Discharge, and One Week Left to Comment &rarr;</a>
+      <p>The full record on Waterleaf/Lilac Solutions' lithium project: the DOE grant, the discharge permit, and the pilot data on a manganese problem the company's own fix hasn't proven it can solve.</p>
+    </div>
+  </section>
+
+  <section id="questions">
+    <h2>Questions Worth Asking</h2>
+    <p>As with the companion piece, these are drawn from public statements and public records &mdash; not to catch anyone out, but because the answers aren't fully public yet.</p>
+
+    <blockquote class="quote-block">
+      "The Great Salt Lake Watershed Enhancement Trust is helping bring more water to Great Salt Lake and its wetlands, which are crucial for millions of birds that rely on this ecosystem and the health of the surrounding communities."
+      <span class="quote-src">— Tim Brown, President/CEO of Tracy Aviary, Great Salt Lake Watershed Enhancement Trust Council member</span>
+    </blockquote>
+    <p>Mineral extractors use about 7% of the lake's water and the state just spent $30 million buying out one of them for its water rights alone &mdash; how does that kind of direct water acquisition compare, dollar for dollar, to the Trust's own water-transaction pace covered in this docket's funding case files?</p>
+
+    <blockquote class="quote-block">
+      "Restoring Great Salt Lake to health will not be a one-year, one-policy, one-constituency solution. Rather, a coordinated, data-driven approach will be necessary so decision-makers can evaluate tradeoffs and balance competing interests."
+      <span class="quote-src">— Brian Steed, then&ndash;Great Salt Lake Commissioner, via the Kem C. Gardner Policy Institute. Hannah Freeze was appointed Commissioner in his place on July 22, 2026.</span>
+    </blockquote>
+    <p>If mineral extraction, brine shrimp harvest, and bird habitat are all drawing on the same water and the same food web, what does "balancing competing interests" look like in practice when one of those interests just became a $30 million state asset?</p>
+  </section>
+
+  <div class="bridge-link">
+    <span class="tag">START HERE &middot; COMPANION EXPLAINER</span>
+    <a href="weber-gsl-did-you-know.html">Did You Know? The Great Salt Lake, From 1847 to Today &rarr;</a>
+    <p>The water-level history, the 1959 causeway, the 2022 record low, and how that history connects to the state's current spending and governance fights over the lake.</p>
+  </div>
+
+  <div class="bridge-link">
+    <span class="tag">GO DEEPER &middot; FULL CASE FILE</span>
+    <a href="weber-gsl-two-money-pots.html">One Lake, Two Money Pots, and a Council That Calls Itself Private &rarr;</a>
+    <p>The full breakdown of the $12.5M and $40M funding pots, the Trust Council's closed-door structure, and the legislator who helped create the very account he later helped review.</p>
+  </div>
+
+  <details class="sources" id="sources">
+    <summary>Sources &amp; Notes</summary>
+    <ol>
+      <li>FRIENDS of Great Salt Lake, <em>About the Lake</em> — <a href="https://fogsl.org" target="_blank" rel="noopener">fogsl.org</a>. Source for the "ten million birds, 338 species" figure, the 1991 Western Hemisphere Shorebird Reserve Network designation, the ~360,000 acres of wetlands, the ~21,000-sq-mi watershed, the healthy 13&ndash;15% Gilbert Bay salinity range and its 2022 peak of 19%, and the halophilic bacteria/pink-water fact.</li>
+      <li>U.S. Fish &amp; Wildlife Service, <em>Migratory Bird Program Administrative Flyways</em> — <a href="https://www.fws.gov/partner/migratory-bird-program-administrative-flyways" target="_blank" rel="noopener">fws.gov</a>. Source confirming Utah/Great Salt Lake falls under the Pacific Flyway.</li>
+      <li>Global Seafood Alliance / Deseret News, <em>Saving the Great Salt Lake is important for a critical international industry — harvesting brine shrimp</em> (Dec. 2023) — <a href="https://www.deseret.com/utah/2023/12/9/23989720/saving-great-salt-lake-important-for-a-critical-international-industry-harvesting-brine-shrimp/" target="_blank" rel="noopener">deseret.com</a>. Source for the "a little more than a third of the world's brine shrimp" figure and the lake's status as the largest single Artemia producer.</li>
+      <li>Utah House of Representatives, <em>Utah's 2026 Great Salt Lake Laws: Water Rights, US Magnesium, and Federal Funds</em> — <a href="https://house.utleg.gov/utahs-effort-to-save-the-great-salt-lake-historic-water-law-major-acquisitions-and-a-federal-partnership/" target="_blank" rel="noopener">house.utleg.gov</a>. Source for H.B. 247 (brine shrimp royalty increase, Sovereign Lands Management Account), H.B. 453 (2024 severance-tax increase from 2.6% to 7.8%), and the US Magnesium acquisition details (144,000 acre-feet in water rights, prior lease termination in 2024, Superfund status).</li>
+      <li>FRIENDS of Great Salt Lake, <em>Compass Minerals</em> — <a href="https://fogsl.org/advocacy-issues/compass-minerals" target="_blank" rel="noopener">fogsl.org</a>. Source for Compass Minerals' status as the largest Western Hemisphere sulfate-of-potash producer, its 2017&ndash;2021 average water depletion (~111,700 acre-feet/year), its status as the largest mineral-extraction water user on the lake, its 3&ndash;5 million tons/year of salt returned to the lake, and its suspended 2022 lithium exploration.</li>
+      <li>Great Salt Lake Collaborative / Salt Lake Tribune, <em>Mineral companies use 7% of Great Salt Lake's water. Here's how a bill would change their business.</em> — <a href="https://greatsaltlakenews.org/latest-news/salt-lake-tribune/mineral-companies-use-7-of-great-salt-lakes-water-heres-how-a-bill-would-change-their-business" target="_blank" rel="noopener">greatsaltlakenews.org</a>. Source for the 7% collective water-use figure, Compass Minerals' up-to-428,000-acre-foot water right and reduced recent usage (~55,000 acre-feet), the Morton Salt/Cargill Salt/Lilac Solutions mentions, and Lilac Solutions' 225,000-acre-foot water-rights filing.</li>
+      <li>Deseret News, <em>Utah's Great Salt Lake politics: lawmakers approve tighter controls on mineral extraction</em> (Feb. 29, 2024) — <a href="https://www.deseret.com/2024/02/29/utah-great-salt-lake-politics-legislation-mineraels/" target="_blank" rel="noopener">deseret.com</a>. Cross-referenced for the 2024 timing and substance of H.B. 453.</li>
+      <li>Grist, <em>The country's largest magnesium supplier shut down. Now what?</em> — <a href="https://grist.org/business/us-magnesium-shutdown-supply-chain-mineral/" target="_blank" rel="noopener">grist.org</a>. Cross-referenced for US Magnesium's 2021 shutdown cause (equipment failures), its September 2025 bankruptcy filing, and the state's cited hazardous-waste violations.</li>
+      <li>Salt Lake Tribune, <em>Utah buys bankrupt U.S. Magnesium plant near Great Salt Lake</em> (Jan. 27, 2026) — <a href="https://www.sltrib.com/news/environment/2026/01/27/utah-buys-bankrupt-us-magnesium/" target="_blank" rel="noopener">sltrib.com</a>. Cross-referenced for the $30 million purchase price and January 2026 timing, corroborated by contemporaneous KSL, Fox13, and Deseret News coverage of the same acquisition.</li>
+      <li>Utah Geological Survey, <em>Geologic Resources of Box Elder County, Utah</em>, Miscellaneous Publication MP-89-3 (1989) — <a href="https://ugspub.nr.utah.gov/publications/misc_pubs/mp-89-3.pdf" target="_blank" rel="noopener">ugspub.nr.utah.gov</a>. Source for the historic Promontory Mining District's zinc/lead/silver production (over 90% of county zinc output since 1915) and Crater Island's documented barite, diatomite, bismuth, copper, gold, molybdenum, silver, and tungsten occurrences.</li>
+      <li>U.S. Geological Survey, Butler &amp; Heikes, <em>Notes on the Promontory District, Utah</em>, USGS Bulletin 640-A (1917) — <a href="https://pubs.usgs.gov/bul/0640a/report.pdf" target="_blank" rel="noopener">pubs.usgs.gov</a>. Source for the Rozel Point oil-seep history (drilling interest from 1904, at least nine wells in Tertiary basalt) and the 1915 Lake View Mine production record used to characterize the district's historic ore grade.</li>
+      <li>The Diggings (thediggings.com, aggregating BLM Mineral and Land Records System data, accessed July 2026) — source for the finding that no currently active mining claims are indexed at the historic Promontory Mining District sites specifically, and that the district's Lake View mine has been assessed as depleted with no further exploration planned. Third-party aggregated data; treated as directional, not a substitute for a direct BLM MLRS record check.</li>
+      <li>Office of Gov. Spencer Cox, <em>Gov. Cox Appoints Hannah Freeze as Great Salt Lake Commissioner</em> — <a href="https://governor.utah.gov/press/gov-cox-appoints-hannah-freeze-as-great-salt-lake-commissioner/" target="_blank" rel="noopener">governor.utah.gov</a>. Source for the July 22, 2026 appointment of Hannah Freeze in place of Brian Steed, cited here to date-stamp the Steed quote above.</li>
+    </ol>
+  </details>
+</main>
+
+<footer class="pagefoot">
+  <span>webercountyhive.substack.com</span>
+  <span>Public records only &middot; No comment requested</span>
+</footer>
+
+<script>
+(function () {
+  var MIN_WATER = [
+    {
+      label: 'US Magnesium — water rights held (inactive since 2021)',
+      value: 144000,
+      valueText: '144,000 AF/yr',
+      color: '#5b5850',
+      note: 'Water rights the state acquired in its January 2026, $30M purchase of US Magnesium’s assets — not current water use. The plant has not produced magnesium since 2021.'
+    },
+    {
+      label: 'Compass Minerals — 2017–2021 average use',
+      value: 111700,
+      valueText: '111,700 AF/yr',
+      color: '#4E7C8C',
+      note: 'The largest actual mineral-extraction water user on the lake, per FRIENDS of Great Salt Lake. Recent usage reportedly dropped to about 55,000 acre-feet as lake levels declined.'
+    },
+    {
+      label: 'Compass Minerals — total water right allowed',
+      value: 428000,
+      valueText: '428,000 AF/yr',
+      color: '#C9A227',
+      note: 'The maximum Compass Minerals is entitled to draw annually under its existing water rights — far above its recent actual use.'
+    }
+  ];
+
+  var minG = document.getElementById('minBars');
+  var minTooltip = document.getElementById('minTooltip');
+  if (minG) {
+    var svg = minG.closest('svg');
+    var x0 = 250, x1 = 585, maxVal = 450000;
+    var rowH = 46, rowGap = 8, top = 10;
+    function xFor(v) { return x0 + (v / maxVal) * (x1 - x0); }
+
+    MIN_WATER.forEach(function (d, i) {
+      var y = top + i * (rowH + rowGap);
+
+      var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', x0 - 10);
+      label.setAttribute('y', y + rowH / 2 - 8);
+      label.setAttribute('text-anchor', 'end');
+      label.setAttribute('class', 'b-label');
+      var words = d.label.split(' ');
+      var line1 = [], line2 = [];
+      var splitAt = d.label.indexOf('—');
+      if (splitAt > -1) {
+        line1 = [d.label.slice(0, splitAt).trim()];
+        line2 = [d.label.slice(splitAt).trim()];
+      } else {
+        line1 = [d.label];
+      }
+      var tspan1 = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+      tspan1.setAttribute('x', x0 - 10);
+      tspan1.textContent = line1.join(' ');
+      label.appendChild(tspan1);
+      if (line2.length) {
+        var tspan2 = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+        tspan2.setAttribute('x', x0 - 10);
+        tspan2.setAttribute('dy', '13');
+        tspan2.textContent = line2.join(' ');
+        label.appendChild(tspan2);
+      }
+      minG.appendChild(label);
+
+      var track = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      track.setAttribute('x', x0);
+      track.setAttribute('y', y);
+      track.setAttribute('width', x1 - x0);
+      track.setAttribute('height', rowH - 16);
+      track.setAttribute('class', 'b-track');
+      minG.appendChild(track);
+
+      var bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      bar.setAttribute('x', x0);
+      bar.setAttribute('y', y);
+      bar.setAttribute('width', Math.max(2, xFor(d.value) - x0));
+      bar.setAttribute('height', rowH - 16);
+      bar.setAttribute('fill', d.color);
+      bar.setAttribute('class', 'b-bar');
+      bar.setAttribute('tabindex', '0');
+      bar.setAttribute('role', 'img');
+      bar.setAttribute('aria-label', d.label + ': ' + d.valueText);
+      minG.appendChild(bar);
+
+      var valText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      valText.setAttribute('x', Math.min(xFor(d.value) + 8, x1 - 90));
+      valText.setAttribute('y', y + rowH / 2 - 8);
+      valText.setAttribute('class', 'b-value');
+      valText.textContent = d.valueText;
+      minG.appendChild(valText);
+
+      function showTip(evt) {
+        minTooltip.innerHTML = '<strong>' + d.label + '</strong> &middot; ' + d.valueText + '<br>' + d.note;
+        minTooltip.style.opacity = '1';
+        positionTip(evt);
+      }
+      function positionTip(evt) {
+        var wrapRect = svg.parentElement.getBoundingClientRect();
+        var px = (evt.clientX !== undefined ? evt.clientX : wrapRect.left) - wrapRect.left;
+        var py = (evt.clientY !== undefined ? evt.clientY : wrapRect.top) - wrapRect.top;
+        minTooltip.style.left = Math.max(4, Math.min(px - 60, wrapRect.width - 264)) + 'px';
+        minTooltip.style.top = Math.max(0, py - 78) + 'px';
+      }
+      bar.addEventListener('mouseenter', showTip);
+      bar.addEventListener('mousemove', positionTip);
+      bar.addEventListener('mouseleave', function () { minTooltip.style.opacity = '0'; });
+      bar.addEventListener('focus', showTip);
+      bar.addEventListener('blur', function () { minTooltip.style.opacity = '0'; });
+    });
+
+    var viewH = top + MIN_WATER.length * (rowH + rowGap) + 10;
+    svg.setAttribute('viewBox', '0 0 600 ' + viewH);
+  }
+})();
+</script>
+
+</body>
+</html>

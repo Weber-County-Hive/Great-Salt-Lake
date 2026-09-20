@@ -83,12 +83,14 @@
     font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--rust); margin-bottom: 6px;
   }
+  .section-label.explainer { color: var(--teal); }
   main h2 {
     font-family: var(--serif); font-weight: 700; font-size: 24px; margin-bottom: 10px;
   }
   main .section-sub { color: var(--ink-dim); font-size: 15px; margin-bottom: 30px; max-width: 68ch; }
 
   .doc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  .doc-grid.explainers { margin-bottom: 44px; }
 
   .doc-card {
     display: block;
@@ -103,6 +105,8 @@
   .doc-card:hover { background: var(--paper-card-2); border-left-color: var(--amber); transform: translateX(2px); text-decoration: none; }
   .doc-card.disabled { opacity: 0.55; border-left-color: var(--border); cursor: default; }
   .doc-card.disabled:hover { transform: none; background: var(--paper-card); }
+  .doc-card.explainer-card { border-left-color: var(--teal); }
+  .doc-card.explainer-card:hover { border-left-color: var(--amber); }
 
   .doc-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 8px; }
   .doc-title { font-family: var(--serif); font-weight: 700; font-size: 21px; line-height: 1.25; }
@@ -112,6 +116,7 @@
   }
   .status-live { background: rgba(192, 87, 46, 0.12); color: var(--rust); border: 1px solid rgba(192, 87, 46, 0.35); }
   .status-pending { background: rgba(92, 102, 115, 0.12); color: var(--ink-dimmer); border: 1px solid var(--border); }
+  .status-explainer { background: rgba(46, 95, 90, 0.12); color: var(--teal); border: 1px solid rgba(46, 95, 90, 0.35); }
 
   .doc-meta { font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer); margin-bottom: 12px; }
   .doc-summary { font-size: 15px; color: var(--ink-dim); margin-bottom: 14px; }
@@ -167,6 +172,7 @@
 
     <div class="stat-row">
       <div class="stat"><div class="num">6</div><div class="lab">Case files open</div></div>
+      <div class="stat"><div class="num">2</div><div class="lab">Explainers</div></div>
       <div class="stat"><div class="num">18%</div><div class="lab">Of $40M Trust fund disbursed</div></div>
       <div class="stat"><div class="num">$511M</div><div class="lab">Unfunded, lake's own project list</div></div>
     </div>
@@ -178,6 +184,42 @@
 
     <div class="context-note">
       <strong>Why this docket exists.</strong> Public records only — no interviews, no comment requests. Each case-file page below is built from permits, court filings, monitoring reports, and agency correspondence, with sources cited on every page.
+    </div>
+
+    <div class="section-label explainer">Start Here</div>
+    <h2>Explainers</h2>
+    <p class="section-sub">New to the Great Salt Lake? These two plain-language pieces cover the basics — the lake's history and water level, and what actually lives in and gets pulled from it — before you get into the accountability reporting below.</p>
+
+    <div class="doc-grid explainers">
+
+      <a class="doc-card explainer-card" href="weber-gsl-did-you-know.html">
+        <div class="doc-top">
+          <div class="doc-title">Did You Know? The Great Salt Lake, From 1847 to Today</div>
+          <div class="status-badge status-explainer">Explainer</div>
+        </div>
+        <div class="doc-meta">Great Salt Lake basics &middot; History, water level, governance</div>
+        <div class="doc-summary">The lake behind the headlines has a stranger, older story than most people realize — and the 2022 record low is also why the state created a commissioner, a private trust, and two funding pots still being sorted out today.</div>
+        <div class="tag-row">
+          <span class="tag">History</span>
+          <span class="tag">Water Level</span>
+          <span class="tag">Interactive Map</span>
+        </div>
+      </a>
+
+      <a class="doc-card explainer-card" href="weber-gsl-life-of-the-lake.html">
+        <div class="doc-top">
+          <div class="doc-title">The Life of the Great Salt Lake: Birds, Brine, and Minerals</div>
+          <div class="status-badge status-explainer">Explainer</div>
+        </div>
+        <div class="doc-meta">Great Salt Lake basics &middot; Ecology, industry, minerals</div>
+        <div class="doc-summary">Ten million migratory birds, a brine shrimp industry that supplies aquaculture worldwide, and the mineral companies — plus now the state itself — competing for the lake's water one acre-foot at a time.</div>
+        <div class="tag-row">
+          <span class="tag">Birds</span>
+          <span class="tag">Brine Shrimp</span>
+          <span class="tag">Mineral Extraction</span>
+        </div>
+      </a>
+
     </div>
 
     <div class="section-label">Case Files</div>

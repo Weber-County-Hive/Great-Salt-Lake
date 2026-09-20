@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Did You Know? The Great Salt Lake, From 1847 to Today | The Weber County Hive</title>
+<style>
+  :root {
+    --cream: #F4EFE4;
+    --paper: #EDE7D8;
+    --charcoal: #2B2B28;
+    --charcoal-deep: #1C1C1A;
+    --amber: #C9A227;
+    --amber-bright: #E0B93A;
+    --line: #D8D0BC;
+    --red: #9A3324;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.6;
+  }
+  .top-bar {
+    background: var(--charcoal-deep);
+    color: var(--cream);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .top-bar a {
+    color: var(--amber-bright);
+    text-decoration: none;
+  }
+  .case-label {
+    color: var(--amber-bright);
+    font-weight: bold;
+  }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .eyebrow {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .pub-date {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11.5px;
+    color: #8a8578;
+    margin: -6px 0 20px;
+  }
+  h1 {
+    font-size: 2.3rem;
+    line-height: 1.25;
+    margin: 0 0 18px;
+    color: var(--charcoal-deep);
+  }
+  .dek {
+    font-size: 1.15rem;
+    color: #4a4a45;
+    border-left: 3px solid var(--amber);
+    padding-left: 16px;
+    margin: 0 0 32px;
+    font-style: italic;
+  }
+  .new-here {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+  }
+  .new-here strong { color: var(--charcoal-deep); }
+  nav.jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  nav.jump a {
+    color: var(--charcoal);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--amber);
+  }
+  nav.jump a:hover { color: var(--amber); }
+  section { margin-bottom: 48px; }
+  h2 {
+    font-size: 1.5rem;
+    color: var(--charcoal-deep);
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  ul.facts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul.facts li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 14px;
+  }
+  ul.facts li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+  }
+  .data-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    background: var(--charcoal-deep);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 22px 18px;
+    margin: 28px 0 36px;
+    text-align: center;
+  }
+  .data-strip .stat {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.6rem;
+    color: var(--amber-bright);
+    display: block;
+  }
+  .data-strip .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    color: #cfc9b8;
+  }
+  .callout {
+    background: var(--paper);
+    border-left: 4px solid var(--amber);
+    padding: 18px 20px;
+    margin: 28px 0;
+    font-size: 1rem;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .bridge-link {
+    background: var(--charcoal-deep);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 24px 22px;
+    margin-top: 8px;
+  }
+  .bridge-link .tag {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    color: var(--amber-bright);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .bridge-link a {
+    color: var(--amber-bright);
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .bridge-link a:hover { text-decoration: underline; }
+  .bridge-link p {
+    color: #d8d2c2;
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+  details.sources {
+    margin-top: 56px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  details.sources summary {
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    color: var(--charcoal-deep);
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+  .sources ol {
+    padding-left: 20px;
+    font-size: 0.92rem;
+  }
+  .sources li { margin-bottom: 10px; }
+  .sources a { color: var(--charcoal-deep); }
+  .unverified-box {
+    background: #F7F0DE;
+    border: 1px dashed var(--red);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-top: 18px;
+    font-size: 0.9rem;
+  }
+  .unverified-box strong { color: var(--red); }
+  footer.pagefoot {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    color: #6b6b64;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  @media (max-width: 600px) {
+    .data-strip { grid-template-columns: 1fr; }
+    h1 { font-size: 1.7rem; }
+  }
+  .interactive {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px 22px 26px;
+    margin: 8px 0 36px;
+  }
+  .interactive h3 {
+    font-size: 1.05rem;
+    margin: 0 0 4px;
+    color: var(--charcoal-deep);
+  }
+  .interactive .sub {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    color: #6b6b64;
+    margin: 0 0 18px;
+  }
+  .year-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .year-btns button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12.5px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    color: var(--charcoal);
+    padding: 7px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+  .year-btns button:hover { border-color: var(--amber); }
+  .year-btns button.active {
+    background: var(--charcoal-deep);
+    color: var(--amber-bright);
+    border-color: var(--charcoal-deep);
+  }
+  .map-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .map-stats .m-stat {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .map-stats .m-num {
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    color: var(--charcoal-deep);
+    font-weight: bold;
+  }
+  .map-stats .m-lab {
+    font-size: 0.72rem;
+    color: #6b6b64;
+    letter-spacing: 0.01em;
+  }
+  .gsl-map-wrap {
+    background: #E7EFEE;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .gsl-map-wrap svg { display: block; width: 100%; height: auto; }
+  .lake-shape {
+    fill: #4E7C8C;
+    fill-opacity: 0.82;
+    stroke: #2F5560;
+    stroke-width: 1.5;
+  }
+  .causeway-line {
+    stroke: #8a8578;
+    stroke-width: 3;
+    stroke-dasharray: 5 4;
+  }
+  .river-arrow { stroke: #3d6e7a; stroke-width: 1.6; fill: none; marker-end: url(#riverhead); }
+  .map-label {
+    font-family: Georgia, serif;
+    font-size: 12px;
+    fill: var(--charcoal);
+  }
+  .map-caption {
+    font-size: 0.82rem;
+    color: #6b6b64;
+    padding: 10px 4px 0;
+    font-style: italic;
+  }
+  .chart-wrap { position: relative; margin-top: 26px; }
+  .chart-wrap svg { display: block; width: 100%; height: auto; }
+  .elev-line {
+    fill: none;
+    stroke: var(--amber);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .elev-grid { stroke: var(--line); stroke-width: 1; }
+  .elev-axis-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10.5px;
+    fill: #6b6b64;
+  }
+  .elev-pt {
+    fill: var(--cream);
+    stroke: var(--amber);
+    stroke-width: 2.5;
+    cursor: pointer;
+  }
+  .elev-pt.active-pt {
+    fill: var(--amber-bright);
+    stroke: var(--charcoal-deep);
+  }
+  .sal-bar-wrap { position: relative; margin-top: 8px; }
+  .sal-bar-wrap svg { display: block; width: 100%; height: auto; }
+  .sal-track {
+    fill: var(--paper);
+    stroke: var(--line);
+    stroke-width: 1;
+  }
+  .sal-bar {
+    cursor: pointer;
+    transition: fill-opacity 0.1s;
+  }
+  .sal-bar:hover, .sal-bar.hover { fill-opacity: 0.85; }
+  .sal-bar-label {
+    font-family: Georgia, serif;
+    font-size: 12px;
+    fill: var(--charcoal);
+  }
+  .sal-bar-value {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight: bold;
+    fill: var(--charcoal-deep);
+  }
+  .sal-axis-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    fill: #6b6b64;
+  }
+  .elev-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--charcoal-deep);
+    color: var(--cream);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11.5px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity 0.1s;
+    white-space: nowrap;
+    z-index: 5;
+    max-width: 260px;
+    white-space: normal;
+  }
+  .quote-block {
+    border-left: 3px solid var(--amber);
+    padding: 4px 0 4px 18px;
+    margin: 18px 0;
+    font-style: italic;
+    color: #3f3f3b;
+  }
+  .quote-src {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11.5px;
+    color: #6b6b64;
+    font-style: normal;
+    margin-top: 6px;
+    display: block;
+  }
+  ol.question-list {
+    padding-left: 22px;
+    margin: 0;
+  }
+  ol.question-list li {
+    margin-bottom: 20px;
+  }
+  ol.question-list li::marker {
+    color: var(--amber);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+  .schematic-flag {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    color: #6b6b64;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dotted var(--line);
+  }
+  @media (max-width: 600px) {
+    .map-stats { grid-template-columns: 1fr 1fr; }
+    .map-stats .m-stat:last-child { grid-column: span 2; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span><a href="index.html">GREAT SALT LAKE &middot; CASE DOCKET</a></span>
+  <span class="case-label">EXPLAINER</span>
+</div>
+
+<main>
+  <div class="eyebrow">Explainer &middot; Great Salt Lake basics</div>
+  <p class="pub-date">Published Sept. 20, 2026 &middot; Updated Sept. 20, 2026</p>
+  <h1>Did You Know? The Great Salt Lake, From 1847 to Today</h1>
+  <p class="dek">The lake behind the headlines has a stranger, older story than most people realize — and the record low that made national news in 2022 is also the reason state lawmakers created a commissioner, a private trust, and two separate multimillion-dollar funding pots that are still being sorted out today.</p>
+
+  <div class="new-here">
+    <strong>New here?</strong> This is a plain-language starting point on the Great Salt Lake itself — what makes it unique, how it's changed since Utah's earliest settlers arrived, and how that history connects to the state's current spending and governance fights over the lake. For the full accountability reporting on that spending, see the linked case file at the bottom of this page.
+  </div>
+
+  <nav class="jump">
+    <a href="#facts">Did You Know</a>
+    <a href="#history">A Brief History</a>
+    <a href="#map">Watch It Shrink</a>
+    <a href="#today">Why It Matters Now</a>
+    <a href="#questions">Questions Worth Asking</a>
+    <a href="#sources">Sources</a>
+  </nav>
+
+  <section id="facts">
+    <h2>Did You Know?</h2>
+    <p>The Great Salt Lake is the largest saltwater lake in the Western Hemisphere — and the largest lake west of the Mississippi River. A few things about it surprise most people:</p>
+    <ul class="facts">
+      <li>Water flows into the Great Salt Lake through rivers and streams, but no water flows out through surface rivers, making it a terminal lake where water only leaves via evaporation.</li>
+      <li>Because evaporation is the only way water leaves, minerals and salts that flow in stay behind and concentrate over time, which is why the lake is saltier than the ocean.</li>
+      <li>The lake's salinity is not uniform — a rail causeway built across the lake in 1959 separates it into a north arm and a south arm with different salinity levels, since the north arm receives little fresh water.</li>
+      <li>The lake has no fish, because its salinity is too high for fish to survive.</li>
+      <li>Brine shrimp and brine flies are among the few species that can live in the lake's saltiest waters, and they form the base of the food web that supports millions of migratory birds.</li>
+      <li>Every year, ten million birds from 338 different species rely on the lake during migration — which is why it's been designated a Western Hemisphere Shorebird Reserve Network site since 1991.</li>
+      <li>The lake's saltiest waters can turn visibly pink — the color comes from halophilic ("salt-loving") bacteria and archaea, the only organisms able to survive in the north arm's extreme salinity.</li>
+      <li>Brine shrimp eggs (cysts) harvested from the lake are sold commercially and used worldwide as feed in aquaculture operations.</li>
+      <li>The Great Salt Lake is a remnant of prehistoric Lake Bonneville, a much larger lake that covered a significant portion of what is now western Utah during the last Ice Age.</li>
+      <li>The lake's surface elevation and area fluctuate significantly year to year and season to season, since it is shallow relative to its surface area — a small change in water level can expose or submerge large areas of lakebed.</li>
+    </ul>
+  </section>
+
+  <section id="history">
+    <h2>A Brief History: From the Pioneers to Today</h2>
+    <ul class="facts">
+      <li>When Mormon pioneers arrived in the Salt Lake Valley in 1847, the Great Salt Lake was already a defining feature of the landscape — and the lake's official water-level record, kept by the USGS, dates back to that same year.</li>
+      <li>Three rivers — the Bear, Weber, and Jordan — have long fed the lake, but as Utah's population grew, more and more of that water was diverted upstream for farming and, later, cities, before it ever reached the lake.</li>
+      <li>The lake naturally rises and falls with wet and dry cycles. On June 3, 1986 (and again in March 1987), it hit its historic recorded high of roughly 4,211.6–4,211.85 feet. Its surface area at that peak is reported differently by different agencies — see the note below.</li>
+      <li>In 1959, a rock-fill railroad causeway was completed across the lake, cutting off water exchange between its north arm (Gunnison Bay) and south arm (Gilbert Bay). Gilbert Bay gets nearly all the freshwater inflow, so it's far less salty than Gunnison Bay — which is why the lake's brine shrimp, brine flies, and the birds that eat them are concentrated on the south side.</li>
+      <li>Since the 1986 peak, the lake has dropped roughly 22 feet, driven largely by decades of water diversion for agriculture and growing urban use along the Wasatch Front, compounded by drought.</li>
+      <li>The lake hit a historic recorded low in November 2022, at 4,188.5 feet — well under a quarter of its 1986 surface area by any agency's measure.</li>
+      <li>That drop exposed tens of thousands of acres of lakebed, raising concerns among scientists about dust — some of it containing naturally occurring arsenic and other heavy metals — blowing off the exposed bed toward Wasatch Front communities.</li>
+      <li>The lake has partially recovered since then: after two above-average water years, the South Arm reached 4,194.1 feet by July 2024, per FRIENDS of Great Salt Lake — a real improvement, but still about 4 feet below the 4,198'–4,205' range the Great Salt Lake Commissioner's Office has set as its target for a healthy lake.</li>
+    </ul>
+
+    <div class="data-strip">
+      <div>
+        <span class="stat">4,211.6 ft</span>
+        <span class="label">Record high &middot; June 3, 1986</span>
+      </div>
+      <div>
+        <span class="stat">4,188.5 ft</span>
+        <span class="label">Record low &middot; Nov. 7, 2022</span>
+      </div>
+      <div>
+        <span class="stat">4,194.1 ft</span>
+        <span class="label">South Arm &middot; July 2024 (partial recovery)</span>
+      </div>
+    </div>
+
+    <p class="schematic-flag" style="border:none;margin-top:0;padding-top:0;">A note on surface-area figures: elevation readings for the 1986 high and 2022 low are consistent across agencies, but reported <em>surface area</em> for those same benchmarks is not — the State of Utah and NASA report 3,300 sq mi (1986) and ~800 sq mi (2022), while USGS's own Hydro Mapper page reports ~2,300 sq mi (1986, citing a 2002 Utah DNR study) and ~890 sq mi (2022, citing a 2023 USGS data release). Both figures are shown below rather than picked between.</p>
+  </section>
+
+  <section id="map">
+    <h2>Watch the Lake Shrink</h2>
+    <p>This is a schematic, not a survey — it's built to show the scale of the change, not to stand in for satellite or GIS data. Pick a benchmark year to see roughly how far the shoreline has retreated and what the lake's elevation and surface area were at that point.</p>
+
+    <div class="interactive">
+      <h3>Great Salt Lake Shoreline, By the Numbers</h3>
+      <p class="sub">Illustrative shoreline scaled to documented elevation/area figures &middot; causeway position fixed &middot; not surveyed geometry</p>
+
+      <div class="year-btns" id="yearBtns">
+        <button data-key="1847">1847 &middot; Pioneer-Era Baseline</button>
+        <button data-key="1963">1963 &middot; Prior Low</button>
+        <button data-key="1986" class="active">1986 &middot; Historic High</button>
+        <button data-key="2022">2022 &middot; Record Low</button>
+      </div>
+
+      <div class="map-stats">
+        <div class="m-stat">
+          <span class="m-num" id="statElev">4,211.6 ft</span>
+          <span class="m-lab">Elevation</span>
+        </div>
+        <div class="m-stat">
+          <span class="m-num" id="statArea">2,300–3,300 sq mi</span>
+          <span class="m-lab">Surface area (sources vary)</span>
+        </div>
+        <div class="m-stat">
+          <span class="m-num" id="statNote">Historic high</span>
+          <span class="m-lab">Benchmark</span>
+        </div>
+      </div>
+
+      <div class="gsl-map-wrap">
+        <svg viewBox="0 0 600 400" role="img" aria-labelledby="mapTitle mapDesc">
+          <title id="mapTitle">Schematic map of Great Salt Lake shoreline retreat</title>
+          <desc id="mapDesc">An illustrative outline of the Great Salt Lake that resizes to show documented shoreline retreat between 1847 and 2022, with a fixed reference outline showing the 1986 historic-high shoreline for comparison.</desc>
+          <defs>
+            <marker id="riverhead" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#3d6e7a"></path>
+            </marker>
+          </defs>
+          <!-- fixed reference outline: 1986 historic-high boundary, stays visible for comparison -->
+          <polygon id="refShape" points="" fill="none" stroke="#2F5560" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.45"></polygon>
+          <!-- the shape that morphs by selected year -->
+          <polygon id="lakeShape" class="lake-shape" points=""></polygon>
+          <line id="causewayLine" class="causeway-line" x1="150" y1="132" x2="255" y2="128"></line>
+          <text x="152" y="118" class="map-label" font-style="italic" font-size="11">Causeway (1959, fixed)</text>
+          <text x="175" y="70" class="map-label" font-weight="bold">Gunnison Bay (north)</text>
+          <text x="230" y="255" class="map-label" font-weight="bold">Gilbert Bay (south)</text>
+          <path class="river-arrow" d="M470,150 L410,205"></path>
+          <text x="475" y="150" class="map-label">Bear River</text>
+          <path class="river-arrow" d="M450,300 L385,275"></path>
+          <text x="452" y="312" class="map-label">Weber River</text>
+          <path class="river-arrow" d="M395,355 L330,315"></path>
+          <text x="365" y="372" class="map-label">Jordan River</text>
+        </svg>
+        <p class="exposed-note" style="padding:6px 10px 12px;">Dashed outline: 1986 historic-high shoreline, shown for reference at every step. Solid shape: shoreline at the selected benchmark year.</p>
+      </div>
+      <p class="map-caption">Schematic shoreline, proportioned to the documented elevation/area figures above — not a GIS survey. For actual satellite imagery, see the USGS/NASA before-and-after comparisons linked in Sources below.</p>
+    </div>
+
+    <div class="interactive">
+      <h3>Lake Elevation, 1847–2022</h3>
+      <p class="sub">Hover or tap a point for exact figures &middot; elevation readings agree across agencies</p>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 600 240" role="img" aria-labelledby="chartTitle chartDesc">
+          <title id="chartTitle">Great Salt Lake elevation, 1847 to 2022</title>
+          <desc id="chartDesc">A line chart of Great Salt Lake's recorded surface elevation at four benchmark years: 1847, 1963, 1986, and 2022.</desc>
+          <line class="elev-grid" x1="40" y1="30" x2="560" y2="30"></line>
+          <line class="elev-grid" x1="40" y1="94" x2="560" y2="94"></line>
+          <line class="elev-grid" x1="40" y1="158" x2="560" y2="158"></line>
+          <line class="elev-grid" x1="40" y1="220" x2="560" y2="220"></line>
+          <text x="8" y="34" class="elev-axis-label">4210</text>
+          <text x="8" y="98" class="elev-axis-label">4200</text>
+          <text x="8" y="162" class="elev-axis-label">4190</text>
+          <path id="elevLine" class="elev-line" d=""></path>
+          <g id="elevPoints"></g>
+          <g id="elevYearLabels"></g>
+        </svg>
+        <div class="elev-tooltip" id="elevTooltip"></div>
+      </div>
+    </div>
+
+    <div class="interactive">
+      <h3>How Salty Is It?</h3>
+      <p class="sub">Hover or tap a bar for sourcing &middot; salinity as percent of total dissolved solids</p>
+      <div class="sal-bar-wrap">
+        <svg viewBox="0 0 600 230" role="img" aria-labelledby="salTitle salDesc">
+          <title id="salTitle">Salinity comparison: ocean, Great Salt Lake arms, and the Dead Sea</title>
+          <desc id="salDesc">A bar chart comparing salinity percentages: average ocean, Great Salt Lake's Gilbert Bay in a healthy range and at its 2022 peak, Gunnison Bay, and the Dead Sea.</desc>
+          <g id="salBars"></g>
+          <line x1="230" y1="8" x2="230" y2="205" class="elev-grid"></line>
+          <text x="230" y="222" text-anchor="middle" class="sal-axis-label">0%</text>
+        </svg>
+        <div class="elev-tooltip" id="salTooltip"></div>
+      </div>
+      <p class="map-caption">Salinity is not uniform across the lake — the causeway keeps Gunnison Bay far saltier than Gilbert Bay, since Gilbert Bay gets nearly all the freshwater inflow. Figures shown are documented ranges and single-point measurements, not simultaneous readings.</p>
+    </div>
+  </section>
+
+  <section id="today">
+    <h2>Why This History Matters Now</h2>
+    <div class="callout">
+      <p>The 2022 record low didn't just make headlines — it triggered real money and real governance changes. In 2023, the Utah Legislature passed H.B. 491, creating a Great Salt Lake Commissioner position and a dedicated funding account to address the crisis. In 2025, H.B. 520 restructured that commissioner's role again, moving it under the Department of Natural Resources.</p>
+      <p>Alongside the commissioner's office, the state has funneled tens of millions of dollars toward the lake through two separate funding pots — and a private Trust Council that reviews some of that spending operates with far less public visibility than the state's own advisory council on the same lake.</p>
+    </div>
+
+    <div class="bridge-link">
+      <span class="tag">GO DEEPER &middot; FULL CASE FILE</span>
+      <a href="weber-gsl-two-money-pots.html">One Lake, Two Money Pots, and a Council That Calls Itself Private &rarr;</a>
+      <p>The full breakdown of the $12.5M and $40M funding pots, the Trust Council's closed-door structure, and the legislator who helped create the very account he later helped review.</p>
+    </div>
+
+    <div class="bridge-link">
+      <span class="tag">KEEP READING &middot; COMPANION EXPLAINER</span>
+      <a href="weber-gsl-life-of-the-lake.html">The Life of the Great Salt Lake: Birds, Brine, and Minerals &rarr;</a>
+      <p>Everything above is about the water level. This one is about what actually lives in — and gets pulled out of — the lake: the ten million birds, the brine shrimp industry, and the minerals and metals companies are after.</p>
+    </div>
+  </section>
+
+  <section id="questions">
+    <h2>Questions Worth Asking</h2>
+    <p>The people quoted below are all on the public record about the lake. Their own words raise questions worth sitting with — not to catch anyone in a contradiction, but because the answers aren't yet public.</p>
+
+    <blockquote class="quote-block">
+      "Restoring Great Salt Lake to health will not be a one-year, one-policy, one-constituency solution. Rather, a coordinated, data-driven approach will be necessary so decision-makers can evaluate tradeoffs and balance competing interests."
+      <span class="quote-src">— Brian Steed, then&ndash;Great Salt Lake Commissioner and Great Salt Lake Strike Team Co-Chair, via the Kem C. Gardner Policy Institute. Gov. Cox appointed Hannah Freeze as Commissioner in his place on July 22, 2026.</span>
+    </blockquote>
+    <p>If a "coordinated, data-driven approach" is the goal, why do the state's own cited sources — greatsaltlake.utah.gov, NASA, and USGS's own Hydro Mapper — still report different surface-area figures for the same two benchmark years, more than three years after the 2022 low? Which figure, if any, is the one policymakers are actually using to evaluate those tradeoffs?</p>
+
+    <blockquote class="quote-block">
+      "The Great Salt Lake Watershed Enhancement Trust is helping bring more water to Great Salt Lake and its wetlands, which are crucial for millions of birds that rely on this ecosystem and the health of the surrounding communities."
+      <span class="quote-src">— Tim Brown, President/CEO of Tracy Aviary, Great Salt Lake Watershed Enhancement Trust Council member</span>
+    </blockquote>
+    <p>The Trust's own materials describe its work in these public terms, but the Trust Council itself operates under bylaws that allow closed meetings and non-disclosed votes. What would it take for the Council's decision-making to be as visible to the public as the state's own Great Salt Lake Advisory Council?</p>
+
+    <blockquote class="quote-block">
+      "If we don't have a healthy Salt Lake ecosystem, then it affects military readiness."
+      <span class="quote-src">— Tyler Smith, Installation Resiliency Manager, Utah Department of Veterans &amp; Military Affairs, to the Veterans &amp; Military Affairs Commission, Sept. 2026</span>
+    </blockquote>
+    <p>The Great Salt Lake Sentinel Landscape program ties lake health directly to military readiness and reports a 2.7-million-acre footprint — but its own 2025 profile lists zero acres protected and zero acres enrolled through fiscal year 2024. What does "protected" or "enrolled" actually mean under this program, and when does the state expect that number to move off zero?</p>
+
+    <blockquote class="quote-block">
+      "We have been diverting water for housing and agriculture in the Wasatch Valley for about a century."
+      <span class="quote-src">— Bonnie Baxter, biologist, Westminster College, via NASA Earth Observatory</span>
+    </blockquote>
+    <p>If a century of diversion is the root cause, does a partial recovery to 4,194.1 feet in 2024 — still four feet below the state's own healthy-range target — represent a real change in that underlying pattern of water use, or mainly the benefit of two unusually wet years?</p>
+  </section>
+
+  <details class="sources" id="sources">
+    <summary>Sources &amp; Notes</summary>
+    <ol>
+      <li>USGS, <em>Great Salt Lake comparison, 1986 and 2022</em> — <a href="https://www.usgs.gov/media/before-after/great-salt-lake-comparison-1986-and-2022" target="_blank" rel="noopener">usgs.gov</a>. Source for the 1986 record-high extent/volume, the July 2022 low elevation, and the 1847 data-record start.</li>
+      <li>USGS Utah Water Science Center, <em>Great Salt Lake Elevations</em> — <a href="https://www.usgs.gov/centers/ut-water/science/great-salt-lake-elevations" target="_blank" rel="noopener">usgs.gov</a>. Source for the June 3, 1986 record high (4,211.60 ft), the Nov. 7, 2022 record low (4,188.5 ft), continuous USGS data collection since 1902, and the 1847 elevation record at the Saltair Boat Harbor station.</li>
+      <li>Utah Division of Forestry, Fire and State Lands, <em>About the Great Salt Lake</em> — <a href="https://greatsaltlake.utah.gov/about" target="_blank" rel="noopener">greatsaltlake.utah.gov</a>. Source for the terminal-lake description, the Bear/Weber/Jordan rivers, ~2 million acre-feet lost to evaporation annually, the Nov. 2022 low (~800 sq mi), and the 1986 high (3,300 sq mi).</li>
+      <li>NASA Earth Observatory, <em>The Great Shrinking Lake</em> — <a href="https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187" target="_blank" rel="noopener">science.nasa.gov</a>. Source for the causeway's effect on the north/south arms, the ~22-foot decline since 1986, and Westminster College biologist Bonnie Baxter's comment on roughly a century of water diversion for housing and agriculture.</li>
+      <li>USGS Utah Water Science Center, <em>Great Salt Lake Hydro Mapper</em> — usgs.gov. Source for the 1963 prior-record-low elevation (4,191.35 ft) and surface area (~950 sq mi), the causeway's "rock-fill" construction and the Gunnison Bay/Gilbert Bay names, the 11-foot decline framing since the late 19th century, and the competing 1986/2022 surface-area figures (2,300 sq mi and ~890 sq mi) cited there to a 2002 Utah DNR special publication ("Great Salt Lake: An Overview of Change") and a 2023 USGS data release, respectively — shown alongside, not in place of, the greatsaltlake.utah.gov/NASA figures above because the two lineages disagree.</li>
+      <li>U.S. Fish &amp; Wildlife Service, <em>Migratory Bird Program Administrative Flyways</em> — <a href="https://www.fws.gov/partner/migratory-bird-program-administrative-flyways" target="_blank" rel="noopener">fws.gov</a>. Source confirming Utah, and therefore the Great Salt Lake, falls under the Pacific Flyway.</li>
+      <li>FRIENDS of Great Salt Lake, <em>About the Lake</em> — <a href="https://fogsl.org" target="_blank" rel="noopener">fogsl.org</a>. Source for the "ten million birds, 338 species" figure and the 1991 Western Hemisphere Shorebird Reserve Network designation, the halophilic bacteria/pink-water fact, the July 2024 South Arm recovery to 4,194.1 ft, the Commissioner's Office's 4,198'–4,205' target elevation range, and the 888-sq-mi figure for the 2022 low (a third estimate, close to USGS Hydro Mapper's ~890 sq mi and different from the State of Utah's ~800 sq mi cited above).</li>
+      <li><em>Lucin Cutoff</em>, Wikipedia, cross-checked against USGS and FRIENDS of Great Salt Lake's causeway descriptions — <a href="https://en.wikipedia.org/wiki/Lucin_Cutoff" target="_blank" rel="noopener">en.wikipedia.org</a>. Source for the causeway's construction detail: built by contractor Morrison-Knudsen for Southern Pacific Railroad, construction began 1955, opened to freight use in late 1959.</li>
+      <li>Global Seafood Alliance / Deseret News, <em>Saving the Great Salt Lake is important for a critical international industry — harvesting brine shrimp</em> (Dec. 2023) — <a href="https://www.deseret.com/utah/2023/12/9/23989720/saving-great-salt-lake-important-for-a-critical-international-industry-harvesting-brine-shrimp/" target="_blank" rel="noopener">deseret.com</a>. Source for the Great Salt Lake supplying "a little more than a third of the world's brine shrimp" and being the largest single producer of Artemia cysts for global aquaculture feed.</li>
+      <li>Utah Geological Survey, <em>Great Salt Lake and Ancient Lake Bonneville</em>, Public Information Series PI-39, by J. Wallace Gwynn — <a href="https://geology.utah.gov/docs/pdf/pi-39.pdf" target="_blank" rel="noopener">geology.utah.gov</a>. Source for Lake Bonneville's extent (~20,000 sq mi across western Utah, eastern Nevada, and southern Idaho; ~325 miles long, ~135 miles wide, over 1,000 ft deep at maximum) and timeframe (existed roughly 32,000–14,000 years ago), and for the Great Salt Lake's status as "a large remnant of Lake Bonneville."</li>
+      <li>University of Utah / Utah State University, <em>Toxins from Great Salt Lake dust are absorbed by plants, soils and human bodies</em>, research led by Janice Brahney (USU) and Molly Blakowski (USU), with Diego Fernandez (University of Utah geochemist), published in <em>Atmospheric Environment</em> — <a href="https://attheu.utah.edu/research/toxins-from-great-salt-lake-dust-are-absorbed-by-plants-soils-and-human-bodies/" target="_blank" rel="noopener">attheu.utah.edu</a>. Source for the arsenic/heavy-metal dust claim: the study found leafy vegetables exposed to lakebed dust carried elevated arsenic, uranium, lithium, beryllium, and antimony even after washing, and that in more than a third of modeled exposure scenarios, toxic-metal exposure for children exceeded levels of concern.</li>
+      <li><em>Dead Sea</em>, Wikipedia — <a href="https://en.wikipedia.org/wiki/Dead_Sea" target="_blank" rel="noopener">en.wikipedia.org</a>. Source for the "How Salty Is It?" comparison chart: average ocean salinity (~3.5%) and the Dead Sea's salinity (34.2% as of a 2011 measurement, about 9.6 times saltier than the ocean). The Gilbert Bay and Gunnison Bay figures in that same chart are sourced to FRIENDS of Great Salt Lake, cited above.</li>
+      <li>Office of Gov. Spencer Cox, <em>Gov. Cox Appoints Hannah Freeze as Great Salt Lake Commissioner</em> — <a href="https://governor.utah.gov/press/gov-cox-appoints-hannah-freeze-as-great-salt-lake-commissioner/" target="_blank" rel="noopener">governor.utah.gov</a>. Source for the July 22, 2026 appointment of Hannah Freeze, previously the GSL deputy commissioner, as commissioner in place of Brian Steed — cited here to correct/date-stamp the Steed quote above, which was made while he held the role.</li>
+    </ol>
+</main>
+
+<footer class="pagefoot">
+  <span>webercountyhive.substack.com</span>
+  <span>Public records only &middot; No comment requested</span>
+</footer>
+
+<script>
+(function () {
+  // ---- Schematic shoreline geometry ----
+  // Illustrative only, not surveyed GIS boundaries. Two keyframes (1986 high / 2022 low),
+  // same vertex count/order so points can be linearly interpolated. Causeway position is
+  // fixed on screen (it's a real, stationary structure) and drawn separately from the shape.
+  var HIGH = [
+    [170,50],[220,40],[250,60],[245,95],[230,120],[235,140],[260,160],[310,155],
+    [365,175],[400,215],[395,270],[350,310],[280,325],[210,310],[160,280],[135,235],
+    [140,185],[150,140],[145,95],[155,65]
+  ];
+  // LOW shrink factors are calibrated (not arbitrary) so this shape's area is ~24% of HIGH's —
+  // matching the documented ~800/3,300 sq mi ratio between the 2022 low and 1986 high, so the
+  // schematic's shrinkage is proportionate to the real figures, not just "smaller-looking."
+  var LOW = [
+    [194,66],[204,64],[210,68],[209,75],[202,127],[203.5,133],[266,208],
+    [286,206],[308,214],[322,230],[320,252],[302,268],[274,274],
+    [246,268],[226,256],[216,238],[175,146.5],[178,133],[189,75],[191,69]
+  ];
+  var AREA_MIN = 800, AREA_MAX = 3300; // clamp range for the t=0..1 shape scale
+
+  var STOPS = {
+    '1847': {
+      year: 1847, elevation: 4200.4, areaVal: 1700,
+      elevText: '4,200.4 ft', areaText: '~1,700 sq mi (long-term avg.)',
+      note: 'Pioneer-era baseline', chartLabel: '1847',
+      full: 'Long-term 1847–2001 average elevation — not a single-year reading. This is the baseline: the lake pioneers found when they arrived.'
+    },
+    '1963': {
+      year: 1963, elevation: 4191.35, areaVal: 950,
+      elevText: '4,191.35 ft', areaText: '~950 sq mi',
+      note: 'Prior historic low', chartLabel: '1963',
+      full: 'The lowest level on record until October 2021 broke it — a reminder the lake has been this low before.'
+    },
+    '1986': {
+      year: 1986, elevation: 4211.6, areaVal: 2800,
+      elevText: '4,211.6–4,211.85 ft', areaText: '2,300–3,300 sq mi (sources vary)',
+      note: 'Historic high', chartLabel: '1986',
+      full: 'The highest level ever recorded, reached June 3, 1986, and matched again in March 1987. Surface-area estimates for this peak vary by agency — see Sources.'
+    },
+    '2022': {
+      year: 2022, elevation: 4188.5, areaVal: 845,
+      elevText: '4,188.5 ft', areaText: '800–890 sq mi (sources vary)',
+      note: 'Record low', chartLabel: '2022',
+      full: 'The lowest level ever recorded, broke the 1963 record. Surface-area estimates for this low vary by agency — see Sources.'
+    }
+  };
+
+  function lerpPoints(t) {
+    var pts = [];
+    for (var i = 0; i < HIGH.length; i++) {
+      var x = LOW[i][0] + (HIGH[i][0] - LOW[i][0]) * t;
+      var y = LOW[i][1] + (HIGH[i][1] - LOW[i][1]) * t;
+      pts.push(x.toFixed(1) + ',' + y.toFixed(1));
+    }
+    return pts.join(' ');
+  }
+
+  var refShape = document.getElementById('refShape');
+  var lakeShape = document.getElementById('lakeShape');
+  var statElev = document.getElementById('statElev');
+  var statArea = document.getElementById('statArea');
+  var statNote = document.getElementById('statNote');
+  var yearBtns = document.querySelectorAll('#yearBtns button');
+
+  if (refShape) refShape.setAttribute('points', lerpPoints(1)); // fixed 1986 reference ring
+
+  function setMap(key, animate) {
+    var s = STOPS[key];
+    if (!s || !lakeShape) return;
+    var t = (s.areaVal - AREA_MIN) / (AREA_MAX - AREA_MIN);
+    t = Math.max(0, Math.min(1, t));
+
+    if (animate) {
+      var start = null;
+      var fromPts = lakeShape.getAttribute('points');
+      var duration = 450;
+      function frame(ts) {
+        if (!start) start = ts;
+        var p = Math.min(1, (ts - start) / duration);
+        var eased = p < 0.5 ? 2 * p * p : -1 + (4 - 2 * p) * p;
+        lakeShape.setAttribute('points', lerpPoints(t * eased + (1 - eased) * currentT()));
+        if (p < 1) requestAnimationFrame(frame);
+        else lakeShape.setAttribute('points', lerpPoints(t));
+      }
+      requestAnimationFrame(frame);
+    } else {
+      lakeShape.setAttribute('points', lerpPoints(t));
+    }
+    lakeShape.dataset.t = t;
+
+    statElev.textContent = s.elevText;
+    statArea.textContent = s.areaText;
+    statNote.textContent = s.note + ' (' + s.year + ')';
+
+    yearBtns.forEach(function (b) {
+      b.classList.toggle('active', b.dataset.key === key);
+    });
+    setChartActive(key);
+  }
+
+  function currentT() {
+    var v = lakeShape ? parseFloat(lakeShape.dataset.t) : 1;
+    return isNaN(v) ? 1 : v;
+  }
+
+  yearBtns.forEach(function (b) {
+    b.addEventListener('click', function () { setMap(b.dataset.key, true); });
+  });
+
+  // ---- Elevation chart ----
+  var order = ['1847', '1963', '1986', '2022'];
+  var chartX0 = 40, chartX1 = 560, yr0 = 1847, yr1 = 2022;
+  var elevMin = 4185, elevMax = 4215, yTop = 30, yBottom = 220;
+
+  function xFor(year) { return chartX0 + (year - yr0) / (yr1 - yr0) * (chartX1 - chartX0); }
+  function yFor(elev) { return yBottom - (elev - elevMin) / (elevMax - elevMin) * (yBottom - yTop); }
+
+  var elevLine = document.getElementById('elevLine');
+  var elevPointsG = document.getElementById('elevPoints');
+  var elevLabelsG = document.getElementById('elevYearLabels');
+  var tooltip = document.getElementById('elevTooltip');
+  var chartSvg = elevLine ? elevLine.closest('svg') : null;
+
+  if (elevLine) {
+    var d = order.map(function (k, i) {
+      var s = STOPS[k];
+      var cmd = i === 0 ? 'M' : 'L';
+      return cmd + xFor(s.year).toFixed(1) + ',' + yFor(s.elevation).toFixed(1);
+    }).join(' ');
+    elevLine.setAttribute('d', d);
+
+    order.forEach(function (k) {
+      var s = STOPS[k];
+      var cx = xFor(s.year), cy = yFor(s.elevation);
+
+      var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', cx);
+      circle.setAttribute('cy', cy);
+      circle.setAttribute('r', 7);
+      circle.setAttribute('class', 'elev-pt' + (k === '1986' ? ' active-pt' : ''));
+      circle.dataset.key = k;
+      circle.setAttribute('tabindex', '0');
+      circle.setAttribute('role', 'img');
+      circle.setAttribute('aria-label', s.chartLabel + ': ' + s.elevText);
+      elevPointsG.appendChild(circle);
+
+      var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', cx);
+      label.setAttribute('y', yBottom + 20);
+      label.setAttribute('text-anchor', 'middle');
+      label.setAttribute('class', 'elev-axis-label');
+      label.textContent = s.chartLabel;
+      elevLabelsG.appendChild(label);
+
+      function showTip(evt) {
+        tooltip.innerHTML = '<strong>' + s.chartLabel + '</strong> &middot; ' + s.note + '<br>' + s.elevText + '<br>' + s.areaText;
+        tooltip.style.opacity = '1';
+        positionTip(evt);
+      }
+      function positionTip(evt) {
+        var rect = chartSvg.getBoundingClientRect();
+        var wrapRect = chartSvg.parentElement.getBoundingClientRect();
+        var px = (evt.clientX !== undefined ? evt.clientX : rect.left) - wrapRect.left;
+        var py = (evt.clientY !== undefined ? evt.clientY : rect.top) - wrapRect.top;
+        tooltip.style.left = Math.max(4, px - 60) + 'px';
+        tooltip.style.top = Math.max(0, py - 70) + 'px';
+      }
+      circle.addEventListener('mouseenter', showTip);
+      circle.addEventListener('mousemove', positionTip);
+      circle.addEventListener('mouseleave', function () { tooltip.style.opacity = '0'; });
+      circle.addEventListener('focus', showTip);
+      circle.addEventListener('blur', function () { tooltip.style.opacity = '0'; });
+      circle.addEventListener('click', function () { setMap(k, true); });
+    });
+  }
+
+  function setChartActive(key) {
+    if (!elevPointsG) return;
+    Array.prototype.forEach.call(elevPointsG.children, function (c) {
+      c.classList.toggle('active-pt', c.dataset.key === key);
+    });
+  }
+
+  // ---- Salinity comparison bars ----
+  var SALINITY = [
+    {
+      label: 'Ocean (average)',
+      value: 3.5,
+      valueText: '~3.5%',
+      color: '#3d6e7a',
+      note: 'Average global ocean salinity is about 3.5% — the baseline everything else here is compared against.'
+    },
+    {
+      label: 'Gilbert Bay (South Arm) — healthy range',
+      value: 14,
+      valueText: '13–15%',
+      color: '#4E7C8C',
+      note: 'A healthy range for Gilbert Bay, the lake’s south arm, is 13–15% — the range brine shrimp and brine flies tolerate well.'
+    },
+    {
+      label: 'Gilbert Bay (South Arm) — 2022 peak',
+      value: 19,
+      valueText: '19%',
+      color: '#C9A227',
+      note: 'In 2022, Gilbert Bay reached 19% salinity — approaching the upper limit brine shrimp and brine flies can tolerate.'
+    },
+    {
+      label: 'Gunnison Bay (North Arm)',
+      value: 28,
+      valueText: '~28%',
+      color: '#9A3324',
+      note: 'Gunnison Bay is cut off from most freshwater inflow by the causeway and runs about twice as salty as Gilbert Bay. Only halophilic bacteria and archaea survive here — their reddish pigment is what turns the water pink.'
+    },
+    {
+      label: 'Dead Sea (for comparison)',
+      value: 34.2,
+      valueText: '34.2%',
+      color: '#5b5850',
+      note: 'Not part of the Great Salt Lake system — shown for scale. About 9.6 times saltier than the ocean.'
+    }
+  ];
+
+  var salG = document.getElementById('salBars');
+  var salTooltip = document.getElementById('salTooltip');
+  if (salG) {
+    var salSvg = salG.closest('svg');
+    var salX0 = 230, salX1 = 585, salMax = 36;
+    var rowH = 40, rowGap = 6, salTop = 8;
+    function salXFor(v) { return salX0 + (v / salMax) * (salX1 - salX0); }
+
+    SALINITY.forEach(function (d, i) {
+      var y = salTop + i * (rowH + rowGap);
+
+      var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', salX0 - 10);
+      label.setAttribute('y', y + rowH / 2 - 6);
+      label.setAttribute('text-anchor', 'end');
+      label.setAttribute('class', 'sal-bar-label');
+      label.textContent = d.label;
+      salG.appendChild(label);
+
+      var track = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      track.setAttribute('x', salX0);
+      track.setAttribute('y', y);
+      track.setAttribute('width', salX1 - salX0);
+      track.setAttribute('height', rowH - 12);
+      track.setAttribute('class', 'sal-track');
+      salG.appendChild(track);
+
+      var bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      bar.setAttribute('x', salX0);
+      bar.setAttribute('y', y);
+      bar.setAttribute('width', Math.max(2, salXFor(d.value) - salX0));
+      bar.setAttribute('height', rowH - 12);
+      bar.setAttribute('fill', d.color);
+      bar.setAttribute('class', 'sal-bar');
+      bar.setAttribute('tabindex', '0');
+      bar.setAttribute('role', 'img');
+      bar.setAttribute('aria-label', d.label + ': ' + d.valueText);
+      salG.appendChild(bar);
+
+      var valText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      valText.setAttribute('x', salXFor(d.value) + 8);
+      valText.setAttribute('y', y + rowH / 2 - 6);
+      valText.setAttribute('class', 'sal-bar-value');
+      valText.textContent = d.valueText;
+      salG.appendChild(valText);
+
+      function showSalTip(evt) {
+        salTooltip.innerHTML = '<strong>' + d.label + '</strong> &middot; ' + d.valueText + '<br>' + d.note;
+        salTooltip.style.opacity = '1';
+        positionSalTip(evt);
+      }
+      function positionSalTip(evt) {
+        var wrapRect = salSvg.parentElement.getBoundingClientRect();
+        var px = (evt.clientX !== undefined ? evt.clientX : wrapRect.left) - wrapRect.left;
+        var py = (evt.clientY !== undefined ? evt.clientY : wrapRect.top) - wrapRect.top;
+        salTooltip.style.left = Math.max(4, Math.min(px - 60, wrapRect.width - 264)) + 'px';
+        salTooltip.style.top = Math.max(0, py - 78) + 'px';
+      }
+      bar.addEventListener('mouseenter', showSalTip);
+      bar.addEventListener('mousemove', positionSalTip);
+      bar.addEventListener('mouseleave', function () { salTooltip.style.opacity = '0'; });
+      bar.addEventListener('focus', showSalTip);
+      bar.addEventListener('blur', function () { salTooltip.style.opacity = '0'; });
+    });
+
+    var salViewH = salTop + SALINITY.length * (rowH + rowGap) + 20;
+    salSvg.setAttribute('viewBox', '0 0 600 ' + salViewH);
+    var gridLine = salSvg.querySelector('.elev-grid');
+    var zeroLabel = salSvg.querySelector('.sal-axis-label');
+    if (gridLine) { gridLine.setAttribute('y2', salViewH - 10); }
+    if (zeroLabel) { zeroLabel.setAttribute('y', salViewH - 3); }
+  }
+
+  // init
+  lakeShape.dataset.t = '1';
+  setMap('1986', false);
+})();
+</script>
+
+</body>
+</html>
