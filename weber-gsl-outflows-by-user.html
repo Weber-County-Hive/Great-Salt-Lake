@@ -236,14 +236,14 @@
   <div class="wrap">
     <div class="eyebrow">The Weber County Hive &middot; Great Salt Lake Docket</div>
     <h1>Who's Actually Using the Water?</h1>
-    <p class="dek">Everyone hears "slow the flow." Here's outflows broken down by actual user — sector shares, named data-center accounts, golf courses, and <strong>who has to report their usage and who doesn't</strong> — sourced to state data, public utility records, and the Legislature's own bill history.</p>
+    <p class="dek">Utah increasingly requires individual households to measure their outdoor water use — but the public still lacks a comprehensive, user-by-user accounting for several other water-intensive activities. Sector shares, named data-center accounts, golf courses, and <strong>who has to disclose their usage and who doesn't</strong> — sourced to state data, public utility records, and the Legislature's own bill history.</p>
     <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--header-dim); margin-top: 10px;">PUBLISHED SEPT. 22, 2026 &middot; LAST UPDATED SEPT. 22, 2026</p>
 
     <div class="stat-row">
-      <div class="stat"><div class="num">82%</div><div class="lab">Statewide water use, agriculture</div></div>
-      <div class="stat"><div class="num">0</div><div class="lab">Reporting laws, golf courses</div></div>
+      <div class="stat"><div class="num">65%</div><div class="lab">GSL Basin depletion, agriculture (2020&ndash;24)</div></div>
+      <div class="stat"><div class="num">No statewide law</div><div class="lab">Requires per-course golf water reporting</div></div>
       <div class="stat"><div class="num">85%</div><div class="lab">Secondary connections unmetered (2022)</div></div>
-      <div class="stat"><div class="num">16.6B</div><div class="lab">Gal/yr, Stratos power generation alone</div></div>
+      <div class="stat"><div class="num">2B&ndash;16.6B</div><div class="lab">Gal/yr, Stratos power generation, modeled range</div></div>
     </div>
   </div>
 </div>
@@ -277,13 +277,31 @@ pie showData
       <div class="bar-row"><div class="bar-label">Commercial / Industrial</div><div class="bar-track"><div class="bar-fill blue" style="width:8%"></div></div><div class="bar-val">8%</div></div>
     </div>
 
+    <div class="callout note">
+      <strong>Two different questions, easy to mix up:</strong> "diversion" is water pulled from a source; "depletion" is water actually consumed or otherwise removed from the system, not returned. The statewide 82% figure above is a diversion figure. The Great Salt Lake Basin chart below is a <em>depletion</em> figure &mdash; a different, more lake-relevant measurement, and not directly comparable to the 82% number. Both are real and sourced; they're just answering different questions.
+    </div>
+
     <div class="card">
-      <div class="card-title">Great Salt Lake Basin, consumptive-use share (drives lake decline)</div>
-      <div class="card-sub">SOURCE: GREAT SALT LAKE STRIKE TEAM / GARDNER POLICY INSTITUTE, VIA UTAH DIVISION OF WATER RESOURCES</div>
-      <div class="bar-row"><div class="bar-label">Agriculture</div><div class="bar-track"><div class="bar-fill rust" style="width:65%"></div></div><div class="bar-val">~65%</div></div>
-      <div class="bar-row"><div class="bar-label">Municipal &amp; Industrial</div><div class="bar-track"><div class="bar-fill amber" style="width:27%"></div></div><div class="bar-val">~27%</div></div>
-      <div class="bar-row"><div class="bar-label">Other (impoundment, evap.)</div><div class="bar-track"><div class="bar-fill blue" style="width:8%"></div></div><div class="bar-val">~8%</div></div>
-      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">Of the M&amp;I share, 97% is outdoor landscape watering — not industry.</p>
+      <div class="card-title">Great Salt Lake Basin, human-caused water depletion by category, 2020&ndash;2024</div>
+      <div class="card-sub">SOURCE: UTAH DIVISION OF WATER RESOURCES, GREAT SALT LAKE BASIN WATER BUDGET (UPDATED MODEL); GREAT SALT LAKE STRIKE TEAM</div>
+      <div class="bar-row"><div class="bar-label">Agriculture</div><div class="bar-track"><div class="bar-fill rust" style="width:65%"></div></div><div class="bar-val">65%</div></div>
+      <div class="bar-row"><div class="bar-label">Municipal &amp; industrial</div><div class="bar-track"><div class="bar-fill amber" style="width:26.8%"></div></div><div class="bar-val">26.8%</div></div>
+      <div class="bar-row"><div class="bar-label">Great Salt Lake mineral extraction</div><div class="bar-track"><div class="bar-fill blue" style="width:5.7%"></div></div><div class="bar-val">5.7%</div></div>
+      <div class="bar-row"><div class="bar-label">Agricultural incidental losses</div><div class="bar-track"><div class="bar-fill teal" style="width:1.4%"></div></div><div class="bar-val">1.4%</div></div>
+      <div class="bar-row"><div class="bar-label">Reservoir evaporation</div><div class="bar-track"><div class="bar-fill" style="width:1.1%; background:#8c8878;"></div></div><div class="bar-val">1.1%</div></div>
+      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">These five categories sum to 100% of human-caused depletion in the basin. The Great Salt Lake Strike Team's own framing: "all sectors contribute to depletions in the basin and no single sector can bear the full responsibility for restoring the lake."</p>
+    </div>
+
+    <div class="callout caution">
+      <strong>These shares moved substantially in the state's own revised model &mdash; not because urban use suddenly spiked, but because the accounting improved.</strong> Earlier versions of Utah's water budget attributed about 73.8% of basin depletion to agriculture and 16.4% to municipal/industrial use. The updated model (averaged 1989&ndash;2023) puts those shares at roughly 65.1% and 26.3%. The state attributes the shift mainly to outdoor water use: earlier modeling assumed about 40% of outdoor municipal water was depleted; new research puts that figure at roughly 91%. In other words, most water applied to lawns and landscaping was always being lost to evaporation and plant use &mdash; the old model just wasn't capturing it.
+    </div>
+
+    <div class="card">
+      <div class="card-title">Residential depletion is overwhelmingly an outdoor story</div>
+      <div class="card-sub">SOURCE: UTAH DIVISION OF WATER RESOURCES, GREAT SALT LAKE BASIN WATER BUDGET, 2024 DATA</div>
+      <div class="bar-row"><div class="bar-label">Outdoor (lawns, landscaping)</div><div class="bar-track"><div class="bar-fill rust" style="width:100%"></div></div><div class="bar-val">96.9% of residential depletion</div></div>
+      <div class="bar-row"><div class="bar-label">Indoor</div><div class="bar-track"><div class="bar-fill teal" style="width:3%"></div></div><div class="bar-val">3.1% of residential depletion</div></div>
+      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">Residential use is ~61% of all municipal &amp; industrial depletion in the basin. Lawn watering alone depleted an estimated 408,500 acre-feet in 2024 &mdash; equal to roughly a quarter of the basin's agricultural depletion. Indoor residential depletion has stayed comparatively small and nearly constant from 1989 to 2024, even as the basin's population doubled &mdash; because indoor water mostly returns to the system after treatment, while outdoor water mostly doesn't.</p>
     </div>
 
     <div class="callout note">
@@ -495,14 +513,19 @@ flowchart TD
       <div class="card-sub">SOURCE: PUBLIC UTILITY RECORDS VIA SALT LAKE TRIBUNE / GRIST REPORTING, 12-MONTH PERIODS 2024&ndash;2025</div>
       <div class="bar-row"><div class="bar-label">Novva (West Jordan)</div><div class="bar-track"><div class="bar-fill teal" style="width:2%"></div></div><div class="bar-val">3M gal</div></div>
       <div class="bar-row"><div class="bar-label">DataBank Granite Point</div><div class="bar-track"><div class="bar-fill teal" style="width:6%"></div></div><div class="bar-val">7.7M gal</div></div>
+      <div class="bar-row"><div class="bar-label">eBay (South Jordan)</div><div class="bar-track"><div class="bar-fill teal" style="width:15%"></div></div><div class="bar-val">19.5M gal</div></div>
       <div class="bar-row"><div class="bar-label">Aligned &ndash; West Jordan</div><div class="bar-track"><div class="bar-fill amber" style="width:37%"></div></div><div class="bar-val">47.4M gal</div></div>
       <div class="bar-row"><div class="bar-label">Aligned &ndash; West Valley</div><div class="bar-track"><div class="bar-fill amber" style="width:63%"></div></div><div class="bar-val">80M gal</div></div>
       <div class="bar-row"><div class="bar-label">NSA Bluffdale</div><div class="bar-track"><div class="bar-fill rust" style="width:100%"></div></div><div class="bar-val">126M gal</div></div>
-      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">Bars scaled to this group's own range (3M&ndash;126M gal). Novva says two-thirds of its total was landscaping, not cooling.</p>
+      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">Bars scaled to this group's own range (3M&ndash;126M gal). Novva says two-thirds of its total was landscaping, not cooling. These are reported withdrawals/consumption for a specific ~12-month period &mdash; not permanent operating limits or forecasts.</p>
     </div>
 
     <div class="callout note">
-      <strong>What's actually required now:</strong> H.B. 76 (2026, Koford/Sandall) requires large data centers — 75+ acre-feet/year, 10,000+ sq ft — to report water plans before construction and actual withdrawals annually, published online by the Division of Water Rights. An earlier committee draft briefly broadened this to "large industrial facilities" generally before the final version reverted to data centers specifically; the penalty for non-reporting was also cut from an initial $10,000/day to $100/day in the final text. As enacted, this law does not cover agriculture, golf courses, or industry generally.
+      <strong>What's actually required now:</strong> H.B. 76 (2026, Koford/Sandall), effective July 1, 2026, requires a new data center larger than 10,000 sq ft expecting to withdraw at least 75 acre-feet/year to submit preconstruction water information — estimated withdrawals, water source, discharge plans, conservation efforts — to the Division of Water Rights, then report actual annual withdrawals once operating. The Division says it will publish each covered facility's name and reported withdrawal, not just a statewide total, though some business details may still qualify for GRAMA protection if a facility shows disclosure would cause competitive harm. An earlier committee draft briefly broadened the bill to "large industrial facilities" generally before the final version reverted to data centers specifically; the penalty for non-reporting was also cut from an initial $10,000/day to $100/day in the final text.
+    </div>
+
+    <div class="callout caution">
+      <strong>The law has a grandfathering gap.</strong> Per the Division of Water Rights, large data centers already operating — or that had begun construction — before July 1, 2026 are exempt from the new reporting program. That means the public will likely keep relying on utility records and individual records requests for some existing facilities, not the new state disclosure system. As enacted, the law also does not cover agriculture, golf courses, or industry generally.
     </div>
 
     <div class="flip-grid">
