@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who's Actually Using the Water? — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400;0,8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --paper: #f4f0e6;
+    --paper-card: #faf7ef;
+    --paper-card-2: #f0ecdf;
+    --ink: #1c1c1a;
+    --ink-dim: #5b5850;
+    --ink-dimmer: #8c8878;
+    --header-bg: #0f2635;
+    --header-bg-2: #163a4e;
+    --header-text: #f4f0e6;
+    --header-dim: #9db3c0;
+    --rust: #c0572e;
+    --amber: #d9a441;
+    --teal: #2e5f5a;
+    --blue: #3a5f7d;
+    --border: #ddd6c4;
+    --border-dark: rgba(244, 240, 230, 0.16);
+    --serif: 'Playfair Display', Georgia, serif;
+    --serif-body: 'Source Serif 4', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--rust); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .band {
+    background: linear-gradient(160deg, var(--header-bg) 0%, var(--header-bg-2) 100%);
+    color: var(--header-text);
+    padding: 44px 0 52px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ''; width: 26px; height: 1.5px; background: var(--amber); display: inline-block; }
+
+  .band h1 {
+    font-family: var(--serif); font-weight: 800; font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 18px;
+    color: var(--header-text);
+  }
+
+  .band .dek {
+    font-family: var(--serif-body); font-size: 17.5px; color: var(--header-dim);
+    max-width: 64ch; margin-bottom: 6px;
+  }
+  .band .dek strong { color: #f0ce8a; font-weight: 600; }
+
+  .stat-row {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    margin-top: 32px; padding-top: 26px; border-top: 1px solid var(--border-dark);
+  }
+  .stat .num { font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--amber); }
+  .stat .lab { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--header-dim); margin-top: 2px; }
+
+  main { padding: 48px 0 90px; }
+
+  .section-label {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 6px;
+  }
+  .section-label.teal { color: var(--teal); }
+  .section-label.blue { color: var(--blue); }
+  main h2 {
+    font-family: var(--serif); font-weight: 700; font-size: 24px; margin-bottom: 10px;
+  }
+  main h3 {
+    font-family: var(--serif); font-weight: 700; font-size: 17.5px; margin: 26px 0 8px;
+  }
+  main .section-sub { color: var(--ink-dim); font-size: 15px; margin-bottom: 26px; max-width: 68ch; }
+  main p { font-family: var(--serif-body); font-size: 15px; color: var(--ink-dim); margin-bottom: 14px; max-width: 70ch; }
+
+  section { margin-bottom: 52px; }
+
+  .card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 22px 24px 16px;
+    margin: 16px 0;
+  }
+  .card-title { font-family: var(--sans); font-weight: 600; font-size: 14.5px; margin-bottom: 3px; }
+  .card-sub { font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-bottom: 14px; }
+
+  .bar-row { display: flex; align-items: center; margin: 9px 0; font-family: var(--sans); font-size: 13.5px; }
+  .bar-label { width: 220px; flex-shrink: 0; padding-right: 12px; text-align: right; color: var(--ink-dim); }
+  .bar-track { flex: 1; background: var(--paper-card-2); height: 20px; border-radius: 2px; }
+  .bar-fill { height: 100%; border-radius: 2px; }
+  .bar-fill.rust { background: var(--rust); }
+  .bar-fill.amber { background: var(--amber); }
+  .bar-fill.teal { background: var(--teal); }
+  .bar-fill.blue { background: var(--blue); }
+  .bar-val { margin-left: 10px; font-family: var(--mono); font-size: 12px; color: var(--ink-dim); white-space: nowrap; }
+
+  .stat-strip { display: flex; flex-wrap: wrap; gap: 14px; margin: 18px 0 28px; }
+  .mini-stat {
+    flex: 1 1 200px;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--amber);
+    border-radius: 3px;
+    padding: 14px 16px;
+  }
+  .mini-stat.rust { border-left-color: var(--rust); }
+  .mini-stat.teal { border-left-color: var(--teal); }
+  .mini-stat.blue { border-left-color: var(--blue); }
+  .mini-stat .n { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); display: block; }
+  .mini-stat .l { font-family: var(--sans); font-size: 12.5px; color: var(--ink-dim); margin-top: 2px; }
+
+  .callout {
+    border-radius: 4px;
+    padding: 16px 20px;
+    font-family: var(--serif-body);
+    font-size: 14px;
+    color: var(--ink-dim);
+    margin: 16px 0;
+    border: 1px solid var(--border);
+  }
+  .callout.note { background: rgba(217, 164, 65, 0.09); border-left: 4px solid var(--amber); }
+  .callout.caution { background: rgba(192, 87, 46, 0.08); border-left: 4px solid var(--rust); }
+  .callout.good { background: rgba(46, 95, 90, 0.08); border-left: 4px solid var(--teal); }
+  .callout strong { color: var(--ink); }
+
+  table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 13.5px; margin: 16px 0; }
+  th, td { border: 1px solid var(--border); padding: 9px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--paper-card-2); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-dim); }
+  td { color: var(--ink-dim); }
+
+  .timeline { border-left: 3px solid var(--border); margin: 18px 0 18px 6px; padding-left: 22px; }
+  .t-item { margin-bottom: 18px; position: relative; }
+  .t-item::before {
+    content: ''; position: absolute; left: -28px; top: 5px; width: 10px; height: 10px;
+    border-radius: 50%; background: var(--amber);
+  }
+  .t-item.end::before { background: var(--rust); }
+  .t-date { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--ink-dimmer); margin-bottom: 3px; }
+  .t-body { font-family: var(--serif-body); font-size: 14.5px; color: var(--ink-dim); }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .tag {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.03em;
+    color: var(--teal); background: rgba(46, 95, 90, 0.08); border: 1px solid rgba(46, 95, 90, 0.25);
+    padding: 2px 9px; border-radius: 20px;
+  }
+
+  details {
+    background: var(--paper-card-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin-top: 36px;
+  }
+  summary { font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; color: var(--ink); }
+  details ol { font-family: var(--serif-body); font-size: 13px; color: var(--ink-dim); padding-left: 20px; margin-top: 12px; }
+  details li { margin-bottom: 9px; }
+
+  footer {
+    padding: 32px 0 50px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 12px; color: var(--ink-dimmer);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    max-width: 880px; margin: 0 auto; padding-left: 32px; padding-right: 32px;
+  }
+
+  /* Flip cards */
+  .flip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 18px 0 28px; }
+  .flip-card { height: 148px; perspective: 1200px; cursor: pointer; }
+  .flip-card-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform 0.5s; transform-style: preserve-3d;
+  }
+  .flip-card.flipped .flip-card-inner, .flip-card:focus .flip-card-inner { transform: rotateY(180deg); }
+  .flip-face {
+    position: absolute; inset: 0; backface-visibility: hidden;
+    border-radius: 3px; border: 1px solid var(--border); padding: 14px 16px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .flip-front { background: var(--paper-card); border-left: 4px solid var(--amber); }
+  .flip-front.rust { border-left-color: var(--rust); }
+  .flip-front.teal { border-left-color: var(--teal); }
+  .flip-front.blue { border-left-color: var(--blue); }
+  .flip-front .n { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); display: block; }
+  .flip-front .l { font-family: var(--sans); font-size: 12.5px; color: var(--ink-dim); margin-top: 2px; }
+  .flip-front .flip-hint { font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dimmer); position: absolute; bottom: 8px; right: 10px; }
+  .flip-back {
+    background: linear-gradient(160deg, var(--header-bg) 0%, var(--header-bg-2) 100%);
+    color: var(--header-dim); transform: rotateY(180deg);
+    font-family: var(--sans); font-size: 12px; line-height: 1.5; overflow-y: auto;
+  }
+  .flip-back strong { color: var(--header-text); }
+
+  /* Mermaid diagram containers */
+  .diagram-card {
+    background: var(--paper-card); border: 1px solid var(--border); border-radius: 3px;
+    padding: 20px 22px 8px; margin: 16px 0; overflow-x: auto;
+  }
+  .diagram-card .card-title { margin-bottom: 3px; }
+  .mermaid { display: flex; justify-content: center; }
+
+  @media (max-width: 640px) {
+    .band { padding: 34px 0 40px; }
+    main { padding: 36px 0 70px; }
+    .bar-label { width: 130px; font-size: 12px; }
+    .flip-card { height: 168px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="wrap">
+    <div class="eyebrow">The Weber County Hive &middot; Great Salt Lake Docket</div>
+    <h1>Who's Actually Using the Water?</h1>
+    <p class="dek">Everyone hears "slow the flow." Here's outflows broken down by actual user — sector shares, named data-center accounts, golf courses, and <strong>who has to report their usage and who doesn't</strong> — sourced to state data, public utility records, and the Legislature's own bill history.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">82%</div><div class="lab">Statewide water use, agriculture</div></div>
+      <div class="stat"><div class="num">0</div><div class="lab">Reporting laws, golf courses</div></div>
+      <div class="stat"><div class="num">85%</div><div class="lab">Secondary connections unmetered (2022)</div></div>
+      <div class="stat"><div class="num">16.6B</div><div class="lab">Gal/yr, Stratos power generation alone</div></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <div class="section-label teal">Explainer</div>
+    <h2>The sector split, two ways</h2>
+    <p class="section-sub">Statewide, agriculture dominates by a wide margin. Inside the Great Salt Lake Basin specifically, the mix shifts toward municipal and industrial use.</p>
+
+    <div class="diagram-card">
+      <div class="card-title">Same data, at a glance</div>
+      <div class="card-sub">SOURCE: SAME AS BAR CHART BELOW &mdash; UTAH CONSERVATION/AG AGENCY DATA VIA KSL, UTAH FOUNDATION</div>
+      <pre class="mermaid">
+pie showData
+    title Utah statewide water use, by sector
+    "Agriculture" : 82
+    "Commercial and industrial" : 8
+    "Residential, outdoor/lawns" : 6
+    "Residential, indoor" : 4
+      </pre>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Utah statewide water use, by sector</div>
+      <div class="card-sub">SOURCE: UTAH CONSERVATION/AG AGENCY DATA VIA KSL, UTAH FOUNDATION</div>
+      <div class="bar-row"><div class="bar-label">Agriculture</div><div class="bar-track"><div class="bar-fill rust" style="width:82%"></div></div><div class="bar-val">82%</div></div>
+      <div class="bar-row"><div class="bar-label">Residential (indoor)</div><div class="bar-track"><div class="bar-fill teal" style="width:4%"></div></div><div class="bar-val">3&ndash;4%</div></div>
+      <div class="bar-row"><div class="bar-label">Residential (outdoor/lawns)</div><div class="bar-track"><div class="bar-fill amber" style="width:6%"></div></div><div class="bar-val">6%</div></div>
+      <div class="bar-row"><div class="bar-label">Commercial / Industrial</div><div class="bar-track"><div class="bar-fill blue" style="width:8%"></div></div><div class="bar-val">8%</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Great Salt Lake Basin, consumptive-use share (drives lake decline)</div>
+      <div class="card-sub">SOURCE: GREAT SALT LAKE STRIKE TEAM / GARDNER POLICY INSTITUTE, VIA UTAH DIVISION OF WATER RESOURCES</div>
+      <div class="bar-row"><div class="bar-label">Agriculture</div><div class="bar-track"><div class="bar-fill rust" style="width:65%"></div></div><div class="bar-val">~65%</div></div>
+      <div class="bar-row"><div class="bar-label">Municipal &amp; Industrial</div><div class="bar-track"><div class="bar-fill amber" style="width:27%"></div></div><div class="bar-val">~27%</div></div>
+      <div class="bar-row"><div class="bar-label">Other (impoundment, evap.)</div><div class="bar-track"><div class="bar-fill blue" style="width:8%"></div></div><div class="bar-val">~8%</div></div>
+      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">Of the M&amp;I share, 97% is outdoor landscape watering — not industry.</p>
+    </div>
+
+    <div class="callout note">
+      A widely repeated "households are only 3% of use" figure most closely matches <strong>indoor</strong> residential use specifically — Utah Rivers Council states indoor household use "consumes a mere 3-4%." Outdoor residential (mostly lawns) is a separate ~6% on top of that. Stated here as "indoor household use," not "households," so the outdoor share isn't implied away.
+    </div>
+
+    <div class="card">
+      <div class="card-title">The 82% isn't one thing: what "agriculture" breaks down into</div>
+      <div class="card-sub">SOURCE: SALT LAKE TRIBUNE / GREAT SALT LAKE COLLABORATIVE, "ONE CROP USES MORE THAN HALF OF UTAH'S WATER," NOV. 2022; UTAH FOUNDATION</div>
+      <div class="bar-row"><div class="bar-label">Alfalfa &amp; hay, alone</div><div class="bar-track"><div class="bar-fill rust" style="width:68%"></div></div><div class="bar-val">68%</div></div>
+      <div class="bar-row"><div class="bar-label">Rest of Utah agriculture</div><div class="bar-track"><div class="bar-fill amber" style="width:14%"></div></div><div class="bar-val">~14%</div></div>
+      <div class="bar-row"><div class="bar-label">Everything non-agricultural</div><div class="bar-track"><div class="bar-fill blue" style="width:18%"></div></div><div class="bar-val">18%</div></div>
+      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">Bars are share of total statewide water diversions (not share of agriculture's 82% alone). One crop, grown on nearly three-fourths of Utah's irrigated cropland, accounts for more water than every other use in the state &mdash; agricultural and non-agricultural &mdash; combined.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">That "18% non-agricultural," broken down step by step</div>
+      <div class="card-sub">SOURCE: SAME STATEWIDE SECTOR DATA AS ABOVE (KSL / UTAH FOUNDATION) &mdash; THE THREE NON-AG SLICES ADD TO THE 18% FIGURE</div>
+      <div class="bar-row"><div class="bar-label">1. Residential, indoor</div><div class="bar-track"><div class="bar-fill teal" style="width:22%"></div></div><div class="bar-val">3&ndash;4% of statewide total</div></div>
+      <div class="bar-row"><div class="bar-label">2. Residential, outdoor/lawns</div><div class="bar-track"><div class="bar-fill amber" style="width:33%"></div></div><div class="bar-val">6% of statewide total</div></div>
+      <div class="bar-row"><div class="bar-label">3. Commercial &amp; industrial (all of it)</div><div class="bar-track"><div class="bar-fill blue" style="width:44%"></div></div><div class="bar-val">8% of statewide total</div></div>
+      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">Bars here are scaled to each other (largest = 8%), not to the full 100% statewide chart above &mdash; so the relative sizes read clearly at this smaller scale. Add the three and you get the ~18% "everything non-agricultural" figure. Data centers, golf courses, and other individually-named users elsewhere in this piece are already counted inside "commercial &amp; industrial" &mdash; they are not a fourth, separate slice.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">"Commercial &amp; industrial" (8% of statewide total): how much of it is actually named anywhere?</div>
+      <div class="card-sub">SOURCE: TOTAL DIVERSIONS 5.1M AC-FT/YR (SALT LAKE TRIBUNE, NOV. 2022) &times; 8% = ~408,000 AC-FT/YR C&amp;I, COMPARED AGAINST FIGURES ELSEWHERE IN THIS PIECE</div>
+      <div class="bar-row"><div class="bar-label">Untracked / no named-user data</div><div class="bar-track"><div class="bar-fill blue" style="width:100%"></div></div><div class="bar-val">~375,700 ac-ft/yr (est.)</div></div>
+      <div class="bar-row"><div class="bar-label">Golf courses (2022, reported)</div><div class="bar-track"><div class="bar-fill rust" style="width:6%"></div></div><div class="bar-val">~23,600 ac-ft/yr</div></div>
+      <div class="bar-row"><div class="bar-label">Named data centers (disclosed)</div><div class="bar-track"><div class="bar-fill amber" style="width:1%"></div></div><div class="bar-val">~810 ac-ft/yr</div></div>
+      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">This is a back-of-envelope estimate, not an official state breakdown &mdash; no agency publishes commercial/industrial water use by sub-category. It's built by taking the ~408,000 ac-ft/yr implied by the 8% statewide figure and subtracting the two specifically-named user categories tracked elsewhere in this piece (golf courses' reported total, and the five named data centers' disclosed usage converted from gallons at 325,851 gal/ac-ft). Even added together, golf and the named data centers account for roughly 6% of the commercial/industrial slice &mdash; meaning the large majority of it (retail, offices, manufacturing, mining, and every unnamed data center or facility) has no public, named-user accounting at all.</p>
+    </div>
+
+    <div class="callout note">
+      A widely repeated "agriculture is just 0.02% of GDP" figure appears to be a decimal error. Utah Rivers Council's own materials state <strong>alfalfa and hay specifically</strong> — not agriculture as a whole — account for 0.2% of Utah's GDP while using more than half the state's water (the Tribune's reporting puts alfalfa/hay's water share even higher, at 68% of all diversions). Agriculture broadly runs closer to under 1% (raw farm sales) to roughly 15% (with processing included), per BEA/Gardner Institute figures. GDP figures sourced to an advocacy page (Utah Rivers Council), not a state or federal dataset.
+    </div>
+
+    <div class="section-label">Case File</div>
+    <h2>Golf courses: the one major user with no reporting requirement at all</h2>
+    <p class="section-sub">Two bills, two consecutive years, neither became law — one would have required disclosure, the other would have studied the data and then classified it.</p>
+
+    <p style="font-family: var(--mono); font-size: 11px; color: var(--ink-dimmer); margin: -14px 0 10px;">Tap or click a card below to flip it and see the source.</p>
+    <div class="flip-grid">
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front teal"><span class="n">118</span><span class="l">Golf courses statewide</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Utah AGRC's statewide GIS golf-course layer (services1.arcgis.com, "GolfCourses" feature service) — course polygon count, not an official water-reporting list. A commercial directory (golfcourses.us) separately lists ~155, likely including driving ranges/par-3s.</div>
+        </div>
+      </div>
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front"><span class="n">~23,600 ac-ft</span><span class="l">Total golf water use, 2022</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Salt Lake Tribune / Great Salt Lake Collaborative, "Here's how much water golf courses use across Utah," April 2023. Voluntary reporting — about 25% of Utah courses did not share data, so this is a partial figure.</div>
+        </div>
+      </div>
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front rust"><span class="n">1,085 ac-ft</span><span class="l">Highest single reported user: Copper Club, Magna</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Same Tribune 2023 dataset. Kennecott/Rio Tinto has said the figure is inflated by a shared industrial well serving both the course and nearby operations — included here with that caveat attached, not as a clean course-only number.</div>
+        </div>
+      </div>
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front blue"><span class="n">0</span><span class="l">Statutory reporting requirements today</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Utah State Legislature bill history: H.B. 188 (2023) and S.B. 195 (2024) both died without becoming law — see the timeline below. No other bill currently imposes a golf-specific water-reporting duty.</div>
+        </div>
+      </div>
+    </div>
+
+    <details style="margin: 0 0 24px;">
+      <summary>Golf courses by county (118 statewide) &mdash; click to expand</summary>
+      <ol style="list-style: none; padding-left: 0; columns: 2; column-gap: 28px;">
+        <li>Salt Lake &mdash; 26</li>
+        <li>Washington &mdash; 14</li>
+        <li>Utah &mdash; 13</li>
+        <li>Davis &mdash; 11</li>
+        <li>Weber &mdash; 9</li>
+        <li>Summit &mdash; 9</li>
+        <li>Wasatch &mdash; 6</li>
+        <li>Cache &mdash; 4</li>
+        <li>Tooele &mdash; 4</li>
+        <li>Box Elder &mdash; 2</li>
+        <li>Emery &mdash; 2</li>
+        <li>Sanpete &mdash; 2</li>
+        <li>Millard &mdash; 2</li>
+        <li>Morgan &mdash; 2</li>
+        <li>Rich &mdash; 1</li>
+        <li>Beaver &mdash; 1</li>
+        <li>Juab &mdash; 1</li>
+        <li>Carbon &mdash; 1</li>
+        <li>Iron &mdash; 1</li>
+        <li>Garfield &mdash; 1</li>
+        <li>Sevier &mdash; 1</li>
+        <li>Uintah &mdash; 1</li>
+        <li>Grand &mdash; 1</li>
+        <li>Duchesne &mdash; 1</li>
+        <li>San Juan &mdash; 1</li>
+        <li>Kane &mdash; 1</li>
+      </ol>
+      <p style="font-family: var(--mono); font-size: 11px; color: var(--ink-dimmer); margin-top: 10px;">Count is course polygons in Utah AGRC's statewide GIS golf-course layer (services1.arcgis.com, AGRC/UGRC "GolfCourses" feature service), not a state list built for water-reporting purposes — none exists. A separate commercial directory (golfcourses.us) lists ~155 Utah entries, likely counting driving ranges and executive/par-3 courses the GIS polygon layer omits; treat both as approximations, not an official state count.</p>
+    </details>
+
+    <div class="callout caution">
+      <strong>If the reporting gap held at the same rate, statewide golf water use would be higher than the reported figure &mdash; illustrative math, not a published estimate:</strong> the Tribune's ~23,600 ac-ft figure reflects the roughly 75% of Utah golf courses that voluntarily reported in 2022. If the ~25% that didn't report used water at the same average rate as those that did, statewide use would scale to roughly 23,600 &divide; 0.75 &asymp; <strong>31,500 ac-ft/yr</strong> &mdash; about 7,900 ac-ft/yr, or roughly a third more, than the reported total. This is a simple extrapolation assuming non-reporting courses aren't systematically different (smaller, municipal, less irrigated, etc.) from reporting ones — that assumption isn't verified, so this should run as a caveated "if" figure, not a stated fact.
+    </div>
+
+    <h3>H.B. 188 (2023) — would have required disclosure. Died in committee, no floor vote.</h3>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-date">JAN. 25, 2023 &mdash; FIRST HEARING</div>
+        <div class="t-body">Rep. Douglas Welton presents the bill. Ryan Peterson (Golf Alliance for Utah) and Randy Elliot (Davis County Commissioner) testify in opposition — no one testifies in favor. Immediately after, the committee votes 8-1-5 to adjourn the entire meeting before voting on the bill. Rep. Gay Lynn Bennion casts the lone "no."</div>
+      </div>
+      <div class="t-item">
+        <div class="t-date">FEB. 10, 2023 &mdash; SECOND HEARING</div>
+        <div class="t-body">A hold motion is made before any substitute is even considered. Rep. Keven Stratton then moves a stronger substitute — 2028 mandatory public reporting, a $30M efficiency-grant program, a new Golf Advisory Board — which passes unanimously, 11-0-3. The committee then votes 9-2-3 to hold that same, unanimously-adopted substitute. Only Bennion and Rep. Doug Owens vote against holding it. An attempt to adjourn the whole meeting early fails 5-6-3.</div>
+      </div>
+      <div class="t-item end">
+        <div class="t-date">MAR. 3, 2023 &mdash; ENACTING CLAUSE STRUCK</div>
+        <div class="t-body">The House strikes the bill's enacting clause — a procedural mechanism that ends a bill without a recorded vote on its merits — with no floor vote ever taken and no recorded opposition beyond the two witnesses from the first hearing.</div>
+      </div>
+    </div>
+
+    <div class="callout note">
+      Speaker Mike Schultz was absent for both hearings, in full. Rep. Casey Snider was present and personally sponsored two other water bills earlier in the Feb. 10 hearing, then was recorded absent starting exactly when the golf bill came up. Chair Walt Brooks voted to hold the bill both times.
+    </div>
+
+    <div class="diagram-card">
+      <div class="card-title">How each bill ended</div>
+      <pre class="mermaid">
+flowchart TD
+    A["H.B. 188 filed, Jan. 2023<br/>would require golf water disclosure"] --> B["Jan. 25 hearing<br/>opposition testifies, no proponents"]
+    B --> C["Committee votes 8-1-5<br/>to adjourn before a vote"]
+    C --> D["Feb. 10 hearing<br/>substitute passes 11-0-3"]
+    D --> E["Same substitute held 9-2-3<br/>in the same meeting"]
+    E --> F["Mar. 3, 2023<br/>enacting clause struck &mdash; no law"]
+    G["S.B. 195 filed, 2024<br/>would study golf water, then classify it under GRAMA"] --> H["Passes Senate"]
+    H --> I["No House sponsor found"]
+    I --> J["Dies without a House vote &mdash; no law"]
+    F -.same underlying question.-> G
+      </pre>
+    </div>
+
+    <h3>S.B. 195 (2024) — the opposite bill. Would have studied the water, then classified the results.</h3>
+    <p>Sponsored by Sen. Daniel McCay — the same senator who had been H.B. 188's Senate sponsor a year earlier — S.B. 195 directed USU's Institute of Land, Air and Water to study golf course water consumption statewide, but classified the data collected from both public and private courses as protected under GRAMA, unavailable to the public. It passed the Senate but never secured a House sponsor, and died without a House vote. The Utah Transparency Project reportedly gave it a "closed door" designation.</p>
+
+    <div class="callout caution">
+      <strong>Two consecutive sessions, same underlying question, two different outcomes — neither became law:</strong> the bill that would have made golf water use public ended in committee before a floor vote; the bill that would have studied it and then classified the results ended for lack of a House sponsor. As of today, the 2022 Salt Lake Tribune dataset — voluntary, ~25% incomplete — remains the only public figure.
+    </div>
+    <div class="tag-row">
+      <span class="tag">HB 188</span>
+      <span class="tag">SB 195</span>
+      <span class="tag">GRAMA</span>
+      <span class="tag">Water Transparency</span>
+    </div>
+
+    <div class="section-label blue">Case File</div>
+    <h2>Residential water: mandatory meters are coming, decades after the fact</h2>
+    <p class="section-sub">The group getting "slow the flow" messaging is also the group whose actual usage the state has, until recently, been least able to verify.</p>
+
+    <div class="flip-grid">
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front blue"><span class="n">~260,000</span><span class="l">Secondary (outdoor irrigation) connections statewide</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Utah Division of Water Resources / secondary metering program figures, via reporting on Utah Code &sect;73-10-34 (HB 242/2022, SB 251/2023).</div>
+        </div>
+      </div>
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front blue"><span class="n">85%</span><span class="l">Share unmetered as of 2022</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Billed by lot size or flat allotment, not actual use, prior to the metering mandate. Same state program reporting as above.</div>
+        </div>
+      </div>
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front blue"><span class="n">Jan. 1, 2030</span><span class="l">Deadline for universal secondary metering</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Utah Code &sect;73-10-34, set by HB 242 (2022) and SB 251 (2023) — backed by $250M in ARPA grants plus a later $190M round (KSL, 2022).</div>
+        </div>
+      </div>
+    </div>
+
+    <p>Utah runs dual water systems in many cities: treated, metered <strong>primary</strong> (culinary) water for indoor use, and untreated, historically unmetered <strong>secondary</strong> water for outdoor irrigation — a legacy of former farmland converted to subdivisions. HB 242 (2022) and SB 251 (2023) require secondary meters statewide by 2030, backed by $250M in ARPA grants plus a later $190M round. Where meters have gone in, usage has dropped 20&ndash;40% simply from people seeing real numbers for the first time — Weber Basin Water Conservancy District is credited with first proving this out.</p>
+
+    <div class="callout good">
+      This is a genuine, funded, in-progress fix — not a dead bill. It's included here for contrast: residential secondary use is heading toward full metering by law, on a fixed deadline, while golf courses (a comparable outdoor-irrigation-heavy user) have no equivalent requirement at all.
+    </div>
+
+    <div class="section-label">Case File</div>
+    <h2>Data centers: the one category with a real, if narrow, disclosure law</h2>
+    <p class="section-sub">This is the piece a sector percentage hides. A small number of individual facilities account for enormous, unevenly disclosed volumes.</p>
+
+    <div class="card">
+      <div class="card-title">Disclosed annual water use, named Utah data centers</div>
+      <div class="card-sub">SOURCE: PUBLIC UTILITY RECORDS VIA SALT LAKE TRIBUNE / GRIST REPORTING, 12-MONTH PERIODS 2024&ndash;2025</div>
+      <div class="bar-row"><div class="bar-label">Novva (West Jordan)</div><div class="bar-track"><div class="bar-fill teal" style="width:2%"></div></div><div class="bar-val">3M gal</div></div>
+      <div class="bar-row"><div class="bar-label">DataBank Granite Point</div><div class="bar-track"><div class="bar-fill teal" style="width:6%"></div></div><div class="bar-val">7.7M gal</div></div>
+      <div class="bar-row"><div class="bar-label">Aligned &ndash; West Jordan</div><div class="bar-track"><div class="bar-fill amber" style="width:37%"></div></div><div class="bar-val">47.4M gal</div></div>
+      <div class="bar-row"><div class="bar-label">Aligned &ndash; West Valley</div><div class="bar-track"><div class="bar-fill amber" style="width:63%"></div></div><div class="bar-val">80M gal</div></div>
+      <div class="bar-row"><div class="bar-label">NSA Bluffdale</div><div class="bar-track"><div class="bar-fill rust" style="width:100%"></div></div><div class="bar-val">126M gal</div></div>
+      <p style="font-family: var(--mono); font-size: 11.5px; color: var(--ink-dimmer); margin-top: 10px;">Bars scaled to this group's own range (3M&ndash;126M gal). Novva says two-thirds of its total was landscaping, not cooling.</p>
+    </div>
+
+    <div class="callout note">
+      <strong>What's actually required now:</strong> H.B. 76 (2026, Koford/Sandall) requires large data centers — 75+ acre-feet/year, 10,000+ sq ft — to report water plans before construction and actual withdrawals annually, published online by the Division of Water Rights. An earlier committee draft briefly broadened this to "large industrial facilities" generally before the final version reverted to data centers specifically; the penalty for non-reporting was also cut from an initial $10,000/day to $100/day in the final text. As enacted, this law does not cover agriculture, golf courses, or industry generally.
+    </div>
+
+    <div class="flip-grid">
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front"><span class="n">16.6B gal/yr</span><span class="l">Stratos gas turbines — power-generation water only</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Utah Clean Energy, "Estimated Emissions and Water Consumption from the Proposed Stratos Data Center," 2026 — equivalently ~50,000 acre-feet/year under a combined-cycle configuration.</div>
+        </div>
+      </div>
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front"><span class="n">847B gal/yr</span><span class="l">All of Utah, every use, combined</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Utah Foundation, 2023 statewide estimate, cited via Snopes, June 2026.</div>
+        </div>
+      </div>
+      <div class="flip-card" tabindex="0" role="button" aria-label="Flip for source">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front rust"><span class="n">separate &amp; unknown</span><span class="l">The data center's own cooling water</span><span class="flip-hint">Source &rarr;</span></div>
+          <div class="flip-face flip-back">Not included in the 16.6B figure at all — confirmed directly from Utah Clean Energy's source page, which covers power-generation water only.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout caution">
+      <strong>The gap that's the real story, corrected:</strong> Stratos's developers told reporters their plans are "still under design" and described the campus as similar to "a large office complex." Utah Clean Energy's 16.6-billion-gallon estimate (equivalently, ~50,000 acre-feet/year under a combined-cycle turbine configuration) covers only the water needed to <em>generate power</em> for the site — it explicitly excludes the data center's own cooling water, confirmed directly from Utah Clean Energy's source page. That means the true total, if built as a combined-cycle facility, is 16.6 billion gallons <em>plus</em> a second, still-undisclosed cooling figure on top — not 16.6 billion as a ceiling. Neither number is locked down; the "office complex" framing addresses neither.
+    </div>
+
+    <div class="callout good">
+      For scale and context, not as a causal claim: Utah's Brigham City nuclear reprocessing facility is projected to use about 620 million gallons/year — three orders of magnitude less than Stratos's power-generation water alone. Solar and wind generation use close to none. These are separate infrastructure decisions happening in parallel, not a zero-sum tradeoff with each other; the contrast is in water intensity and disclosure, not displacement.
+    </div>
+
+    <div class="section-label">Looking Ahead</div>
+    <h2>Where this is headed</h2>
+    <p class="section-sub">Utah doesn't have its own multi-year data-center water trend yet — the industry is too new here. The closest comparable trajectory is Phoenix, a similarly arid Western market already several years into the same build-out.</p>
+    <table>
+      <tr><th>Benchmark</th><th>Figure</th><th>Source</th></tr>
+      <tr><td>Phoenix-area data center cooling water, current &rarr; projected</td><td>385M gal/yr &rarr; 3.7B gal/yr (+870%)</td><td>Ceres analysis</td></tr>
+      <tr><td>Five-state (AZ/CO/NV/NM/UT) data center water use by 2035</td><td>up to 7B gal/yr</td><td>Western Resource Advocates, July 2025</td></tr>
+      <tr><td>Single hyperscale facility (50&ndash;100+ MW), peak</td><td>1&ndash;5M gal/day</td><td>Environmental &amp; Energy Study Institute</td></tr>
+    </table>
+    <div class="callout note">
+      Cooling method changes these numbers by an order of magnitude — a closed-loop or dry-cooled facility and an evaporative-cooled one aren't the same category, even at similar size. Any comparison across named facilities should note which method applies where it's known, and flag it as unknown where it isn't.
+    </div>
+
+    <details>
+      <summary>Sources</summary>
+      <ol>
+        <li>KSL.com, "82 percent of Utah water goes to farmers — here's why," 2015.</li>
+        <li>Utah Foundation, "Hay! One Crop is Utah's Biggest Water Consumer," 2015; and 2023 statewide water-use estimate (847B gal/yr), cited via Snopes, June 2026.</li>
+        <li>Great Salt Lake Strike Team / Kem C. Gardner Policy Institute, Data and Insights Summary reporting, via Utah Division of Water Resources.</li>
+        <li>Utah Rivers Council, "Are We Running Out of Water?" (utahrivers.org) and utahwaterfacts.com — indoor household use (3&ndash;4%) and alfalfa/hay's 0.2%-of-GDP figure. Advocacy source; figures cross-checked against BEA/Gardner Institute data where available.</li>
+        <li>Salt Lake Tribune / Great Salt Lake Collaborative, "Here's how much water golf courses use across Utah," April 2023 — statewide golf course water data (voluntary, ~25% of courses not reporting).</li>
+        <li>Utah State Legislature, H.B. 188 "Golf Related Water Modifications" (2023), bill text, substitute comparison, and official House Natural Resources, Agriculture, and Environment Committee minutes, Jan. 25 and Feb. 10, 2023.</li>
+        <li>Deseret News, "Bill requiring Utah golf courses to publish water use stalls," Feb. 10, 2023; "How much water do golf courses use? Bill asks for declarations," Jan. 28, 2023.</li>
+        <li>KPCW, "Proposed bill would make water use at Utah golf courses protected information," Feb. 13, 2024 — S.B. 195 (2024, McCay).</li>
+        <li>Utah State Legislature / Utah Division of Water Resources, secondary water metering program — Utah Code &sect;73-10-34 (HB 242/2022, SB 251/2023); USU Extension case study, Weber Basin Water Conservancy District.</li>
+        <li>KSL.com, "Utah board approves 'historic' $190M in secondary water meter grants," 2022.</li>
+        <li>Grist / Salt Lake Tribune / Great Salt Lake Collaborative, "Can Utah become a data center hub without draining its water supply?," Jan. 2026 — named-facility water figures (Novva, DataBank, Aligned, NSA Bluffdale) from public utility records.</li>
+        <li>Utah State Legislature, H.B. 76 "Data Center Water Transparency Amendments" (2026), bill text and substitute comparisons (Koford/Sandall).</li>
+        <li>Utah Clean Energy, "Estimated Emissions and Water Consumption from the Proposed Stratos Data Center," 2026 — power-generation water estimate, explicitly excluding data center cooling water.</li>
+        <li>Snopes, "Will Utah data center use 16B gallons of water and span almost 3 Manhattans? What to know," June 7, 2026.</li>
+        <li>Ceres / qz.com, "AI data center water use collides with drought in the West," 2026.</li>
+        <li>Western Resource Advocates, five-state data center water projection, July 2025.</li>
+        <li>Environmental and Energy Study Institute, hyperscale facility water-use range.</li>
+        <li>Utah AGRC/UGRC "GolfCourses" GIS feature service (services1.arcgis.com) — statewide golf course count and county breakdown.</li>
+        <li>Salt Lake Tribune / Great Salt Lake Collaborative, "Alfalfa and hay use more than half of Utah's water," Nov. 24, 2022 — 68%-of-diversions figure, total statewide diversions (5.1M ac-ft/yr).</li>
+      </ol>
+    </details>
+
+  </div>
+</main>
+
+<footer>
+  <span>&copy; 2026 The Weber County Hive</span>
+  <span><a href="https://webercountyhive.substack.com" target="_blank" rel="noopener">webercountyhive.substack.com</a></span>
+</footer>
+
+<script>
+  // Flip cards: click or Enter/Space toggles the flip
+  document.querySelectorAll('.flip-card').forEach(function (card) {
+    card.addEventListener('click', function () { card.classList.toggle('flipped'); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('flipped'); }
+    });
+  });
+
+  // Mermaid diagrams — themed to match the page's palette
+  if (window.mermaid) {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        background: '#faf7ef',
+        primaryColor: '#f0ecdf',
+        primaryTextColor: '#1c1c1a',
+        primaryBorderColor: '#ddd6c4',
+        lineColor: '#8c8878',
+        secondaryColor: '#d9a441',
+        tertiaryColor: '#faf7ef',
+        fontFamily: 'Inter, -apple-system, sans-serif',
+        pieOuterStrokeWidth: '1px',
+        pie1: '#c0572e', pie2: '#d9a441', pie3: '#2e5f5a', pie4: '#3a5f7d'
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
